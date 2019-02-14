@@ -38,10 +38,15 @@ p {
 /* layout */
 
 .container {
-  margin: 0 auto;
+  margin: 0 20px;
   max-width: 800px;
 }
 
+@media (min-width: 840px) {
+  .container {
+    margin: 0 auto;
+  }
+}
 
 /* site header */
 
@@ -57,7 +62,8 @@ p {
 /* site main */
 
 
-.example {
+#site-main {
+  min-height: 70vh;
 }
 
 /* site footer */
