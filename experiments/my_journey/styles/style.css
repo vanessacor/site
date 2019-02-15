@@ -1,0 +1,141 @@
+/* reset  */
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+/* typography */
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    color: white;
+}
+
+h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 48px;
+    font-weight: lighter;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Roboto Mono', monospace;
+    font-style: italic;
+    font-size: 32px;
+    margin: 0;
+}
+
+h3 {
+    font-size: 28px;
+    margin: 0;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+a {
+    color: whitesmoke;
+}
+
+/* layout */
+
+body {
+    background-image: linear-gradient(#ee4540, #c72c41, #801336, #510a32);
+    background-repeat: no-repeat;
+}
+
+#sitemain {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* site header */
+
+#site-header {
+    padding-top: 20px;
+    width: 100%;  
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #ee4540;
+    box-shadow: 5px 5px 10px #c72c41;
+}
+
+#site-header h1 {
+    margin: 0;
+    text-align: center;
+}
+
+nav {
+    text-align: right;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+/* site main */
+
+.hero {
+    background-color: #c72c41;
+    text-align: center;
+    box-shadow: 5px 5px 10px #801336;
+    padding: 20px 0;
+}
+
+.container {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.container h3 {
+    text-align: center;
+    padding-top: 20px;
+    margin: 0;
+}
+
+.container p {
+    text-align: justify;
+    padding: 0 20px 20px 20px;
+}
+
+.week {
+    margin-top: 20px;
+}
+
+#week1 {
+    background-color: #801336;
+    box-shadow: 5px 5px 10px #510a32;
+}
+
+#week2 {
+    background-color: #510a32;
+    box-shadow: 5px 5px 10px #2d142c;
+}
+
+/* site footer */
+
+#site-footer {
+    padding: 30px 0 20px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    color: whitesmoke;
+    background-color:#2d142c;
+    text-align: center
+}
+#site-footer li {
+    display: inline-block;
+    font-size: 40px;
+    margin: 0 10px;
+}
