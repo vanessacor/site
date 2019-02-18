@@ -1,0 +1,67 @@
+/* reset  */
+
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+      margin: 0;
+  }
+  
+  /* typography */
+  
+  body {
+      font-family: Merriweather;
+      font-size: 16px;
+  }
+  
+  h1 {
+      font-family: Amatic SC;
+      font-size: 48px;
+  }
+  
+  h2 {
+      font-size: 32px;
+  }
+  
+  h3 {
+      font-size: 28px;
+  }
+  
+  p {
+      font-size: 16px;
+  }
+  
+  /* layout */
+  
+  .container {
+      margin: 0 auto;
+      max-width: 800px;
+  }
+  
+  
+  /* site header */
+  
+  #site-header {
+      padding: 30px 0 20px;
+  }
+  
+  #site-header h1 {
+      margin: 0;
+  }
+  
+  /* site main */
+  
+  
+  .example {
+  }
+  
+  /* site footer */
+  
+  #site-footer {
+      padding: 30px 0 20px;
+      border-top: 20px;
+  }
