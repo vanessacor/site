@@ -14,12 +14,12 @@ html {
   /* typography */
   
   body {
-      font-family: Merriweather;
+      font-family: 'Courier New', Courier, monospace;
       font-size: 16px;
   }
   
   h1 {
-      font-family: Amatic SC;
+      font-family: 'Playfair Display', serif;
       font-size: 48px;
   }
   
@@ -34,6 +34,10 @@ html {
   p {
       font-size: 16px;
   }
+
+  a {
+      color: grey
+  }
   
   /* layout */
   
@@ -42,21 +46,37 @@ html {
       max-width: 800px;
   }
   
+  #site-main {
+      text-align: left;
+      line-height: 1.6;
+  }
+  
   
   /* site header */
   
   #site-header {
-      padding: 30px 0 20px;
+    padding-top: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
   }
   
   #site-header h1 {
       margin: 0;
   }
+  #menu {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+  }
+  #menu li {
+      list-style-type: none;
+  }
   
   /* site main */
   
-  
-  .example {
+  .content img {
+      width: 100%;
   }
   
   /* site footer */
