@@ -16,3 +16,19 @@ function runExperiment1() {
 // write code here:
 const myButton = document.getElementById ('button-1');
 myButton .addEventListener ('click', runExperiment1);
+
+//hide and show
+const imageA = document.getElementById ('image-a');
+const imageB = document.getElementById ('image-b');
+const buttonA = document.getElementById ('button-a');
+const buttonB = document.getElementById ('button-b');
+
+buttonA.addEventListener ('click', () => {
+    imageA.hidden = true;
+    imageB.hidden = false;
+});
+
+buttonB.addEventListener ('click', () => {
+    imageA.hidden = false;
+    imageB.hidden = true;
+})
