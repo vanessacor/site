@@ -18,20 +18,33 @@ const myButton = document.getElementById ('button-1');
 myButton .addEventListener ('click', runExperiment1);
 
 //hide and show
-const imageA = document.getElementById ('image-a');
-const imageB = document.getElementById ('image-b');
-const buttonA = document.getElementById ('button-a');
-const buttonB = document.getElementById ('button-b');
 
-buttonA.addEventListener ('click', () => {
-    imageA.hidden = true;
-    imageB.hidden = false;
-});
+let buttonA = document.getElementById ('button-a');
 
-buttonB.addEventListener ('click', () => {
-    imageA.hidden = false;
-    imageB.hidden = true;
+buttonA.addEventListener ('click', function (event) {
+
+    let imageA = document.getElementById ('image-a');
+        if (imageA.style.display == 'initial') {
+        imageA.style.display = 'none';
+    } 
+       else {
+        imageA.style.display = 'initial';
+    }
 })
+
+let buttonB = document.getElementById ('button-b');
+
+buttonB.addEventListener ('click', function (event) {
+
+    let imageB = document.getElementById ('image-b');
+        if (imageB.style.display == 'initial') {
+        imageB.style.display = 'none';
+    } 
+       else {
+        imageB.style.display = 'initial';
+    }
+})
+   
 
 //odin project - fundamentals 3
 
