@@ -62,6 +62,27 @@
       </div>
     </section>
 
+    <section class="container" id="login">
+      <h3 class="summary">Login</h3>
+      <form action="" method="GET" class="login" novalidate> 
+        <div class="form-field">
+          <label for="name">Enter your name</label>
+          <input type="text" name="name" id="name"
+          required>
+          <p class="feedback">Required</p>
+        </div>
+        <div class="form-field">
+          <label for="password">Enter your password</label>
+          <input type="password" id="pass" name="password"
+            minlength="6" required>
+            <p class="feedback">Required</p>
+        </div>
+        <div class="form-field">
+          <button class="button" id="submit">Login</button>
+        </div>
+      </form>
+    </section>
+
   </main>
 
   <footer id="site-footer">

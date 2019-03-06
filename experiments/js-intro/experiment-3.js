@@ -33,8 +33,8 @@ function showOneImage (imageNumber) {
 let buttons = document.querySelectorAll('#hide-show-abstract .button');
 function handleButtonClick (event) {
   let clickedButton = event.currentTarget;
-  buttons.forEach(function(button) {
-    button.classList.replace('active', 'button');
+  buttons.forEach(function (button) {
+    button.classList.remove('active');
   })
   clickedButton.classList.add('active');
   // add the class 'active' to the clicked button
