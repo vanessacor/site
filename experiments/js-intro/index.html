@@ -64,21 +64,21 @@
 
     <section class="container" id="login">
       <h3 class="summary">Login</h3>
-      <form action="" method="GET" class="login" novalidate> 
+      <form action="" method="post" class="login" onsubmit="return login()" novalidate> 
         <div class="form-field">
           <label for="name">Enter your name</label>
           <input type="text" name="name" id="name"
           required>
-          <p class="feedback">Required</p>
+          <p class="feedback" id="namefeedback" aria-live="polite"></p>
         </div>
         <div class="form-field">
           <label for="password">Enter your password</label>
           <input type="password" id="pass" name="password"
             minlength="6" required>
-            <p class="feedback">Required</p>
+            <p class="feedback" id="passfeedback" aria-live="polite"></p>
         </div>
         <div class="form-field">
-          <button class="button" id="submit">Login</button>
+          <button class="button" id="loginbtn">Login</button>
         </div>
       </form>
     </section>
@@ -97,5 +97,7 @@
   <script src="experiment-1.js"></script>
   <script src="experiment-2.js"></script>
   <script src="experiment-3.js"></script>
+  <script src="experiment-4.js"></script>
+ 
 </body>
 </html>

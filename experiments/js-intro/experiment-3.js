@@ -51,5 +51,3 @@ function handleButtonClick (event) {
 buttons.forEach(function (button) {
   button.addEventListener('click', handleButtonClick);
 })
-console.log('end of program')
-
