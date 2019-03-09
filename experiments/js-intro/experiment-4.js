@@ -5,6 +5,8 @@
 //ok = no msg 
 // invalid = required msg
 
+const userLogin= document.getElementById('loginbtn');
+userLogin.addEventListener('click', login);
 
 function login() {
     let userName = document.getElementById('name').value;
@@ -19,7 +21,3 @@ function login() {
           document.getElementById('passfeedback').innerHTML = 'minimum 6 characters';
       } 
 }
-
-document.getElementById('loginbtn').addEventListener('click', login);
-
-console.log('end of program')

@@ -15,7 +15,7 @@
 }
 
 .button.active {
-  background-color: crimson;
+  background-color: rgb(236, 134, 151);
   color: white;
 }
 
@@ -23,8 +23,7 @@
 
 #hide-show .tabs {
   overflow: hidden;
-  border: 1px solid silver;
-  padding: 5px;
+  background-color: pink;
   border-radius: 5px;
 }
 
@@ -47,8 +46,7 @@
 
 #hide-show-abstract .tabs {
   overflow: hidden;
-  border: 1px solid silver;
-  padding: 5px;
+  background-color: pink;
   border-radius: 5px;
 }
 
