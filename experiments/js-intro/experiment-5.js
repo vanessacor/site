@@ -8,49 +8,95 @@ let computerMove = function() {
   return move;
 }
 
-//player move
-let playerMove = 'paper'
+//scores
+let playerScore = 0;
+let computerScore = 0;
 
 //PlayRound
+
 
 let playRound = function (computerMove, playerMove) {
   if (playerMove === 'rock') {
     if (computerMove === 'paper') {
-      return 'you loose! Paper eats rock'
-    }
+      computerScore++;
+    //return 'you loose! Paper eats rock'
+  }
     else if (computerMove === 'scissors') {
-      return 'you win! Rock smash scissors'
+      playerScore++;
+      //return 'you win! Rock smash scissors'
     }
     else if (computerMove === 'rock'){
-      return 'rock rock, no ones wins'
+      playerScore++;
+      computerScore++;
+      //return 'rock rock, no ones wins'
     }
   }
-
   else if (playerMove === 'paper') {
     if (computerMove === 'paper') {
-      return 'paper paper, no one wins'
+      playerScore++;
+      computerScore++;
+      //return 'paper paper, no one wins'
     }
     else if (computerMove === 'scissors') {
-      return 'you loose! scissor cuts paper'
+      computerScore++;
+      //return 'you loose! scissor cuts paper'
     }
     else if (computerMove === 'rock') {
-      return 'you win! paper eats rock'
+      playerScore++;
+      //return 'you win! paper eats rock'
     }
   }
-
+  
   else if (playerMove === 'scissors'){
     if (computerMove === 'paper') {
-      return 'you win! scissors cut paper'
+      playerScore++;
+      //return 'you win! scissors cut paper'
     }
     else if(computerMove === 'scissors') {
-      return 'scissors scissors, no one wins'
+      playerScore++;
+      computerScore++;
+      //return 'scissors scissors, no one wins'
     }
     else if (computerMove === 'rock') {
-      return 'you loose, rock smash scissors'
+      computerScore++;
+      //return 'you loose, rock smash scissors'
     }
   }
 }
 
-const playerSelection = 'paper'
-const computerSelection = computerMove ()
-console.log(playRound(playerSelection, computerSelection))
+//game 
+function game (player) {
+  if (playerScore < 5 && computerScore < 5) {
+    let playerSelection = player;
+    let computerSelection = computerMove();
+    playRound(playerSelection, computerSelection);
+
+    document.getElementById('playerscore').textContent = playerScore;
+    document.getElementById('computerscore').textContent = computerScore;
+
+    if (playerScore >= 5) {
+        return document.querySelector('#playerwins').style.display = 'block';
+    } else if (computerScore >= 5) {
+        return document.querySelector('#computerwins').style.display = 'block';
+    }
+  }
+
+}
+
+let paperBtn = document.getElementById('paper');
+let rockBtn = document.getElementById('rock');
+let scissorsBtn = document.getElementById('scissors');
+
+//add eventlisteners
+
+paperBtn.addEventListener('click', () => {
+  game ('paper');
+})
+
+rockBtn.addEventListener('click', () => {
+  game ('rock');
+})
+
+scissorsBtn.addEventListener('click', () => {
+  game ('scissors');
+})

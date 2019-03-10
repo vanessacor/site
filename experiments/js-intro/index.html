@@ -83,17 +83,17 @@
       </form>
     </section>
 
-    <section class="container">
+    <section class="container" id="gamerps">
       <h3 class="summary">Rock Paper Scissors</h3>
       <div id="game">
         <div class="choices">
-          <button id="rock">
+          <button class="button" id="rock">
             <i class="far fa-hand-rock"></i>
           </button>
-          <button id='paper'>
+          <button class="button" id='paper'>
             <i class="far fa-hand-paper"></i>
           </button>
-          <button id="scissors">
+          <button class="button" id="scissors">
             <i class="far fa-hand-scissors"></i>
           </button>
         </div>
@@ -106,6 +106,10 @@
             <span>Computer Score:</span>
             <span id="computerscore">0</span>
           </h4>
+        </div>
+        <div class=winner>
+          <h3 id="playerwins">You Win!</h3>
+          <h3 id="computerwins">Computer Win!</h3>
         </div>
         <button id="reset">
           <i class="fas fa-redo-alt"></i>

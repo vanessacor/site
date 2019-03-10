@@ -118,6 +118,13 @@
   margin-left: 20px;
 }
 
+#playerwins {
+  display: none;
+}
+#computerwins {
+  display: none;
+}
+
 #reset {
   border-radius: 5px;
   font-size: 40px;
