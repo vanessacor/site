@@ -1,7 +1,7 @@
 
 .button {
   border-radius: 5px;
-  background-color: pink;
+  background-color: #f3d250;
   font-size: 16px;
   padding:  14px 16px;
   border: none;
@@ -11,19 +11,18 @@
 }
 
 .button:hover {
-  background-color: rgb(236, 134, 151);
+  background-color: #ecc527;
 }
 
 .button.active {
-  background-color: rgb(236, 134, 151);
-  color: white;
+  background-color: #ecc527;
 }
 
 /* #hide-show  */
 
 #hide-show .tabs {
   overflow: hidden;
-  background-color: pink;
+  background-color: #f3d250;
   border-radius: 5px;
 }
 
@@ -46,7 +45,7 @@
 
 #hide-show-abstract .tabs {
   overflow: hidden;
-  background-color: pink;
+  background-color: #f3d250;
   border-radius: 5px;
 }
 
@@ -87,4 +86,43 @@
 .feedback {
     margin: 0 0 10px;
     color: red;
+}
+
+/* #Game */
+#game{
+  margin: 0 200px;
+  padding-top: 40px;
+}
+.choices button {
+  border-radius: 5px;
+  font-size: 80px;
+  padding: 14px 16px;
+  margin-left: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#rock {
+  background-color: #f3d250;
+}
+
+#paper {
+  background-color: #f78888;
+}
+
+#scissors {
+  background-color: #5da2d5;
+}
+
+.scores {
+  margin-left: 20px;
+}
+
+#reset {
+  border-radius: 5px;
+  font-size: 40px;
+  padding: 14px 16px;
+  border: none;
+  cursor: pointer;
+  margin: 0 50%;
 }

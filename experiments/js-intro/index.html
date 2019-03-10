@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="../../styles/style.css" rel="stylesheet" type="text/css">
   <link href="styles/style.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Merriweather" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Raleway" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
 </head>
 
@@ -64,7 +64,7 @@
 
     <section class="container" id="login">
       <h3 class="summary">Login</h3>
-      <form action="" method="post" class="login" novalidate> 
+      <form method="post" class="login" novalidate> 
         <div class="form-field">
           <label for="name">Enter your name</label>
           <input type="text" name="name" id="name"
@@ -81,6 +81,36 @@
           <button class="button" id="loginbtn">Login</button>
         </div>
       </form>
+    </section>
+
+    <section class="container">
+      <h3 class="summary">Rock Paper Scissors</h3>
+      <div id="game">
+        <div class="choices">
+          <button id="rock">
+            <i class="far fa-hand-rock"></i>
+          </button>
+          <button id='paper'>
+            <i class="far fa-hand-paper"></i>
+          </button>
+          <button id="scissors">
+            <i class="far fa-hand-scissors"></i>
+          </button>
+        </div>
+        <div class="scores">
+          <h4>
+            <span>Your Score:</span>
+            <span id="playerscore">0</span>
+          </h4>
+          <h4>
+            <span>Computer Score:</span>
+            <span id="computerscore">0</span>
+          </h4>
+        </div>
+        <button id="reset">
+          <i class="fas fa-redo-alt"></i>
+        </button>
+      </div>
     </section>
 
   </main>
