@@ -12,12 +12,12 @@ function login() {
     let userName = document.getElementById('name').value;
     let userPass = document.getElementById('pass').value;
     if(userName ==''){
-          document.getElementById('namefeedback').innerHTML = 'Required';
+          document.getElementById('namefeedback').style.display = 'block';
       }     
     if(userPass == ''){
-          document.getElementById('passfeedback').innerHTML = 'Required';
+          document.getElementById('passfeedback').style.display = 'block';
       } 
     if(userPass.length < 6){
-          document.getElementById('passfeedback').innerHTML = 'minimum 6 characters';
+          document.getElementById('lengthfeedback').style.display = 'block';
       } 
 }

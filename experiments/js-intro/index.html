@@ -67,18 +67,19 @@
       <form method="post" class="login" novalidate> 
         <div class="form-field">
           <label for="name">Enter your name</label>
-          <input type="text" name="name" id="name"
+          <input type="text" name="name" id="name" placeholder="Your Name"
           required>
-          <p class="feedback" id="namefeedback" aria-live="polite"></p>
+          <p class="feedback" id="namefeedback" aria-live="polite">Required</p>
         </div>
         <div class="form-field">
           <label for="password">Enter your password</label>
-          <input type="password" id="pass" name="password"
+          <input type="password" id="pass" name="password" placeholder="Password"
             minlength="6" required>
-            <p class="feedback" id="passfeedback" aria-live="polite"></p>
+            <p class="feedback" id="passfeedback" aria-live="polite">Required</p>
+            <p class="feedback" id="lengthfeedback" aria-live="polite">Minimum of 6 characters</p>
         </div>
         <div class="form-field">
-          <button class="button" id="loginbtn">Login</button>
+          <input type="submit" class="button" id="loginbtn">
         </div>
       </form>
     </section>

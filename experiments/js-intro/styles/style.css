@@ -88,6 +88,10 @@
     color: red;
 }
 
+#namefeedback, #passfeedback, #lengthfeedback {
+  display: none;
+}
+
 /* #Game */
 #game{
   margin: 0 auto;

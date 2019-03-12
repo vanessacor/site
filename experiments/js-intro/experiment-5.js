@@ -13,8 +13,6 @@ let playerScore = 0;
 let computerScore = 0;
 
 //PlayRound
-
-
 let playRound = function (computerMove, playerMove) {
   if (playerMove === 'rock') {
     if (computerMove === 'paper') {
@@ -35,31 +33,25 @@ let playRound = function (computerMove, playerMove) {
     if (computerMove === 'paper') {
       playerScore++;
       computerScore++;
-      //return 'paper paper, no one wins'
     }
     else if (computerMove === 'scissors') {
       computerScore++;
-      //return 'you loose! scissor cuts paper'
     }
     else if (computerMove === 'rock') {
       playerScore++;
-      //return 'you win! paper eats rock'
     }
   }
   
   else if (playerMove === 'scissors'){
     if (computerMove === 'paper') {
       playerScore++;
-      //return 'you win! scissors cut paper'
     }
     else if(computerMove === 'scissors') {
       playerScore++;
       computerScore++;
-      //return 'scissors scissors, no one wins'
     }
     else if (computerMove === 'rock') {
       computerScore++;
-      //return 'you loose, rock smash scissors'
     }
   }
 }
@@ -86,9 +78,9 @@ function game (player) {
 let paperBtn = document.getElementById('paper');
 let rockBtn = document.getElementById('rock');
 let scissorsBtn = document.getElementById('scissors');
+let resetBtn = document.getElementById('reset');
 
 //add eventlisteners
-
 paperBtn.addEventListener('click', () => {
   game ('paper');
 })
