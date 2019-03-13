@@ -17,24 +17,13 @@ let playRound = function (computerMove, playerMove) {
   if (playerMove === 'rock') {
     if (computerMove === 'paper') {
       computerScore++;
-    //return 'you loose! Paper eats rock'
   }
     else if (computerMove === 'scissors') {
       playerScore++;
-      //return 'you win! Rock smash scissors'
-    }
-    else if (computerMove === 'rock'){
-      playerScore++;
-      computerScore++;
-      //return 'rock rock, no ones wins'
-    }
+  }
   }
   else if (playerMove === 'paper') {
-    if (computerMove === 'paper') {
-      playerScore++;
-      computerScore++;
-    }
-    else if (computerMove === 'scissors') {
+    if (computerMove === 'scissors') {
       computerScore++;
     }
     else if (computerMove === 'rock') {
@@ -46,11 +35,8 @@ let playRound = function (computerMove, playerMove) {
     if (computerMove === 'paper') {
       playerScore++;
     }
-    else if(computerMove === 'scissors') {
-      playerScore++;
-      computerScore++;
-    }
-    else if (computerMove === 'rock') {
+  
+  else if (computerMove === 'rock') {
       computerScore++;
     }
   }
@@ -70,9 +56,8 @@ function game (player) {
         return document.querySelector('#playerwins').style.display = 'block';
     } else if (computerScore >= 5) {
         return document.querySelector('#computerwins').style.display = 'block';
-    }
+    } 
   }
-
 }
 
 let paperBtn = document.getElementById('paper');
@@ -92,3 +77,15 @@ rockBtn.addEventListener('click', () => {
 scissorsBtn.addEventListener('click', () => {
   game ('scissors');
 })
+
+function reset () {
+  computerScore = 0
+  playerScore = 0
+  document.getElementById('playerscore').textContent = playerScore;
+  document.getElementById('computerscore').textContent = computerScore;
+  document.getElementById('playerwins').style.display = 'none';
+  document.getElementById('computerwins').style.display = 'none';;
+ 
+}
+
+resetBtn.addEventListener('click', reset);
