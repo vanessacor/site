@@ -14,35 +14,35 @@ body {
   /* typography */
   
 body {
-font-family: 'Cormorant Garamond', serif;
-font-size: 16px;
-color: #323339;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: #323339;
 }
 
 h1 {
-font-family: 'Syncopate', sans-serif;
-font-size: 48px;
-font-weight: lighter;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 48px;
+    font-weight: lighter;
 }
 
 h2 {
-font-size: 38px;
-font-weight: bold;
+    font-size: 38px;
+    font-weight: bold;
 }
 
 p {
-font-size: 80px;
+    font-size: 80px;
 }
 
 a {
-color: #050505;
+    color: #050505;
 }
 
 /* layout */
 
 .container {
-margin: 0 auto;
-width: 100%;
+    margin: 0 auto;
+        width: 100%;
 max-width: 800px;
 }
 
