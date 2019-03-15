@@ -7,11 +7,11 @@
   border: none;
   outline: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
-  background-color: #ecc527;
+  background-color: #d9af08;
 }
 
 .button.active {
@@ -74,7 +74,8 @@
 }
 
 .form-field input {
-  width: 300px;
+  width: 100%;
+  max-width: 500px;
   border: 1px solid silver;
   border-radius: 5px;
   box-shadow: inset 0 1px 1px grey;
@@ -97,13 +98,29 @@
   margin: 0 auto;
   padding-top: 40px;
 }
+
+.choices {
+  display: flex;
+  justify-content: space-around;
+}
+
 .choices button {
   border-radius: 5px;
-  font-size: 80px;
+  font-size: 54px;
   padding: 14px 16px;
-  margin-left: 20px;
+  margin-right: 10px;
   border: none;
   cursor: pointer;
+}
+
+@media (min-width: 520px) {
+  .choices button {
+    font-size: 100px;
+  }
+}
+
+.choices button:last-child {
+  margin: 0;
 }
 
 #rock {
@@ -136,7 +153,8 @@
   padding: 14px 16px;
   border: none;
   cursor: pointer;
-  margin: 0 50%;
+  margin: 0 auto;
+  display: block;
 }
 
 /*Countdown*/
