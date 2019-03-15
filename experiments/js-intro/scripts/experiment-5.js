@@ -17,10 +17,10 @@ let playRound = function (computerMove, playerMove) {
   if (playerMove === 'rock') {
     if (computerMove === 'paper') {
       computerScore++;
-  }
+    }
     else if (computerMove === 'scissors') {
       playerScore++;
-  }
+    }
   }
   else if (playerMove === 'paper') {
     if (computerMove === 'scissors') {
@@ -30,13 +30,11 @@ let playRound = function (computerMove, playerMove) {
       playerScore++;
     }
   }
-  
   else if (playerMove === 'scissors'){
     if (computerMove === 'paper') {
       playerScore++;
     }
-  
-  else if (computerMove === 'rock') {
+    else if (computerMove === 'rock') {
       computerScore++;
     }
   }
@@ -53,9 +51,10 @@ function game (player) {
     document.getElementById('computerscore').textContent = computerScore;
 
     if (playerScore >= 5) {
-        return document.querySelector('#playerwins').style.display = 'block';
-    } else if (computerScore >= 5) {
-        return document.querySelector('#computerwins').style.display = 'block';
+      return document.querySelector('#playerwins').style.display = 'block';
+    } 
+    else if (computerScore >= 5) {
+      return document.querySelector('#computerwins').style.display = 'block';
     } 
   }
 }
@@ -67,16 +66,16 @@ let resetBtn = document.getElementById('reset');
 
 //add eventlisteners
 paperBtn.addEventListener('click', () => {
-  game ('paper');
-})
+  game('paper');
+});
 
 rockBtn.addEventListener('click', () => {
-  game ('rock');
-})
+  game('rock');
+});
 
 scissorsBtn.addEventListener('click', () => {
-  game ('scissors');
-})
+  game('scissors');
+});
 
 function reset () {
   computerScore = 0
@@ -85,7 +84,6 @@ function reset () {
   document.getElementById('computerscore').textContent = computerScore;
   document.getElementById('playerwins').style.display = 'none';
   document.getElementById('computerwins').style.display = 'none';;
- 
 }
 
 resetBtn.addEventListener('click', reset);
