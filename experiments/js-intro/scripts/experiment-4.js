@@ -5,19 +5,33 @@
 //ok = no msg 
 // invalid = required msg
 
-const userLogin= document.getElementById('loginbtn');
-userLogin.addEventListener('click', login);
+const userLogin = document.querySelector('#login form');
+const nameFeedback = document.getElementById('namefeedback');
+const passFeedback = document.getElementById('passfeedback');
+const ngthFeedback = document.getElementById('lengthfeedback');
 
-function login() {
+userLogin.addEventListener('submit', login);
+
+function login(event) {
+  event.preventDefault();
   let userName = document.getElementById('name').value;
   let userPass = document.getElementById('pass').value;
   if (userName == '') {
-    document.getElementById('namefeedback').style.display = 'block';
+    nameFeedback.style.display = 'block';
   }     
+  else {
+    nameFeedback.style.display = 'none';
+  }
   if (userPass == '') {
-    document.getElementById('passfeedback').style.display = 'block';
+    passFeedback.style.display = 'block';
   } 
+  else {
+    passFeedback.style.display = 'none';
+  }
   if (userPass.length < 6) {
-    document.getElementById('lengthfeedback').style.display = 'block';
+    ngthFeedback.style.display = 'block';
   } 
+  else {
+    ngthFeedback.style.display = 'none';
+  }
 }

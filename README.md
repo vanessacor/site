@@ -2,7 +2,6 @@
 # todo
 
 - improve main layout
-- fix login form in js experiments
 - countdown - restart
 - showcode experiments
 - review colors in global site
