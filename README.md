@@ -3,6 +3,11 @@
 
 - improve main layout
 - fix login form in js experiments
-- do reset btn in game
-- redo the game in a separate page
-- do a gallery photo page html and css;
+- countdown - restart
+- showcode experiments
+- review colors in global site
+- refactor game mobile first
+- add game transitions
+- clean up game experiments
+- experiments layout broken
+
