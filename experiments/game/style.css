@@ -43,8 +43,8 @@ a {
 /* layout */
 
 .container {
-    margin: 0 auto;
-        width: 100%;
+margin: 0 auto;
+width: 100%;
 max-width: 800px;
 }
 
@@ -58,10 +58,12 @@ max-width: 800px;
 /* site main */
 #site-main {
     display: grid;
-    grid-template-columns: 40px 340px 40px 340px 40px;
-    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto auto;
     grid-column-gap: 5px;
     grid-row-gap: 10px;
+    margin: 0 auto;
+    width: 100%;
 } 
 
 #title1 {
