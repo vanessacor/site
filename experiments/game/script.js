@@ -101,9 +101,14 @@ scissorsBtn.addEventListener('click', () => {
 function reset () {
   computerScore = 0
   playerScore = 0
-  document.getElementById('playerscore').textContent = playerScore;
-  document.getElementById('computerscore').textContent = computerScore;
-  document.querySelector('.move i').style.display = 'none';
+  document.getElementById('playerscore').textContent= playerScore;
+  document.getElementById('computerscore').textContent= computerScore;
+  document.getElementById('playerwins').style.display='none';
+  document.getElementById('computerwins').style.display='none';
+  moves.forEach(function (i) {
+    i.style.display = 'none';
+  })
 }
 
+let moves = document.querySelectorAll('.move i')
 resetBtn.addEventListener('click', reset);

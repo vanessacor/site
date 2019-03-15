@@ -31,7 +31,9 @@ h2 {
 }
 
 p {
-    font-size: 80px;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 70px;
+    font-weight: bold;
 }
 
 a {
@@ -135,7 +137,7 @@ max-width: 800px;
     grid-row-start: 2;
     grid-row-end: 3;
     border-radius: 5px;
-    font-size: 30px;
+    font-size: 45px;
     border: none;
     cursor: pointer;
     align-self: center;
