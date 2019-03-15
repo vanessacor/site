@@ -1,43 +1,43 @@
 /* reset  */
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
   }
   *, *:before, *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
   }
   
 body {
-    margin: 0;
-    background-color: #ececec;
+  margin: 0;
+  background-color: #ececec;
 }
   
   /* typography */
   
 body {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
-    color: #323339;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: #323339;
 }
 
 h1 {
-    font-family: 'Syncopate', sans-serif;
-    font-size: 48px;
-    font-weight: lighter;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 48px;
+  font-weight: lighter;
 }
 
 h2 {
-    font-size: 38px;
-    font-weight: bold;
+  font-size: 38px;
+  font-weight: bold;
 }
 
 p {
-    font-family: 'Syncopate', sans-serif;
-    font-size: 70px;
-    font-weight: bold;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 70px;
+  font-weight: bold;
 }
 
 a {
-    color: #050505;
+  color: #050505;
 }
 
 /* layout */
@@ -51,170 +51,161 @@ max-width: 800px;
 /* site header */
 
 #site-header{
-    text-align: center;
+  text-align: center;
 }
 
    
 /* site main */
 #site-main {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    grid-template-rows: auto auto auto;
-    grid-column-gap: 5px;
-    grid-row-gap: 10px;
-    margin: 0 auto;
-    width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: auto auto auto;
+  grid-column-gap: 5px;
+  grid-row-gap: 10px;
+  margin: 0 auto;
+  width: 100%;
 } 
 
 #title1 {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    justify-self: center;
-    font-size: 30px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  justify-self: center;
+  font-size: 30px;
 }
 
 #title2 {
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    justify-self: center;
-    font-size: 30px;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  justify-self: center;
+  font-size: 30px;
 }
 
-#playerwins, #computerwins {
-    display: none;
-    grid-column-start: 2;
-    grid-column-end: 5;
-    grid-row-start: 4;
-    justify-self: center;
+#player-wins, #computer-wins {
+  display: none;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  justify-self: center;
 }
 
-#playerscore {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    justify-self: center;
+#player-score {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  justify-self: center;
 }
 
-#computerscore {
-    grid-column-start: 5;
-    grid-column-end: 6;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    justify-self: center;
+#computer-score {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  justify-self: center;
 }
 
-#playermove {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    border: 10px solid #ccc;
-    border-radius: 5px;
-    width: 260px;
-    height: 260px;
-    justify-self: center;
-    margin-bottom: 80px;
+#player-move {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border: 10px solid #ccc;
+  border-radius: 5px;
+  width: 260px;
+  height: 260px;
+  justify-self: center;
+  margin-bottom: 80px;
 }
 
-#computermove {
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    border: 10px solid #ccc;
-    border-radius: 5px;
-    width: 260px;
-    height: 260px;
-    justify-self: center;
+#computer-move {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border: 10px solid #ccc;
+  border-radius: 5px;
+  width: 260px;
+  height: 260px;
+  justify-self: center;
 }
 
 #reset {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    border-radius: 5px;
-    font-size: 45px;
-    border: none;
-    cursor: pointer;
-    align-self: center;
-    background-color: transparent;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border-radius: 5px;
+  font-size: 45px;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+  background-color: transparent;
 }
 
 #rock {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    justify-self: center;
-    background-color: #0181bb;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  justify-self: center;
+  background-color: #0181bb;
 }
 
 #paper {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    justify-self: center;
-    background-color: #dede0e;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  justify-self: center;
+  background-color: #dede0e;
 }
 
 #scissors {
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    justify-self: center;
-    background-color: #f96e91;
-}
-.move i {
-    display: none;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  justify-self: center;
+  background-color: #f96e91;
 }
 
 .button {
-    border-radius: 5px;
-    font-size: 80px;
-    padding: 14px 16px;
-    border: none;
-    cursor: pointer;
+  border-radius: 5px;
+  font-size: 80px;
+  padding: 14px 16px;
+  border: none;
+  cursor: pointer;
 }
 
-#prock, #crock{
-    border-radius: 5px;
-    font-size: 211px;
-    padding: 14px 16px;
-    border: none;
-    cursor: pointer;
-    background-color: #0181bb;
+.move i {
+  border-radius: 5px;
+  font-size: 211px;
+  padding: 14px 16px;
+  border: none;
+  cursor: pointer;
+  display: none;
 }
 
-#ppaper, #cpaper{
-    border-radius: 5px;
-    font-size: 211px;
-    padding: 14px 16px;
-    border: none;
-    cursor: pointer;
-    background-color: #dede0e;
+.move .rock {
+  background-color: #0181bb;
 }
 
-#pscissors, #cscissors{
-    border-radius: 5px;
-    font-size: 211px;
-    padding: 14px 16px;
-    border: none;
-    cursor: pointer;
-    background-color: #f96e91;
+.move .paper {
+  background-color: #dede0e;
+}
+
+.move .scissors {
+  background-color: #f96e91;
 }
 
 
-  /* site footer */
-  
-  #site-footer {
-    padding: 80px 0 20px;
-    text-align: center;
-  }
+/* site footer */
+
+#site-footer {
+padding: 80px 0 20px;
+text-align: center;
+}

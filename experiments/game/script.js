@@ -4,17 +4,17 @@ let computerMove = function() {
   let result = ['rock', 'paper', 'scissors'];
   let move = result[Math.floor(Math.random() * result.length)];
   if (move == 'rock') {
-      document.getElementById('crock').style.display='block';
-      document.getElementById('cpaper').style.display='none';
-      document.getElementById('cscissors').style.display='none';
+      document.getElementById('computer-rock').style.display='block';
+      document.getElementById('computer-paper').style.display='none';
+      document.getElementById('computer-scissors').style.display='none';
   } else if (move == 'paper') {
-      document.getElementById('cpaper').style.display='block';
-      document.getElementById('crock').style.display='none';
-      document.getElementById('cscissors').style.display='none';
+      document.getElementById('computer-paper').style.display='block';
+      document.getElementById('computer-rock').style.display='none';
+      document.getElementById('computer-scissors').style.display='none';
   } else if (move == 'scissors') {
-      document.getElementById('cscissors').style.display='block',
-      document.getElementById('cpaper').style.display='none';
-      document.getElementById('crock').style.display='none'
+      document.getElementById('computer-scissors').style.display='block',
+      document.getElementById('computer-paper').style.display='none';
+      document.getElementById('computer-rock').style.display='none'
   }
   return move
 }
@@ -60,13 +60,13 @@ function game (player) {
     let computerSelection = computerMove();
     playRound(playerSelection, computerSelection);
 
-    document.getElementById('playerscore').textContent = playerScore;
-    document.getElementById('computerscore').textContent = computerScore;
+    document.getElementById('player-score').textContent = playerScore;
+    document.getElementById('computer-score').textContent = computerScore;
 
     if (playerScore >= 5) {
-        return document.querySelector('#playerwins').style.display = 'block';
+        return document.querySelector('#player-wins').style.display = 'block';
     } else if (computerScore >= 5) {
-        return document.querySelector('#computerwins').style.display = 'block';
+        return document.querySelector('#computer-wins').style.display = 'block';
     } 
   }
 }
@@ -79,32 +79,32 @@ let resetBtn = document.getElementById('reset');
 //add eventlisteners
 paperBtn.addEventListener('click', () => {
   game ('paper');
-  document.getElementById('ppaper').style.display='block';
-  document.getElementById('prock').style.display='none';
-  document.getElementById('pscissors').style.display='none';
+  document.getElementById('player-paper').style.display='block';
+  document.getElementById('player-rock').style.display='none';
+  document.getElementById('player-scissors').style.display='none';
 })
 
 rockBtn.addEventListener('click', () => {
   game ('rock');
-  document.getElementById('prock').style.display='block';
-  document.getElementById('ppaper').style.display='none';
-  document.getElementById('pscissors').style.display='none';
+  document.getElementById('player-rock').style.display='block';
+  document.getElementById('player-paper').style.display='none';
+  document.getElementById('player-scissors').style.display='none';
 })
 
 scissorsBtn.addEventListener('click', () => {
   game ('scissors');
-  document.getElementById('pscissors').style.display='block';
-  document.getElementById('ppaper').style.display='none';
-  document.getElementById('prock').style.display='none';
+  document.getElementById('player-scissors').style.display='block';
+  document.getElementById('player-paper').style.display='none';
+  document.getElementById('player-rock').style.display='none';
 })
 
 function reset () {
   computerScore = 0
   playerScore = 0
-  document.getElementById('playerscore').textContent= playerScore;
-  document.getElementById('computerscore').textContent= computerScore;
-  document.getElementById('playerwins').style.display='none';
-  document.getElementById('computerwins').style.display='none';
+  document.getElementById('player-score').textContent= playerScore;
+  document.getElementById('computer-score').textContent= computerScore;
+  document.getElementById('player-wins').style.display='none';
+  document.getElementById('computer-wins').style.display='none';
   moves.forEach(function (i) {
     i.style.display = 'none';
   })
