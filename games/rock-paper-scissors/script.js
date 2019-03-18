@@ -1,37 +1,50 @@
 'use strict'
+
+//set variables
+
+let computerRock = document.getElementById('computer-rock');
+let computerPaper = document.getElementById('computer-paper');
+let computerScissors = document.getElementById('computer-scissors');
+let playerRock = document.getElementById('player-rock');
+let playerPaper = document.getElementById('player-paper');
+let playerScissors = document.getElementById('player-scissors');
+let choices = document.getElementById('choices')
+
 //computer move
 let computerMove = function() {
   let result = ['rock', 'paper', 'scissors'];
   let move = result[Math.floor(Math.random() * result.length)];
   if (move == 'rock') {
-      document.getElementById('computer-rock').style.display='block';
-      document.getElementById('computer-paper').style.display='none';
-      document.getElementById('computer-scissors').style.display='none';
-  } else if (move == 'paper') {
-      document.getElementById('computer-paper').style.display='block';
-      document.getElementById('computer-rock').style.display='none';
-      document.getElementById('computer-scissors').style.display='none';
-  } else if (move == 'scissors') {
-      document.getElementById('computer-scissors').style.display='block',
-      document.getElementById('computer-paper').style.display='none';
-      document.getElementById('computer-rock').style.display='none'
-  }
+      computerRock.style.display = 'block';
+      computerPaper.style.display = 'none';
+      computerScissors.style.display = 'none';
+  } else if (move == 'paper') { 
+      computerPaper.style.display =  'block';
+      computerRock.style.display = 'none';
+      computerScissors.style.display = 'none';
+    } else if (move == 'scissors') {
+      computerScissors.style.display = 'block',
+      computerPaper.style.display = 'none';
+      computerRock.style.display = 'none';
+    }
   return move
 }
 
 //scores
 let playerScore = 0;
 let computerScore = 0;
+let playerScoreDisplay = document.getElementById('player-score');
+let computerScoreDisplay = document.getElementById('computer-score');
 
 //PlayRound
 let playRound = function (playerMove, computerMove) {
   if (playerMove === 'rock') {
     if (computerMove === 'paper') {
       computerScore++;
-  }
+    }
     else if (computerMove === 'scissors') {
       playerScore++;
-  }
+    }
   }
   else if (playerMove === 'paper') {
     if (computerMove === 'scissors') {
@@ -47,7 +60,7 @@ let playRound = function (playerMove, computerMove) {
       playerScore++;
     }
   
-  else if (computerMove === 'rock') {
+    else if (computerMove === 'rock') {
       computerScore++;
     }
   }
@@ -60,14 +73,19 @@ function game (player) {
     let computerSelection = computerMove();
     playRound(playerSelection, computerSelection);
 
-    document.getElementById('player-score').textContent = playerScore;
-    document.getElementById('computer-score').textContent = computerScore;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
 
+    if (playerScore >=5 || computerScore >=5) {
+      choices.style.display = 'none';
+      resetBtn.style.display = 'initial';
+    }
+    
     if (playerScore >= 5) {
         return document.querySelector('#player-wins').style.display = 'block';
-    } else if (computerScore >= 5) {
+    } else if (computerScore >= 5) {  
         return document.querySelector('#computer-wins').style.display = 'block';
-    } 
+      } 
   }
 }
 
@@ -79,23 +97,23 @@ let resetBtn = document.getElementById('reset');
 //add eventlisteners
 paperBtn.addEventListener('click', () => {
   game ('paper');
-  document.getElementById('player-paper').style.display='block';
-  document.getElementById('player-rock').style.display='none';
-  document.getElementById('player-scissors').style.display='none';
+  playerPaper.style.display = 'block';
+  playerRock.style.display = 'none';
+  playerScissors.style.display = 'none';
 })
 
 rockBtn.addEventListener('click', () => {
   game ('rock');
-  document.getElementById('player-rock').style.display='block';
-  document.getElementById('player-paper').style.display='none';
-  document.getElementById('player-scissors').style.display='none';
+  playerRock.style.display = 'block';
+  playerPaper.style.display = 'none';
+  playerScissors.style.display = 'none';
 })
 
 scissorsBtn.addEventListener('click', () => {
   game ('scissors');
-  document.getElementById('player-scissors').style.display='block';
-  document.getElementById('player-paper').style.display='none';
-  document.getElementById('player-rock').style.display='none';
+  playerScissors.style.display = 'block';
+  playerPaper.style.display = 'none';
+  playerRock.style.display = 'none';
 })
 
 function reset () {
@@ -103,11 +121,13 @@ function reset () {
   playerScore = 0
   document.getElementById('player-score').textContent= playerScore;
   document.getElementById('computer-score').textContent= computerScore;
-  document.getElementById('player-wins').style.display='none';
-  document.getElementById('computer-wins').style.display='none';
+  document.getElementById('player-wins').style.display = 'none';
+  document.getElementById('computer-wins').style.display = 'none';
   moves.forEach(function (i) {
     i.style.display = 'none';
   })
+  choices.style.display = 'flex';
+  resetBtn.style.display = 'none';
 }
 
 let moves = document.querySelectorAll('.move i')
