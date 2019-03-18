@@ -16,34 +16,42 @@
   </header>
 
   <main id="site-main" class="container">
-        <span id="title1">You</span>
-        <span id="title2">Computer</span>
-        <p id="player-score">0</p>
-        <div class="move" id="player-move">
-          <i class="rock far fa-hand-rock" id="player-rock"></i>
-          <i class="paper far fa-hand-paper" id="player-paper"></i>
-          <i class="scissors far fa-hand-scissors" id="player-scissors"></i>
-        </div>
-        <button id="reset">
-            <i class="fas fa-redo-alt"></i>
-        </button>
-        <p id="computer-score">0</p>
-        <div class="move" id="computer-move">
-          <i class="rock far fa-hand-rock" id="computer-rock"></i>
-          <i class="paper far fa-hand-paper" id="computer-paper"></i>
-          <i class="scissors far fa-hand-scissors" id="computer-scissors"></i>
-        </div>
-        <h2 id="player-wins">You Win!!</h2>
-        <h2 id="computer-wins">Computer Wins!</h2>
-        <button class="button" id="rock">
-            <i class="far fa-hand-rock"></i>
-        </button>
-        <button class="button" id='paper'>
-            <i class="far fa-hand-paper"></i>
-        </button>
-        <button class="button" id="scissors">
-            <i class="far fa-hand-scissors"></i>
-        </button>
+    <div id="players">
+      <p id="title1">You</p>
+      <p id="title2">Computer</p>
+    </div>
+    <div class="game">
+      <p id="player-score">0</p>
+      <div class="move" id="player-move">
+        <i class="rock far fa-hand-rock" id="player-rock"></i>
+        <i class="paper far fa-hand-paper" id="player-paper"></i>
+        <i class="scissors far fa-hand-scissors" id="player-scissors"></i>
+      </div>
+      <div class="move" id="computer-move">
+        <i class="rock far fa-hand-rock" id="computer-rock"></i>
+        <i class="paper far fa-hand-paper" id="computer-paper"></i>
+        <i class="scissors far fa-hand-scissors" id="computer-scissors"></i>
+      </div>
+      <p id="computer-score">0</p>
+    </div>
+    <div id="choices">
+      <button class="button" id="rock">
+        <i class="far fa-hand-rock"></i>
+      </button>
+      <button class="button" id='paper'>
+        <i class="far fa-hand-paper"></i>
+      </button>
+      <button class="button" id="scissors">
+        <i class="far fa-hand-scissors"></i>
+      </button>
+    </div>
+    <div id="game-finish">
+      <button id="reset">
+        <i class="fas fa-redo-alt"></i>
+      </button>
+      <h2 id="player-wins">You Win!!</h2>
+      <h2 id="computer-wins">Computer Wins!</h2>
+    </div>
 
   </main>
 
