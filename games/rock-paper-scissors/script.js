@@ -38,33 +38,18 @@ let computerScoreDisplay = document.getElementById('computer-score');
 
 //PlayRound
 let playRound = function (playerMove, computerMove) {
-  if (playerMove === 'rock') {
-    if (computerMove === 'paper') {
-      computerScore++;
-    }
-    else if (computerMove === 'scissors') {
-      playerScore++;
-    }
+  if (playerMove === 'rock' && computerMove === 'scissors' ||
+      playerMove === 'paper' && computerMove === 'rock' ||
+      playerMove === 'scissors' && computerMove === 'paper') {
+        playerScore++;
   }
-  else if (playerMove === 'paper') {
-    if (computerMove === 'scissors') {
-      computerScore++;
-    }
-    else if (computerMove === 'rock') {
-      playerScore++;
-    }
-  }
-  
-  else if (playerMove === 'scissors'){
-    if (computerMove === 'paper') {
-      playerScore++;
-    }
-  
-    else if (computerMove === 'rock') {
-      computerScore++;
-    }
+  else if (playerMove === 'scissors' && computerMove === 'rock' ||
+    playerMove === 'rock' && computerMove === 'paper' ||
+    playerMove === 'paper' && computerMove === 'scissors') {
+        computerScore++;
   }
 }
+
 
 //game 
 function game (player) {
@@ -82,7 +67,7 @@ function game (player) {
     }
     
     if (playerScore >= 5) {
-        return document.querySelector('#player-wins').style.display = 'block';
+      return document.querySelector('#player-wins').style.display = 'block';
     } else if (computerScore >= 5) {  
         return document.querySelector('#computer-wins').style.display = 'block';
       } 
@@ -93,6 +78,14 @@ let paperBtn = document.getElementById('paper');
 let rockBtn = document.getElementById('rock');
 let scissorsBtn = document.getElementById('scissors');
 let resetBtn = document.getElementById('reset');
+
+/*const gameBtn = document.querySelectorAll('#choices button')
+
+gameBtn.forEach ((button)=> {
+  button.addEventListener ('click', () => {
+    game(button.id);
+  })
+})*/
 
 //add eventlisteners
 paperBtn.addEventListener('click', () => {
