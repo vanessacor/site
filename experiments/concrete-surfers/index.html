@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Concrete Surfers</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <link href="styles/style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+  <header id="site-header">
+    <h1>Concrete Surfers</h1>
+    <h2>BARCELONA</h2>
+  </header>
+
+  <main id="site-main" class="container">
+    <p class="content">Sit in box pet my belly, you know you want to; seize the hand and 
+      shred it!, or cat sit like bread paw your face to wake you up in the morning for show 
+      belly so make muffins, yet meow loudly just to annoy owners.</p>
+    <section class="container" id="register">
+      <form method="POST" class="name" novalidate>
+        <div class="form-field">
+          <input type="text" name="name" id="name" placeholder="Your Name" required>
+          <P class="feedback" id="namefeedback">Required</P>
+        </div>
+        <div class="form-field">
+          <input type="email" name="email" id="email" placeholder="Email" required>
+          <P class="feedback" id="emailfeedback">Required</P>
+        </div>
+        <div class="form-field">
+          <input type="submit" class="button" id="joinbtn">
+        </div>
+      </form>
+    </section>
+    <section class="container" id="trusts">
+      <div id="surfer1">
+        <img class="trusts-img"id="woman" src="media/images/woman.jpg">
+        <p id="woman-testemony">"Rub butt on table eat plants, meow, and throw up because i ate 
+          plants or x. Wake up human for food at 4am taco cat backwards spells taco cat sniff 
+          other cat's butt"</p>
+        </div>
+      <div id="surfer2">
+        <img class="trusts-img" id="man" src="media/images/man.jpg">
+        <p id="man-testemony">"Rub butt on table eat plants, meow, and throw up because i ate 
+          plants or x. Wake up human for food at 4am taco cat backwards spells taco cat sniff 
+          other cat's butt"</p>
+      </div>
+    </section>
+    <section class="container" id="video">
+      <button class="button" id="playbtn">
+          <i class="fas fa-play"></i>
+      </button>
+      <video width="320" height="240">
+        <source src="media/video1.mp4" type="video/mp4">
+      </video>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  </body>
+</html>
