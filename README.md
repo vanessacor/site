@@ -1,7 +1,6 @@
 # site
 # todo
 
-- improve main layout
 - countdown - restart
 - showcode experiments
 - review colors in global site
