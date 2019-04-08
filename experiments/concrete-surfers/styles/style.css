@@ -50,11 +50,6 @@ a {
   max-width: 800px;
 }
 
-@media (min-width: 840px) {
-  .container {
-    margin: 0 auto;
-  }
-}
 
 /* site header */
 
@@ -90,13 +85,13 @@ a {
 
 .content {
   margin: 0;
-  padding-top: 15px;
+  padding-top: 36px;
   margin-bottom: 10px;
 }
 
-#register {
+#register-form {
   margin: 0;
-  padding-top: 5px;
+  padding-top: 18px;
 }
 
 .form-field input {
@@ -130,20 +125,23 @@ a {
 
 #trusts {
   margin-bottom: 10px;
-  padding-top: 20px;
+  padding-top: 53px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #trusts p {
   max-width: 200px;
+  margin-left: 14px;
+  line-height: 1.45;
 }
 
 #surfer1, #surfer2 {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
   align-content: space-around;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .trusts-img {
@@ -153,6 +151,7 @@ a {
 #video {
   position: relative;
   margin: 0;
+  padding-top: 60px;
 }
 
 .container video {
@@ -164,7 +163,7 @@ a {
 #playbtn {
   position: absolute;
   box-sizing: border-box;
-  display: block;
+  display: none;
   top: 50%;
   left: 0;
   right: 0;
@@ -179,8 +178,47 @@ a {
   height: 100px;
 }
 
+@media (min-width: 768px) {
+  .container {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+}
 
+@media (min-width : 1224px) {
+  #site-header {
+    padding: 345px 0 20px;
+  }
 
+  #site-header h1 {
+    text-shadow: 1px 1px 11px black;
+    font-size: 97px;
+  }
+  
+  .container {
+    max-width: 1122px;
+  }
+
+  #site-main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .content {
+    flex-basis: 50%;
+  }
+
+  #trusts {
+    flex-basis: 20%;
+  }
+
+  #video {
+    flex-grow: 1;
+    align-self: flex-end;
+  }
+}
 
 
 
