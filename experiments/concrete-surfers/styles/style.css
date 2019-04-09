@@ -36,7 +36,7 @@ h3 {
 }
 
 p {
-  font-size: 15px;
+  font-size: 20px;
 }
 
 a {
@@ -94,6 +94,15 @@ a {
   padding-top: 18px;
 }
 
+#register-form h2 {
+  font-size: 35px;
+  font-family: sans-serif;
+  color: red;
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
 .form-field input {
   width: 100%;
   border: 1px solid grey;
@@ -134,6 +143,7 @@ a {
   max-width: 200px;
   margin-left: 14px;
   line-height: 1.45;
+  font-size: 15px;
 }
 
 #surfer1, #surfer2 {
@@ -202,12 +212,16 @@ a {
 
 @media (min-width : 1224px) {
   #site-header {
-    padding: 345px 0 20px;
+    padding: 280px 0 20px;
   }
 
   #site-header h1 {
     text-shadow: 1px 1px 11px black;
-    font-size: 97px;
+    font-size: 131px;
+  }
+
+  #site-header h2 {
+    font-size: 58px;
   }
   
   .container {
@@ -222,11 +236,32 @@ a {
   }
 
   .content {
-    flex-basis: 50%;
+    flex-basis: 54%;
+  }
+  
+  .content p {
+    font-size: 24px;
+  }
+
+  #register-form h2 {
+    font-size: 45px;
+  }
+
+  .form-field input {
+    padding: 23px;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    font-size: 20px;
   }
 
   #trusts {
-    flex-basis: 20%;
+    flex-basis: 28%;
+    padding-top: 110px;
+    margin-bottom: 200px;
+  }
+
+  #trusts p {
+    font-size: 20px;
   }
 
   #video {
