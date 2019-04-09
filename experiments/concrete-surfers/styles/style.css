@@ -124,7 +124,7 @@ a {
 }
 
 #trusts {
-  margin-bottom: 10px;
+  margin-bottom: 70px;
   padding-top: 53px;
   display: flex;
   flex-wrap: wrap;
@@ -151,7 +151,6 @@ a {
 #video {
   position: relative;
   margin: 0;
-  padding-top: 60px;
 }
 
 .container video {
@@ -162,26 +161,42 @@ a {
 
 #playbtn {
   position: absolute;
+  z-index: 1;
   box-sizing: border-box;
-  display: none;
+  display: block;
   top: 50%;
   left: 0;
   right: 0;
-  margin: auto;
   bottom: 50%;
-  color: white;
-  font-size: 53px;
-  padding: 0 30px;
-  background-color: rgb(230, 230, 230, .4);
-  border-radius: 50%;
   width: 100px;
   height: 100px;
+  margin: auto;
+  padding: 0;
+  color: white;
+  font-size: 43px;
+  background-color: rgb(230, 230, 230, .4);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#playbtn i {
+  padding-left: 10px;
 }
 
 @media (min-width: 768px) {
   .container {
     margin: 0 auto;
     max-width: 700px;
+  }
+
+  #playbtn {
+    width: 200px;
+    height: 200px;
+    font-size: 86px;
+  }
+  
+  #playbtn i {
+    padding-left: 20px;
   }
 }
 

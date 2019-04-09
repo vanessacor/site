@@ -1,21 +1,23 @@
 'use strict'
 
-// let videoElem = document.getElementsByTagName("video");
-// let playButton = document.getElementById("playbtn");
+let videoElem = document.querySelector('video');
+let playButton = document.querySelector('#playbtn');
 
-// playButton.addEventListener("click", playVideo);
+playButton.addEventListener('click', playVideo);
+videoElem.addEventListener('ended', videoEnded);
 
+function playVideo () { 
+  if (videoElem.paused === true) {
+    videoElem.play()
+    playButton.style.display = 'none';
+    videoElem.controls = true;
+  }
+} 
 
-// function playVideo() { 
-//   if (videoElem.paused === true) {
-//     videoElem.play()
-//     playButton.display="none"
-//   }
-//   else {
-//     videoElem.paused();
-//     playButton.display="initial"
-//   }
-// } 
+function videoEnded () {
+  playButton.style.display = 'block';
+  videoElem.controls = false;
+}
 
 const userLogin = document.querySelector('#register form');
 const nameFeedback = document.getElementById('namefeedback');
@@ -23,7 +25,7 @@ const passFeedback = document.getElementById('emailfeedback');
 
 userLogin.addEventListener('submit', login);
 
-function login(event) {
+function login (event) {
   event.preventDefault();
   let userName = document.getElementById('name').value;
   let userPass = document.getElementById('email').value;
