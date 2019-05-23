@@ -63,6 +63,7 @@ a {
   padding: 30px 0 20px;
   background-color: #000000;
   color: #E6B705;
+  position: relative;
 }
 
 #site-header a {

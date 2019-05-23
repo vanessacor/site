@@ -1,0 +1,172 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: red;  
+}
+
+/* typography */
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: #000000;
+}
+
+h1 {
+  font-family: 'Playball', cursive;
+  font-size: 48px;
+  font-weight: lighter;
+  margin-bottom: 5px;
+}
+
+
+p {
+  font-size: 20px;
+}
+
+a {
+  color: #000000;
+}
+
+/* layout */
+
+.container {
+  margin: 0 10px;
+  max-width: 800px;
+}
+
+
+/* site header */
+
+#site-header {
+  padding: 20px 0 20px;
+  text-align: center;
+}
+
+#site-header h1 {
+  color: #ffe6c9;
+  text-shadow: 1px 1px #000000;
+  margin: 32px 10px 0 10px;
+}
+
+#site-main {
+  min-height: 70vh;
+  margin-bottom: 80px;
+  line-height: 1.5;
+}
+
+#grid-setup {
+  display: flex;
+  flex-direction: column;
+  color: #ffe6c9;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#grid-size {
+  width: 100%;
+  border: 1px solid grey;
+  box-shadow: inset 0 1px 1px #648889;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-size: 30px;
+}
+
+#game  {
+  margin: 0 auto;
+  padding-top: 16px;  
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#grid-container {
+  display: grid;
+  width: 600px;
+  height: 600px;
+  margin-bottom: 30px;
+  border: 1px solid grey;
+  border-radius: 6px;
+  background-color: white; 
+}
+
+.grid-sq {
+  background-color: black; 
+}
+
+.button {
+  display: block;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 159, 112, 0.993);
+  margin-bottom: 10px;
+  margin-right: 50px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #ffe6c9;
+  box-shadow: inset 0 1px 1px  rgba(201, 159, 112, 0.993);
+  color: rgba(201, 159, 112, 0.993);
+}
+
+.button:hover {
+  background-color: rgb(190, 5, 5);
+}
+
+
+
+@media (min-width: 768px) {
+  .container {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+}
+
+@media (min-width : 1224px) {
+  #site-header {
+    padding: 40px 0 20px;
+  }
+
+  #site-header h1 {
+    text-shadow: 1px 1px 11px black;
+    font-size: 131px;
+  }
+
+  .button{
+    height: 140px;
+    width: 140px;
+    font-size: 24px;
+  }
+  
+  .container {
+    max-width: 1122px;
+  }
+
+  #site-main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .content {
+    flex-basis: 54%;
+  }
+  
+  .content p {
+    font-size: 24px;
+  }
+
+}
+
+
+

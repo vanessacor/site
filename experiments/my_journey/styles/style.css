@@ -139,3 +139,7 @@ nav {
     font-size: 40px;
     margin: 0 10px;
 }
+
+#site-footer ul {
+    padding-left: 0;
+}

@@ -3,7 +3,10 @@
 
 - countdown - restart
 - showcode experiments
-- review colors in global site
 - refactor game mobile first
 - add game transitions
+- improve layout concrete surfers
+  - space between elements
+  - align elements
+- create a corner link to home in every page
 

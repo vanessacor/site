@@ -92,6 +92,10 @@ a {
   text-align: center;
 }
 
+#site-footer ul {
+  padding-left: 0;
+}
+
 #site-footer li {
     display: inline-block;
     font-size: 40px;
