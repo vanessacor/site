@@ -20,7 +20,7 @@ body {
 
 h1 {
   font-family: 'Playball', cursive;
-  font-size: 48px;
+  font-size: 55px;
   font-weight: lighter;
   margin-bottom: 5px;
 }
@@ -52,7 +52,7 @@ a {
 #site-header h1 {
   color: #ffe6c9;
   text-shadow: 1px 1px #000000;
-  margin: 32px 10px 0 10px;
+  margin: 10px 10px 0 10px;
 }
 
 #site-main {
@@ -64,19 +64,26 @@ a {
 #grid-setup {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
   color: #ffe6c9;
   font-size: 20px;
   font-weight: bold;
 }
 
+#grid-setup label {
+  margin-bottom: 10px;
+  
+}
+
 #grid-size {
-  width: 100%;
+  width: 32%;
   border: 1px solid grey;
   box-shadow: inset 0 1px 1px #648889;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 6px;
-  font-size: 30px;
+  font-size: 15px;
 }
 
 #game  {
@@ -96,30 +103,37 @@ a {
   border: 1px solid grey;
   border-radius: 6px;
   background-color: white; 
+  box-shadow: inset 0 2px 16px 2px rgba(16, 15, 15, 0.8);
 }
 
-.grid-sq {
-  background-color: black; 
+#btn-container {
+  display: inherit;
+  margin: 0 auto;
 }
 
 .button {
   display: block;
-  height: 90px;
-  width: 90px;
-  border-radius: 50%;
-  border: 2px solid rgba(201, 159, 112, 0.993);
+  height: 100px;
+  width: 100px;
   margin-bottom: 10px;
   margin-right: 50px;
   padding: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 159, 112, 0.993);
+  background: linear-gradient(0deg, #ddd, #fff);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.59);
+  overflow-wrap: break-word;
   font-size: 15px;
   font-weight: bold;
-  background-color: #ffe6c9;
-  box-shadow: inset 0 1px 1px  rgba(201, 159, 112, 0.993);
+  text-shadow:1px 1px 1px #000;
   color: rgba(201, 159, 112, 0.993);
 }
 
+
+
 .button:hover {
-  background-color: rgb(190, 5, 5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  color: rgba(121, 83, 40, 0.993);
 }
 
 
@@ -137,14 +151,13 @@ a {
   }
 
   #site-header h1 {
-    text-shadow: 1px 1px 11px black;
-    font-size: 131px;
+    font-size: 80px;
   }
 
   .button{
-    height: 140px;
-    width: 140px;
-    font-size: 24px;
+    height: 100px;
+    width: 100px;
+    font-size: 20px;
   }
   
   .container {
