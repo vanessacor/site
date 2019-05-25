@@ -1,16 +1,17 @@
 'use strict'
 
-const input = document.getElementById('grid-size');
+const gridSizeInput = document.getElementById('grid-size');
 const container = document.getElementById('grid-container');
 const resetBtn = document.getElementById('reset');
-const colourBtn = document.getElementById('colour');
+const colorBtn = document.getElementById('colour');
+let useColors = false;
 
 resetBtn.addEventListener('click', reset);
-input.addEventListener('input', creatGrid);
-colourBtn.addEventListener('click', changeColor);
+gridSizeInput.addEventListener('input', creatGrid);
+colorBtn.addEventListener('click', changeColor);
 
 function creatGrid(){
-  const gridSize = document.getElementById('grid-size').value;
+  const gridSize = gridSizeInput.value;
   cleanGrid();
   for (let i = 0; i < gridSize * gridSize; i++) {
     container.appendChild(createSquare());
@@ -22,37 +23,37 @@ function creatGrid(){
 function createSquare() {
   const square = document.createElement('div');
   square.setAttribute('class', 'square');
-  if (colourBtn.value == 'Colour Off') {
-    square.addEventListener ('mouseover', () => { 
+  square.addEventListener ('mouseover', () => { 
+    if (useColors === false) {
       square.style.backgroundColor = 'black'
-    });
-    return square;
-  }
-  else {
-    square.addEventListener ('mouseover', () => { 
+    } else {
       square.style.backgroundColor = generateColor();
-    });
-    return square;
-  }
+    }
+  });
+  return square;
+  
 } 
 
 function changeColor() {
-  reset();
-  if (colourBtn.value == 'Colour Off') {
-    colourBtn.value = 'Colour On';
+  if (useColors !== true) {
+    colorBtn.innerHTML = 'Colour On';
+    colorBtn.classList.add('is-on');
+    useColors = true;
   }
   else {
-    colourBtn.value = 'Colour Off';
+    colorBtn.innerHTML = 'Colour Off';
+    colorBtn.classList.remove('is-on');
+    useColors = false;
   }
 }
 
 function generateColor() {
-  var x = Math.floor(Math.random() * 256);
-  var y = Math.floor(Math.random() * 256);
-  var z = Math.floor(Math.random() * 256);
-  var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-  return bgColor;
-  }
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  const color = "rgb(" + r + "," + g + "," + b + ")";
+  return color;
+}
 
 function cleanGrid() {
   while(container.firstChild) {
@@ -61,7 +62,7 @@ function cleanGrid() {
 }
 
 function reset() {
-  input.value = '';
+  gridSizeInput.value = '';
   cleanGrid();
 }
 
