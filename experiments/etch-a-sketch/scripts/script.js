@@ -22,7 +22,7 @@ function creatGrid(){
 function createSquare() {
   const square = document.createElement('div');
   square.setAttribute('class', 'square');
-  if (colourBtn.value == 'colour off') {
+  if (colourBtn.value == 'Colour Off') {
     square.addEventListener ('mouseover', () => { 
       square.style.backgroundColor = 'black'
     });
@@ -38,11 +38,11 @@ function createSquare() {
 
 function changeColor() {
   reset();
-  if (colourBtn.value == 'colour off') {
-    colourBtn.value = 'colour on';
+  if (colourBtn.value == 'Colour Off') {
+    colourBtn.value = 'Colour On';
   }
   else {
-    colourBtn.value = 'colour off';
+    colourBtn.value = 'Colour Off';
   }
 }
 

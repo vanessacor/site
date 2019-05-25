@@ -113,30 +113,32 @@ a {
 
 .button {
   display: block;
-  height: 100px;
-  width: 100px;
+  width: 200px;
   margin-bottom: 10px;
   margin-right: 50px;
   padding: 10px;
-  border-radius: 50%;
+  border-radius: 5%;
   border: 2px solid rgba(201, 159, 112, 0.993);
   background: linear-gradient(0deg, #ddd, #fff);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.59);
-  overflow-wrap: break-word;
-  font-size: 15px;
-  font-weight: bold;
-  text-shadow:1px 1px 1px #000;
-  color: rgba(201, 159, 112, 0.993);
+  font-size: 20px;
+  text-shadow:1px 1px 1px #ffe6c9;
+  color: #000;
+  cursor: pointer;
+  text-align: center;
 }
-
-
 
 .button:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(0deg, rgba(221, 221, 221, 0.835), rgba(255, 255, 255, 0.87));
   color: rgba(121, 83, 40, 0.993);
 }
 
-
+#colour:focus {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(0deg, rgba(221, 221, 221, 0.835), rgba(255, 255, 255, 0.87));
+  color: rgba(121, 83, 40, 0.993);
+}
 
 @media (min-width: 768px) {
   .container {
