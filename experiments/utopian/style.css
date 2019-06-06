@@ -1,0 +1,181 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* typography */
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  color: #111111;
+}
+
+h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 48px;
+  color: #febb02;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #0d56bd;
+
+}
+
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #0d56bd;
+}
+
+p {
+  font-size: 20px;
+}
+
+a {
+  font-size: 14px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* layout */
+
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  grid-template-rows:auto;
+  grid-gap: 3px;
+}
+
+.container > * {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#site-header {
+  grid-column: 1 / -1;
+  justify-self: stretch;
+  border-bottom: 2px solid gray;
+}
+
+#site-main {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  justify-self: start;
+  padding-top: 0;
+}
+
+#site-footer {
+  grid-column: 1 / -1;
+  background-color: #96ceb4;
+  justify-self: stretch;
+}
+
+
+/* site header */
+
+#site-header h1 {
+  padding-top: 10px;
+  margin: 0 auto 33px;
+  text-shadow: 2px 1px 1px #6a6767;
+  text-align: center;
+}
+
+
+#site-header nav {
+  margin: 0 auto 2px;
+}
+
+#site-header a {
+  margin: 0;
+  font-size: 10px;
+  color: #111111;
+  text-decoration: none;
+}
+
+/* site main */
+
+#date-login {
+  display: inherit;
+  margin-left: 5px;
+  margin-top: 0px;
+}
+
+#time {
+  font-size: 61%;
+  color: #0d56bd;
+}
+
+.account {
+  margin-left: auto;
+}
+
+.buttons {
+  background-color: white;
+  color: #0d56bd;
+  border-radius: 2px;
+  border: 1px solid #0d56bd;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.buttons:hover {
+  background-color: #0d56bd ;
+  color: white;
+}
+
+.headlines h2{
+  font-size: 42px;
+  margin-bottom: 0px;
+}
+
+.headlines h3{
+  margin: 0px;
+}
+
+.headlines ul{
+  margin: 0px;
+  padding-top: 10px;
+}
+
+.headlines img {
+  width: 100%;
+}
+
+.headline-news {
+  padding-top: 20px;
+  margin: 0 0 20px 10px;
+}
+
+.news {
+  padding-top: 20px;
+  margin: 0 0 20px 10px;
+}
+
+.news h3 {
+  margin: 0px;
+  padding-top: 10px;
+}
+
+.news p {
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 10px 0 0 10px;
+}
+

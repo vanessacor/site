@@ -60,6 +60,7 @@ a {
 .button {
   width: 200px;
   padding: 10px;
+  margin: 10px;
   border-radius: 5%;
   border: 2px solid rgba(201, 159, 112, 0.993);
   background: linear-gradient(0deg, #ddd, #fff);
@@ -151,8 +152,8 @@ a {
 
 #grid-container {
   display: grid;
-  width: 600px;
-  height: 600px;
+  width: 80vw;
+  height: 80vw;
   margin: 0 auto 30px;
   border: 1px solid grey;
   border-radius: 6px;

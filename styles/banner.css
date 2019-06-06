@@ -1,21 +1,28 @@
 .banner-wrapper {
   position: absolute;
-  top: 22px;
-  right: -56px;
+  top: 0;
+  right: 0px;
   width: 214px;
+  height: 142px;
   overflow: hidden;
-  background-color: #E6B705;
-  transform: rotate(45deg);
   opacity: .83;
+  pointer-events: none;
 }
 
 #banner {
+  position: relative;
+  right: -54px; 
+  top: 20px;
+  transform: rotate(45deg);
   text-align: center;
   line-height: 27px;
+  background-color: #E6B705;
   border: 2px solid black;
+  pointer-events: all;
 }
 
-#banner a{
+#banner a {
+  color: #111111;
   text-decoration: none;
   font-family: 'Raleway', sans-serif;
 }

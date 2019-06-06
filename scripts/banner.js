@@ -9,15 +9,13 @@
 }
 
 function createBanner() {
-  const divBanner = document.createElement('div');
-  divBanner.setAttribute('class','banner-wrapper');
-  document.body.appendChild(divBanner);
   const banner = document.createElement('div');
-  banner.setAttribute('id', 'banner')
-  banner.innerHTML = `<div id="banner">
-  <a href="https://vanessacor.github.io/site/">Vanessa<br>Poppe</a>
-</div>`;
-  divBanner.appendChild(banner);
+  banner.setAttribute('class','banner-wrapper');
+  document.body.appendChild(banner);
+  banner.innerHTML = 
+  `<div id="banner">
+    <a href="https://vanessacor.github.io/site/">Vanessa<br>Poppe</a>
+  </div>`;
 
   addStyle('../../styles/banner.css');
   addStyle('https://fonts.googleapis.com/css?family=Raleway&display=swap');
