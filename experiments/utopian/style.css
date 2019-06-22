@@ -24,7 +24,6 @@ h1 {
   font-family: 'Cinzel Decorative', cursive;
   font-size: 48px;
   color: #febb02;
-  margin-bottom: 5px;
 }
 
 h2 {
@@ -60,12 +59,18 @@ ul {
   grid-template-columns: repeat(12,1fr);
   grid-template-rows:auto;
   grid-gap: 3px;
+  max-width: 631px;
+  margin: 0 auto;
 }
 
 .container > * {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+@media (min-width : 1224px) {
+
 }
 
 #site-header {
@@ -83,7 +88,7 @@ ul {
 
 #site-footer {
   grid-column: 1 / -1;
-  background-color: #96ceb4;
+  background-color: #febb02;
   justify-self: stretch;
 }
 
@@ -107,14 +112,28 @@ ul {
   font-size: 10px;
   color: #111111;
   text-decoration: none;
+  transition: 1s ease;
+}
+
+#site-header a:hover {
+  color: #0d56bd;
+}
+
+@media (min-width: 768px) {
+  #site-header a {
+    font-size: 14px;
+  }
+
+  #site-header a:not(:last-child) {
+    margin-right: 20px;
+  }
 }
 
 /* site main */
 
 #date-login {
   display: inherit;
-  margin-left: 5px;
-  margin-top: 0px;
+  margin: 0 5px;
 }
 
 #time {
@@ -133,6 +152,7 @@ ul {
   border: 1px solid #0d56bd;
   padding: 4px;
   cursor: pointer;
+  transition: 1s ease;
 }
 
 .buttons:hover {
@@ -151,7 +171,11 @@ ul {
 
 .headlines ul{
   margin: 0px;
-  padding-top: 10px;
+  padding: 10px 0 0 10px;
+}
+
+.headlines li {
+  font-size: calc(14px + (22 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 
 .headlines img {
@@ -171,11 +195,28 @@ ul {
 .news h3 {
   margin: 0px;
   padding-top: 10px;
+  font-size: calc(22px + (26 - 22) * ((100vw - 300px) / (1600 - 300)));
 }
 
 .news p {
   margin: 0px;
   margin-bottom: 10px;
   padding: 10px 0 0 10px;
+  font-size: calc(14px + (22 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.footer-items {
+  display: inherit;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.footer-items a {
+  text-decoration: none;
+  color: #111111;
+}
+
+.footer-items a:hover {
+  color: #0d56bd;
 }
 
