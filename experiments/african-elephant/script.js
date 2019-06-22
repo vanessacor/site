@@ -1,15 +1,21 @@
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("myBtn").style.display = "block";
-  } else {
-    document.getElementById("myBtn").style.display = "none";
+function main () {
+  const button = document.getElementById('top-button');
+  
+  function goToTop() {
+    document.documentElement.scrollTop = 0; 
   }
+  
+  button.addEventListener('click', goToTop);
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      button.style.display = 'block';
+    } else {
+      button.style.display = 'none';
+    }
+  }
+
+  window.addEventListener('scroll', scrollFunction);
 }
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.documentElement.scrollTop = 0; 
-}
+window.addEventListener('load', main);
