@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   <link href="styles/style.css" rel="stylesheet" type="text/css">
+  <link href="styles/prism.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Raleway" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
 </head>
@@ -25,42 +26,147 @@
   <main id="site-main">
 
     <div class="container">
-        <div class="example">
-            <p class="content">Hello World</p>
-        </div>
-          <section class="experiments">
-            <h2>Experiments</h2>
+      <section class="experiments">
+        
+        <h2>Experiments</h2>
+
+        <article>
+          <h3 class="article-title"><a href="experiments/utopian/">Utopian News</a></h3>
+          <p>In order to learn more about the CSS grid model, I created this page for
+              a newspaper. I also learnt a bit more about Javascript specifically 
+              about date formatting. I know this can be done with libraries such as 
+              <a href="https://momentjs.com/">momentjs</a>
+              but I wanted to try by myself.</p>
+          <figure>
+            <figcaption>Formatting a date</figcaption>
+            <pre>
+              <code contenteditable="true" class="language-js"> 
+                const dayNames = [
+                  'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'
+                ];
+                const monthNames = [
+                  'Jan', 'Feb', 'Mar', 'Apr', 'May 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                ];
+                function formatDate (date) {
+                  const dayOfTheWeek =  dayNames[date.getDay()];
+                  const day = date.getDate();
+                  const month = monthNames[date.getMonth()];
+                  const year = date.getFullYear();
+                  return `${dayOfTheWeek}, ${day} ${month}, ${year}`;
+                }
+              </code>
+            </pre>
+          </figure>
+        </article>
+                
+        <article>
+          <h3 class="article-title"><a href="experiments/etch-a-sketch/">Etch-a-Sketch</a></h3>
+          <p>Another project for the 
+            <a href="https://www.theodinproject.com/courses/web-development-101">Odin Project</a>
+            where I was asked to “build a browser version of something between a sketchpad and an Etch-A-Sketch”. 
+          </p>
+          <ul>
+            <li>DOM manipulation (create an element, set attribute, add class)</li> 
+          </ul>
+        </article>
+                
+        <article>
+          <h3 class="article-title"><a href="experiments/concrete-surfers/">Concrete-Surfers</a></h3>
+          <p>This is a simple landing page that I create in order to continue my 
+            practice with HTML, CSS and javascript.</p>
+        </article>
+        
+        <article>
+          <h3 class="article-title"><a href="games/rock-paper-scissors/">Rock Paper Scissors</a></h3>
+          <p>This was an assignment for the 
+            <a href="https://www.theodinproject.com/courses/web-development-101">Odin Project</a>. Although I was asked to 
+            create a game that would be played on the console. I decided that 
+            this was a chance for me to integrate everything I had learned to that
+            point. So I create a game on the browser, using CSS and Javascript. 
+            I am really proud of myself and have to thank the help of Andre and
+            the coaches from <a href="https://codebar.io/barcelona">CodeBar Barcelona.</a>
+          </p>
+        </article>
+
+        <article>
+          <h3 class="article-title"><a href="experiments/photo-gallery/">Photo Gallery</a></h3>
+          <ul>
+            <li>HTML (best practices)</li>
+            <li>CSS (mobile first, flex-box model, wrap)</li>
+          </ul>
+        </article>
+        
+        <article>
+          <h3 class="article-title"><a href="experiments/js-intro/">JS Intro</a></h3>
+          <p>This is a collection of my first experiences with JS.</p>
+          <ul>
+            <li>JavaScript basics (functions, variables, declarations, statements, values, scope, loop, functions call)</li>
+            <li>Introduction to Web-dev tools (sources, debugging, breakpoints)</li>
+          </ul>
+        </article>
+        
+        <article>
+          <h3 class="article-title"><a href="experiments/african-elephant/">African Elephant</a></h3>
+          <p>Continue my journey through HTML and CSS. At the same time, I started
+            learning JavaScript following the curriculum in the
+            <a href="https://www.theodinproject.com/courses/web-development-101">Odin Project.</a>
+            I decided to include in this page a scroll button with JS. 
+            I looked at examples and adapted to my page.
+          </p>
+          <figure>
+            <figcaption>My First JavaScript</figcaption>
+            <pre>
+              <code contenteditable="true" class="language-js"> 
+                const button = document.getElementById('top-button');
+
+                function goToTop() {
+                  document.documentElement.scrollTop = 0; 
+                }
+                
+                button.addEventListener('click', goToTop);
+              
+                function scrollFunction() {
+                  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    button.style.display = 'block';
+                  } else {
+                    button.style.display = 'none';
+                  }
+                }
+              
+                window.addEventListener('scroll', scrollFunction);
+              </code>
+            </pre>
+          </figure>
+        </article>
+
+        <article>
+          <h3 class="article-title"><a href="experiments/my_journey?">First Layout</a></h3>
+          <p> After I finished the Google home page I wanted to practice the skills 
+            I had learnt and so created this page. Here I played and practice the 
+            skills listed in the post above.
             <ul>
-              <li>
-                <a href="experiments/google-homepage/">Google homepage clone</a>
-              </li>
-              <li>
-                <a href="experiments/my_journey?">First Layout</a>
-              </li>
-              <li>
-                <a href="experiments/african-elephant/">African Elephant</a>
-              </li>
-              <li>
-                <a href="experiments/js-intro/">JS Intro</a>
-              </li>
-              <li>
-                <a href="experiments/photo-gallery/">Photo Gallery</a>
-              </li>
-              <li>
-                <a href="games/rock-paper-scissors/">Rock Paper Scissors</a>
-              </li>
-              <li>
-                <a href="experiments/concrete-surfers/">Concrete-Surfers(Landing Page)</a>
-              </li>
-              <li>
-                <a href="experiments/etch-a-sketch/">Etch-a-Sketch</a>
-              </li>
-              <li>
-                <a href="experiments/utopian/">Utopian News</a>
-              </li>
+              <li>HTML best practice (indentation, semantics)</li>
+              <li>CSS responsive layout (flex-box, align elements, background gradient, 
+                box shadow)</li>
             </ul>
-          </section>
-      </div>
+          </p>
+        </article>
+
+        <article>
+          <h3 class="article-title"><a href="experiments/google-homepage/">Google Homepage Clone</a></h3>
+          <p>This was my first assignment on the 
+            <a href="https://www.theodinproject.com/courses/web-development-101">Odin Project.</a>
+              It was my first web-page and here are the skills I have learned with this project:
+          </p>
+          <ul>
+            <li>git/GitHub - create a repository, clone, add, commit and push;</li>
+            <li>HTML - structure and semantics, elements, tags, attributes;</li>
+            <li>CSS - elements, selectors, declarations, properties and values;</li>
+          </ul>
+        </article>
+
+      </section>
+    </div>
 
   </main>
 
@@ -71,5 +177,8 @@
       </div>
 
   </footer>
+
+  <script src="scripts/prism.js"></script>
+
   </body>
 </html>

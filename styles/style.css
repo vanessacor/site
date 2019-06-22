@@ -9,7 +9,6 @@ html {
 
 body {
   margin: 0;
-  background-color: #E6B705;
 }
 
 /* typography */
@@ -17,7 +16,7 @@ body {
 body {
   font-family: 'Cardo', serif;
   font-size: 16px;
-  color: #000000;
+  color: #292929;
 }
 
 h1 {
@@ -29,6 +28,8 @@ h1 {
 h2 {
   font-family:'Crimson Text', serif; 
   font-size: 32px;
+  color: #292929;
+  font-weight: lighter;
 }
 
 h3 {
@@ -41,7 +42,7 @@ p {
 }
 
 a {
-  color: #000000;
+  color: #292929;
 }
 
 /* layout */
@@ -81,6 +82,42 @@ a {
   min-height: 70vh;
   margin-bottom: 80px;
 }
+
+article {
+  padding: 10px 10px 5px;
+  margin-bottom: 20px;
+  background-color: #E6B705;
+}
+
+#site-main ul {
+  margin-bottom: 15px;
+}
+
+.article-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.article-title:hover {
+  color: #F8F8FF;
+}
+
+figure {
+  display: block;
+  background: #292929;
+}
+
+figcaption {
+  display: block;
+  padding: 5px 10px 4px 10px;
+  border-bottom: 1px solid #ccc;
+  border-radius: 3px 3px 0 0;
+  font-weight: bold;
+  background-color: #000000;
+  color: #E6B705;
+}
+
 
 /* site footer */
 
