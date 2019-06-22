@@ -1,120 +1,135 @@
-'use strict'
-
-// todo $
-// todo const
-// todo getElemebt...
-
-//set variables
-
-const computerRock = document.getElementById('computer-rock');
-const computerPaper = document.getElementById('computer-paper');
-const computerScissors = document.getElementById('computer-scissors');
-const $computerChoices = [computerRock, computerPaper, computerScissors];
-const $playerMoves = document.getElementById('player-move');
-const $playerRock = document.getElementById('player-rock');
-const $playerPaper = document.getElementById('player-paper');
-const playerScissors = document.getElementById('player-scissors');
-const $choices = document.getElementById('choices')
-
-const $allMoves = document.querySelectorAll('.move i')
-const $playerScoreDisplay = document.getElementById('player-score');
-const $computerScoreDisplay = document.getElementById('computer-score');
-
-const $paperBtn = document.getElementById('paper');
-const $rockBtn = document.getElementById('rock');
-const $scissorsBtn = document.getElementById('scissors');
-const $resetBtn = document.getElementById('reset');
-const gameBtn = document.querySelectorAll('#choices button');
-
-let playerScore = 0;
-let computerScore = 0;
-
-
-$resetBtn.addEventListener('click', reset);
-
-gameBtn.forEach ((button)=> {
-  button.addEventListener ('click', () => {
-    nextRound(button.id);
-    showHidePlayerMove ('player', button.id);
-  })
-})
-
-//computer move
-function computerMove () {
-  let result = ['rock', 'paper', 'scissors'];
-  let move = result[Math.floor(Math.random() * result.length)];
-  return move
-}
-
-//scores
-function updateScore (playerMove, computerMove) {
-  if (playerMove === 'rock' && computerMove === 'scissors' ||
-  playerMove === 'paper' && computerMove === 'rock' ||
-  playerMove === 'scissors' && computerMove === 'paper') {
-    playerScore++;
-  }
-  else if (playerMove === 'scissors' && computerMove === 'rock' ||
-  playerMove === 'rock' && computerMove === 'paper' ||
-  playerMove === 'paper' && computerMove === 'scissors') {
-    computerScore++;
-  }
-}
-
-function displayScore() {
-  $playerScoreDisplay.textContent = playerScore;
-  $computerScoreDisplay.textContent = computerScore;
-}
-
-function isGameOver() {
-  return playerScore === 5 || computerScore === 5;
-}
-
-function displayGameOver(){
-  $choices.style.display = 'none';
-  $resetBtn.style.display = 'initial';
+  'use strict'
   
-  if (playerScore >= 5) {
-    return document.querySelector('#player-wins').style.display = 'block';
-  } else if (computerScore >= 5) {  
-    return document.querySelector('#computer-wins').style.display = 'block';
+function main () {
+  const $choices = document.getElementById('choices');
+  const $choiceButtons = document.querySelectorAll('#choices button');
+
+  const $allMoves = document.querySelectorAll('.move i')
+  const $playerScore = document.getElementById('player-score');
+  const $computerScore = document.getElementById('computer-score');
+
+  const $resetBtn = document.getElementById('reset');
+
+  const $playerWins = document.getElementById('player-wins');
+  const $computerWins = document.getElementById('computer-wins');
+
+  const timeout = 2000;
+  let playerScore = 0;
+  let computerScore = 0;
+
+  $resetBtn.addEventListener('click', reset);
+
+  function disableButtons () {
+    $choiceButtons.forEach((button)=> {
+      button.setAttribute('disabled', 'disabled');
+    });
   }
-}
 
-//game 
-function nextRound (playerSelection) {
-  if (!isGameOver()) {
-    let computerSelection = computerMove();
-    showHidePlayerMove('computer', computerSelection);
-    updateScore(playerSelection, computerSelection);
-    displayScore();
+  function enableButtons () {    
+    $choiceButtons.forEach((button)=> {
+      button.removeAttribute('disabled');
+    });
+  }
 
-    if (isGameOver()) {
-      displayGameOver()
+  function playerClickedOnChoice(button) {
+    disableButtons();
+    setTimeout(() => {
+      nextRound(button.id);
+      showHidePlayerMove('player', button.id);
+      enableButtons();
+    }, timeout);
+    $allMoves.forEach(function (i) {
+      i.style.display = 'none';
+    });
+  }
+
+  $choiceButtons.forEach((button)=> {
+    button.addEventListener ('click', () => {
+      playerClickedOnChoice(button);
+    })
+  });
+
+  //computer move
+
+  function computerMove () {
+    let result = ['rock', 'paper', 'scissors'];
+    let move = result[Math.floor(Math.random() * result.length)];
+    return move
+  }
+
+  //scores
+  function updateScore (playerMove, computerMove) {
+    if (playerMove === 'rock' && computerMove === 'scissors' ||
+    playerMove === 'paper' && computerMove === 'rock' ||
+    playerMove === 'scissors' && computerMove === 'paper') {
+      playerScore++;
+    }
+    else if (playerMove === 'scissors' && computerMove === 'rock' ||
+    playerMove === 'rock' && computerMove === 'paper' ||
+    playerMove === 'paper' && computerMove === 'scissors') {
+      computerScore++;
     }
   }
+
+  function displayScore () {
+    $playerScore.textContent = playerScore;
+    $computerScore.textContent = computerScore;
+  }
+
+  function isGameOver () {
+    return playerScore === 5 || computerScore === 5;
+  }
+
+  function displayGameOver () {
+    $choices.style.display = 'none';
+    $resetBtn.style.display = 'initial';
+    
+    if (playerScore >= 5) {
+      return $playerWins.style.display = 'block';
+    } else if (computerScore >= 5) {  
+      return $computerWins.style.display = 'block';
+    }
+  }
+
+  //game 
+  function nextRound (playerSelection) {
+    if (!isGameOver()) {
+      let computerSelection = computerMove();
+      showHidePlayerMove('computer', computerSelection);
+      updateScore(playerSelection, computerSelection);
+      displayScore();
+
+      if (isGameOver()) {
+        displayGameOver()
+      }
+    }
+  }
+
+
+  function showHidePlayerMove (player, move) {
+    const moves = document.getElementById(`${player}-move`);
+    const chosenMoveId = `${player}-${move}`;
+    Array.from(moves.children).forEach(icon =>{
+      const iconDisplayStyle = icon.id === chosenMoveId ? 'block' : 'none'
+      icon.style.display = iconDisplayStyle;
+    });
+  }
+
+  //end game
+  function reset () {
+    computerScore = 0
+    playerScore = 0
+    $playerScore.textContent= playerScore;
+    $computerScore.textContent= computerScore;
+    $playerWins.style.display = 'none';
+    $computerWins.style.display = 'none';
+    $allMoves.forEach(function (i) {
+      i.style.display = 'none';
+    });
+    $choices.style.display = 'flex';
+    $resetBtn.style.display = 'none';
+  }
+
 }
 
-function showHidePlayerMove (player, move) {
-  const moves = document.getElementById(`${player}-move`);
-  Array.from(moves.children).forEach (icon =>{
-    console.log (icon.id, move);
-    const isChosenMove = `${player}-${move}`
-    icon.style.display = (icon.id === isChosenMove ? 'block' : 'none')
-  })
-}
-
-//end game
-function reset () {
-  computerScore = 0
-  playerScore = 0
-  $playerScoreDisplay.textContent= playerScore;
-  document.getElementById('computer-score').textContent= computerScore;
-  document.getElementById('player-wins').style.display = 'none';
-  document.getElementById('computer-wins').style.display = 'none';
-  $allMoves.forEach(function (i) {
-    i.style.display = 'none';
-  })
-  $choices.style.display = 'flex';
-  $resetBtn.style.display = 'none';
-}
-
+window.addEventListener('load', main);
