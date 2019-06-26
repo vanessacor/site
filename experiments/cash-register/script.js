@@ -17,7 +17,8 @@ function addItem(newValue) {
 }
 
 function formatCurrency (value) {
-  return '$' + value;
+  return (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value));
+  //return value + '€';
 }
 
 function calculateTotal () {
