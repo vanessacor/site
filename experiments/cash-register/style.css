@@ -1,0 +1,133 @@
+/* reset  */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: #ececec;
+}
+
+/* typography */
+
+body {
+  font-family:'Noto Sans HK', sans-serif;
+  font-size: 16px;
+  color: #323339;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+p {
+  font-size: 20px;
+}
+
+
+/* layout */
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 282px;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+
+/* site header */
+
+#site-header {
+  padding: 30px 0 20px;
+  text-align: center;
+}
+
+#site-header h1 {
+    margin-bottom: 10px;
+}
+
+/* site main */
+
+
+.screen {
+  background-color: white;
+  text-align: right; 
+  box-shadow: 3px 3px 10px #959495;
+  padding: 20px 10px;
+}
+
+.item-wraper {
+  margin: 0px;
+}
+
+.item {
+  margin: 5px 0px;
+}
+
+.item:last-child {
+  border-bottom: 2px solid black;
+}
+
+#total {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-weight: bolder;
+}
+
+#total-label {
+  margin: 0px 20px 0px 0px;
+}
+
+#total-amount {
+  margin: 0px
+}
+
+#form-entry {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  padding-top: 10px;
+}
+
+#form-entry input {
+  width: 60%;
+  padding: 10px;
+  margin-right: 14px;
+  border: none;
+  box-shadow: inset 0px 1px 10px 1px #bab8ba;
+  background-color: white;
+  font-size: 21px;
+  text-align: right;
+  color: #959495;
+}
+
+#form-entry input::placeholder {
+  color: white;
+}
+
+#entry {
+  width: 35%;
+  background-color: #4abd85;
+  box-shadow: 5px 5px 10px #959495;
+  border: none;
+  border-radius: 3px;
+  transition: 1s;
+  color: #323339;
+  font-size: 18px;
+}
+
+#entry:hover {
+  background-color: #348a60;
+  color: white;
+  box-shadow: none;
+}

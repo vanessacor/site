@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Cash Register</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK:100&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header id="site-header" class="container">
+    <h1>Cash Register</h1>
+  </header>
+
+
+  <main id="site-main" class="container">
+    <div class="screen" >
+      <div class="item-wraper">
+      </div>
+      <div id="total">
+        <p id="total-label">Total</p>
+        <P id="total-amount">0</P>
+      </div>
+    </div>
+    <form id="form-entry">
+      <input  type="number" placeholder="Enter Amount" step="0.01" id="new-item">
+      <button type="submit" id="entry">Enter</button>
+    </form>
+
+
+    <script src="script.js"></script>
+    <script src="../../scripts/banner.js"></script>
+
+  </body>
+</html>
