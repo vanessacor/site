@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="style.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK:100&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
 </head>
 
 <body>
@@ -17,15 +18,39 @@
 
   <main id="site-main" class="container">
     <div class="screen" >
-      <div class="item-wraper">
-      </div>
+      <ul class="item-wraper">
+        <!--
+          <button id="delete-btn">
+            <li class="item">
+              <i class="far fa-trash-alt"></i>
+            </button>
+            <span id="name">Milk</span>
+            <span id="price">1000</span>
+          </li>
+          <li class="item">
+              <button id="delete-btn">
+                <i class="far fa-trash-alt"></i>
+              </button>
+              <span id="name">Coffee</span>
+              <span id="price">2000</span>
+          </li>
+          <li class="item">
+              <button id="delete-btn">
+                <i class="far fa-trash-alt"></i>
+              </button>
+              <span id="name">Coffee</span>
+              <span id="price">2000</span>
+          </li> 
+        -->
+      </ul>
       <div id="total">
         <p id="total-label">Total</p>
         <P id="total-amount">0</P>
       </div>
     </div>
     <form id="form-entry">
-      <input  type="number" placeholder="Enter Amount" step="0.01" id="new-item">
+      <input  type="text" placeholder="Enter Item" id="item-name">
+      <input  type="number" placeholder="Enter Amount" step="0.01" id="item-price">
       <button type="submit" id="entry">Enter</button>
     </form>
 

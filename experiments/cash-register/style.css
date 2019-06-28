@@ -57,7 +57,6 @@ p {
 
 /* site main */
 
-
 .screen {
   background-color: white;
   text-align: right; 
@@ -67,10 +66,26 @@ p {
 
 .item-wraper {
   margin: 0px;
+  list-style-type: none;
 }
 
 .item {
   margin: 5px 0px;
+  font-size: 18px;
+  display: grid;
+  grid-template-columns: 10% 70% 20%;
+  grid-template-rows: auto;
+}
+
+#name {
+  font-weight: bold;
+}
+
+#delete-btn {
+  border: none;
+  background: white;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .item:last-child {
@@ -95,8 +110,8 @@ p {
 #form-entry {
   display: flex;
   flex-direction: row;
-  align-content: space-around;
-  padding-top: 10px;
+  justify-content: space-between;
+  padding-top: 35px;
 }
 
 #form-entry input {
@@ -112,7 +127,7 @@ p {
 }
 
 #form-entry input::placeholder {
-  color: white;
+  color: #959495;
 }
 
 #entry {

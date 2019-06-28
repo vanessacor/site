@@ -1,7 +1,8 @@
 'use strict'
 
 const button = document.getElementById('entry');
-const input = document.getElementById('new-item');
+const input = document.getElementById('item-price');
+const inputName = document.getElementById('item-name');
 const total = document.getElementById('total-amount');
 const container = document.querySelector('.item-wraper');
 
@@ -10,37 +11,42 @@ button.addEventListener('click', handleSubmit);
 
 // business logic
 
-const items = [];
+const itemsList = [];
 
-function addItem(newValue) {
-  items.push(newValue);
+function addItem(name, newValue) {
+  itemsList.push({name, newValue});
 }
+
 
 function formatCurrency (value) {
   return (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value));
-  //return value + '€';
 }
 
 function calculateTotal () {
-  return items.reduce((a, b) => a + b, 0);
+  return itemsList.reduce((a, b) => a + b.newValue, 0);
 }
 
 // ui
 
 function handleSubmit (ev) {
   ev.preventDefault();
+  let newName = inputName.value;
   const newValue = Number(input.value);
   input.value = '';
-  addItem(newValue);
+  addItem(newName,newValue);
 
   updateTotal();
   addItemDisplay(newValue);
 }
 
 function addItemDisplay(newValue) {
-  const newItem = document.createElement('p');
+  const newItem = document.createElement('li');
   newItem.setAttribute('class', 'item');
-  newItem.innerHTML = formatCurrency(newValue);
+  newItem.innerHTML = `<button id="delete-btn">
+  <i class="far fa-trash-alt"></i>
+</button>
+<span id="name">${inputName.value}</span>
+<span id="price">${formatCurrency(newValue)}</span>`;
   container.appendChild(newItem);
 }
 
