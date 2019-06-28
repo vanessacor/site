@@ -75,10 +75,15 @@ p {
   display: grid;
   grid-template-columns: 10% 70% 20%;
   grid-template-rows: auto;
+  justify-items: center;
 }
 
 #name {
   font-weight: bold;
+}
+
+#price {
+  justify-self: end;
 }
 
 #delete-btn {
@@ -121,9 +126,15 @@ p {
   border: none;
   box-shadow: inset 0px 1px 10px 1px #bab8ba;
   background-color: white;
-  font-size: 21px;
+  font-size: 12px;
   text-align: right;
   color: #959495;
+}
+
+@media (min-width: 576px) {
+  #form-entry input {
+    font-size: 24px;
+  }
 }
 
 #form-entry input::placeholder {

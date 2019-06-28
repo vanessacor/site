@@ -43,10 +43,9 @@ function addItemDisplay(newValue) {
   const newItem = document.createElement('li');
   newItem.setAttribute('class', 'item');
   newItem.innerHTML = `<button id="delete-btn">
-  <i class="far fa-trash-alt"></i>
-</button>
-<span id="name">${inputName.value}</span>
-<span id="price">${formatCurrency(newValue)}</span>`;
+    <i class="far fa-trash-alt"></i></button>
+    <span id="name">${inputName.value}</span>
+    <span id="price">${formatCurrency(newValue)}</span>`;
   container.appendChild(newItem);
 }
 
