@@ -64,6 +64,7 @@ p {
   padding: 20px 10px;
 }
 
+
 .item-wraper {
   margin: 0px;
   list-style-type: none;
@@ -78,6 +79,15 @@ p {
   justify-items: center;
 }
 
+.negative {
+  margin: 5px 0px;
+  font-size: 18px;
+  display: grid;
+  grid-template-columns: 10% 70% 20%;
+  grid-template-rows: auto;
+  justify-items: center;
+  color: red;
+}
 #name {
   font-weight: bold;
 }

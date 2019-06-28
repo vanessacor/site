@@ -31,6 +31,7 @@ function calculateTotal () {
 function handleSubmit (ev) {
   ev.preventDefault();
   let newName = inputName.value;
+  inputName.value = '';
   const newValue = Number(input.value);
   input.value = '';
   addItem(newName,newValue);
@@ -41,7 +42,12 @@ function handleSubmit (ev) {
 
 function addItemDisplay(newValue) {
   const newItem = document.createElement('li');
-  newItem.setAttribute('class', 'item');
+  if (newValue < 0) {
+    newItem.setAttribute('class', 'negative')
+  } else {
+    newItem.setAttribute('class', 'item');
+    }
+
   newItem.innerHTML = `<button id="delete-btn">
     <i class="far fa-trash-alt"></i></button>
     <span id="name">${inputName.value}</span>
