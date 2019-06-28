@@ -88,6 +88,7 @@ p {
   justify-items: center;
   color: red;
 }
+
 #name {
   font-weight: bold;
 }
@@ -104,6 +105,10 @@ p {
 }
 
 .item:last-child {
+  border-bottom: 2px solid black;
+}
+
+.negative:last-child {
   border-bottom: 2px solid black;
 }
 

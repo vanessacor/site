@@ -31,7 +31,6 @@ function calculateTotal () {
 function handleSubmit (ev) {
   ev.preventDefault();
   let newName = inputName.value;
-  inputName.value = '';
   const newValue = Number(input.value);
   input.value = '';
   addItem(newName,newValue);
