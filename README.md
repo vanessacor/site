@@ -2,14 +2,29 @@
 
 # todo
 
-- countdown - restart
-- refactor game mobile first
-- improve layout concrete surfers
+- site
+  - move rock-paper scissors to experiments
+
+- cash register
+  - red negative total
+  - validation (use a function), check name and/or number empty, show message
+  - category `<select>`
+
+- javascript experiment page
+  - countdown - restart
+
+- rock paper scissors
+  - refactor mobile first
+
+- concrete surfers
+  - improve layout 
   - space between elements
   - align elements
-- improve etch-a-sketch functionality
+
+- etch-a-sketch 
+  - improve functionality
   - change to each pass to add just 10% black
-- improve layout etch-a-sketch
-  - buttons (position)
-  - font sizes
+  - improve layout 
+    - buttons (position)
+    - font sizes
 

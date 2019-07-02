@@ -68,6 +68,7 @@ p {
 .item-wraper {
   margin: 0px;
   list-style-type: none;
+  padding-left: 0;
 }
 
 .item {
@@ -79,13 +80,7 @@ p {
   justify-items: center;
 }
 
-.negative {
-  margin: 5px 0px;
-  font-size: 18px;
-  display: grid;
-  grid-template-columns: 10% 70% 20%;
-  grid-template-rows: auto;
-  justify-items: center;
+.item-negative {
   color: red;
 }
 
@@ -97,7 +92,7 @@ p {
   justify-self: end;
 }
 
-#delete-btn {
+.delete-btn {
   border: none;
   background: white;
   padding: 5px;
