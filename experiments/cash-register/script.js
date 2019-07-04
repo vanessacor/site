@@ -5,6 +5,8 @@ const inputPrice = document.getElementById('item-price');
 const inputName = document.getElementById('item-name');
 const total = document.getElementById('total-amount');
 const container = document.querySelector('.item-wraper');
+const itemFeedback = document.getElementById('item-feedback');
+const priceFeedback = document.getElementById('price-feedback');
 
 button.addEventListener('click', handleSubmit);
 
@@ -33,14 +35,20 @@ function calculateTotal () {
 
 function handleSubmit (ev) {
   ev.preventDefault();
-  const newName = inputName.value;
-  const newValue = Number(inputPrice.value);
-  inputPrice.value = '';
-  inputName.value = '';
-  addItem(newName, newValue);
-  
-  updateTotal();
-  addItemDisplay(newName, newValue);
+  displayFeedback();
+  if (!validateInput()) {
+    const newName = inputName.value;
+    const newValue = Number(inputPrice.value);
+    inputPrice.value = '';
+    inputName.value = '';
+    addItem(newName, newValue);
+    
+    updateTotal();
+    addItemDisplay(newName, newValue);
+  };
+  if(validateInput()) {
+    return false;
+  }
 }
 
 function handleDelete (ev) {
@@ -81,7 +89,33 @@ function removeItemDisplay(ev) {
 function updateTotal () {
   const newTotal = calculateTotal();
   total.innerText = formatCurrency(newTotal);
+  if (newTotal < 0) {
+    total.setAttribute('class', 'total-amount-negative')
+  }
+  else {
+    total.classList.remove('class', 'total-amount-negative')
+  }
 }
 
 
+function validateInput() {
+   return inputName.value === '' || inputPrice.value === ''
+}
+
+
+//is there a better efficient way to do this?
+function displayFeedback () {
+  if (inputName.value == '') {
+    itemFeedback.style.display = 'block';
+  }     
+  else {
+    itemFeedback.style.display = 'none';
+  }
+  if (inputPrice.value == '') {
+    priceFeedback.style.display = 'block';
+  } 
+  else {
+    priceFeedback.style.display = 'none';
+  }
+}
 

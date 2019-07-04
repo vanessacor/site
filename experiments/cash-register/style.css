@@ -64,7 +64,6 @@ p {
   padding: 20px 10px;
 }
 
-
 .item-wraper {
   margin: 0px;
   list-style-type: none;
@@ -122,11 +121,16 @@ p {
   margin: 0px
 }
 
+.total-amount-negative {
+  color: red;
+}
+
 #form-entry {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-top: 35px;
+  margin-bottom: 10px;
 }
 
 #form-entry input {
@@ -166,4 +170,25 @@ p {
   background-color: #348a60;
   color: white;
   box-shadow: none;
+}
+
+.feedback {
+  display: flex;
+  flex-direction: row;
+  color: red;
+  font-weight: bold;
+}
+
+.feedback > p {
+  width: 40%;
+  margin-top: 0;
+  font-size: 16px;
+}
+
+#item-feedback {
+  display: none;
+}
+
+#price-feedback {
+  display: none;
 }

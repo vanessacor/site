@@ -6,8 +6,6 @@
   - move rock-paper scissors to experiments
 
 - cash register
-  - red negative total
-  - validation (use a function), check name and/or number empty, show message
   - category `<select>`
 
 - javascript experiment page
