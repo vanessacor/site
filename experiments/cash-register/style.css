@@ -74,7 +74,7 @@ p {
   margin: 5px 0px;
   font-size: 18px;
   display: grid;
-  grid-template-columns: 10% 70% 20%;
+  grid-template-columns: 10% 35% 35% 20%;
   grid-template-rows: auto;
   justify-items: center;
 }
@@ -89,6 +89,10 @@ p {
 
 #price {
   justify-self: end;
+}
+
+#category {
+  justify-self: center;
 }
 
 .delete-btn {
@@ -134,7 +138,7 @@ p {
 }
 
 #form-entry input {
-  width: 60%;
+  width: 40%;
   padding: 10px;
   margin-right: 14px;
   border: none;
@@ -145,8 +149,22 @@ p {
   color: #959495;
 }
 
+#categories-choice {
+  width: 40%;
+  margin-right: 14px;
+  background-color: white;
+  border: none;
+  box-shadow: inset 0px 1px 10px 1px #bab8ba;
+  padding: 5px;
+  color: #959495;
+}
+
 @media (min-width: 576px) {
   #form-entry input {
+    font-size: 24px;
+  }
+  
+  #categories-choice {
     font-size: 24px;
   }
 }
@@ -156,14 +174,14 @@ p {
 }
 
 #entry {
-  width: 35%;
+  width: 15%;
   background-color: #4abd85;
   box-shadow: 5px 5px 10px #959495;
   border: none;
   border-radius: 3px;
   transition: 1s;
   color: #323339;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 #entry:hover {

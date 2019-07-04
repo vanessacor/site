@@ -3,6 +3,7 @@
 const button = document.getElementById('entry');
 const inputPrice = document.getElementById('item-price');
 const inputName = document.getElementById('item-name');
+const inputCategory = document.getElementById('categories-choice');
 const total = document.getElementById('total-amount');
 const container = document.querySelector('.item-wraper');
 const itemFeedback = document.getElementById('item-feedback');
@@ -15,20 +16,20 @@ button.addEventListener('click', handleSubmit);
 
 const itemsList = [];
 
-function addItem(name, newValue) {
-  itemsList.push({name, newValue});
+function addItem(category, name, price) {
+  itemsList.push({name, price});
 }
 
 function removeItem (index) {
   itemsList.splice(index, 1);
 }
 
-function formatCurrency (value) {
-  return (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value));
+function formatCurrency (price) {
+  return (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(price));
 }
 
 function calculateTotal () {
-  return itemsList.reduce((a, b) => a + b.newValue, 0);
+  return itemsList.reduce((a, b) => a + b.price, 0);
 }
 
 // ui event handlers
@@ -36,15 +37,17 @@ function calculateTotal () {
 function handleSubmit (ev) {
   ev.preventDefault();
   displayFeedback();
-  if (!validateInput()) {
-    const newName = inputName.value;
-    const newValue = Number(inputPrice.value);
+  const newCategory = inputCategory.options[inputCategory.selectedIndex].value;
+  const newName = inputName.value;
+  const newPrice = Number(inputPrice.value);
+  if (!validateInput(newName, newPrice)) {
+    inputCategory.value = 0;
     inputPrice.value = '';
     inputName.value = '';
-    addItem(newName, newValue);
+    addItem(newCategory, newName, newPrice);
     
     updateTotal();
-    addItemDisplay(newName, newValue);
+    addItemDisplay(newCategory, newName, newPrice);
   };
   if(validateInput()) {
     return false;
@@ -63,9 +66,9 @@ function handleDelete (ev) {
 
 // ui update dom
 
-function addItemDisplay(newName, newValue) {
+function addItemDisplay(newCategory, newName, newPrice) {
   const newItem = document.createElement('li');
-  if (newValue < 0) {
+  if (newPrice < 0) {
     newItem.setAttribute('class', 'item item-negative')
   } else {
     newItem.setAttribute('class', 'item');
@@ -73,8 +76,9 @@ function addItemDisplay(newName, newValue) {
   
   newItem.innerHTML = `<button class="delete-btn">
   <i class="far fa-trash-alt"></i></button>
+  <span id="category">${newCategory}</span>
   <span id="name">${newName}</span>
-  <span id="price">${formatCurrency(newValue)}</span>`;
+  <span id="price">${formatCurrency(newPrice)}</span>`;
   
   const deleteButton = newItem.querySelector('.delete-btn');
   deleteButton.addEventListener ('click', handleDelete)  
@@ -98,8 +102,8 @@ function updateTotal () {
 }
 
 
-function validateInput() {
-   return inputName.value === '' || inputPrice.value === ''
+function validateInput(name, price) {
+   return !name || !price
 }
 
 
