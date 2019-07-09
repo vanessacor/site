@@ -11,9 +11,6 @@
 - javascript experiment page
   - countdown - restart
 
-- rock paper scissors
-  - refactor mobile first
-
 - concrete surfers
   - improve layout 
   - space between elements

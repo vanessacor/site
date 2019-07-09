@@ -6,6 +6,7 @@ const inputName = document.getElementById('item-name');
 const inputCategory = document.getElementById('categories-choice');
 const total = document.getElementById('total-amount');
 const container = document.querySelector('.item-wraper');
+const categoryFeedback = document.getElementById('category-feedback');
 const itemFeedback = document.getElementById('item-feedback');
 const priceFeedback = document.getElementById('price-feedback');
 
@@ -17,7 +18,7 @@ button.addEventListener('click', handleSubmit);
 const itemsList = [];
 
 function addItem(category, name, price) {
-  itemsList.push({name, price});
+  itemsList.push({category, name, price});
 }
 
 function removeItem (index) {
@@ -40,7 +41,7 @@ function handleSubmit (ev) {
   const newCategory = inputCategory.options[inputCategory.selectedIndex].value;
   const newName = inputName.value;
   const newPrice = Number(inputPrice.value);
-  if (!validateInput(newName, newPrice)) {
+  if (!validateInput(newCategory, newName, newPrice)) {
     inputCategory.value = 0;
     inputPrice.value = '';
     inputName.value = '';
@@ -102,13 +103,20 @@ function updateTotal () {
 }
 
 
-function validateInput(name, price) {
-   return !name || !price
+function validateInput(category,name, price) {
+   return !category || !name || !price 
 }
 
 
 //is there a better efficient way to do this?
 function displayFeedback () {
+  if (inputCategory.value == '') {
+    categoryFeedback.style.display = 'block';
+  }
+  else {
+    categoryFeedback.style.display = 'none'
+  }
+
   if (inputName.value == '') {
     itemFeedback.style.display = 'block';
   }     

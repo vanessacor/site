@@ -112,6 +112,10 @@ a {
   border-radius: 6px;
 }
 
+.form-field:last-child {
+  padding-top: 10px;
+}
+
 .feedback {
   display: none;
   color: red;
@@ -193,10 +197,15 @@ a {
   padding-left: 10px;
 }
 
+
 @media (min-width: 768px) {
   .container {
     margin: 0 auto;
     max-width: 700px;
+  }
+
+  #trusts:last-child {
+    margin-left: 10px;
   }
 
   #playbtn {
@@ -208,6 +217,7 @@ a {
   #playbtn i {
     padding-left: 20px;
   }
+
 }
 
 @media (min-width : 1224px) {
@@ -255,12 +265,12 @@ a {
   }
 
   #trusts {
-    flex-basis: 28%;
     padding-top: 110px;
     margin-bottom: 200px;
   }
 
   #trusts p {
+    max-width: 435px;
     font-size: 20px;
   }
 

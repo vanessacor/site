@@ -55,6 +55,7 @@ margin: 0 20px;
 /* site header */
 
 #site-header{
+  padding-top: 65px;
   text-align: center;
 }
    
@@ -63,13 +64,16 @@ margin: 0 20px;
 #players {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .game {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-column-gap: 5px;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .game p {
@@ -81,7 +85,6 @@ margin: 0 20px;
   border-radius: 5px;
   width: 115px;
   height: 115px;
-  margin-bottom: 80px;
 }
 
 #choices {
@@ -94,6 +97,7 @@ margin: 0 20px;
    display: block;
    text-align: center;
  }
+
 #player-wins, #computer-wins {
   display: none;
 }
@@ -122,7 +126,7 @@ margin: 0 20px;
 .button {
   border-radius: 5px;
   font-size: 40px;
-  padding: 14px 16px;
+  padding: 16px 16px;
   border: none;
   cursor: pointer;
 }
@@ -153,12 +157,16 @@ margin: 0 20px;
     font-size: 32px;
   }
 
-  p {
-    font-size: 18px;
+  #players p {
+    font-size: 12px;
+  }
+
+  .game {
+    margin-bottom: 100px;
   }
 
   .game p {
-    font-size: 22px;
+    font-size: 44px;
   }
 
   .move {

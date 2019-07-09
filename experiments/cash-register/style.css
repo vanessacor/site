@@ -203,6 +203,10 @@ p {
   font-size: 16px;
 }
 
+#category-feedback {
+  display: none;
+}
+
 #item-feedback {
   display: none;
 }
