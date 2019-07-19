@@ -18,29 +18,33 @@
 
   <main id="site-main" class="container">
     <div class="calculator" >
-      <input  type="text" id="screen" value="0">
-      <button id="division" class ="button">&divide</button>
-      <button id="multiple" class ="button">&times;</button>
-      <button id="takeaway" class ="button">&minus;</button>
-      <button id="addition" class ="button">+</button>
-      <button id="seven" class ="button" value="7">7</button>
-      <button id="eight" class ="button" value="8">8</button>
-      <button id="nine" class ="button" value="9">9</button>
-      <button id="backspace" class ="button">⌫</button>
-      <button id="four" class ="button" value="4">4</button>
-      <button id="five" class ="button"value="5">5</button>
-      <button id="six" class ="button" value="6">6</button>
-      <button id="reset" class ="button">C</button>
-      <button id="one" class ="button" value="1">1</button>
-      <button id="two" class ="button" value="2">2</button>
-      <button id="3" class ="button" value="3">3</button>
-      <button id="equal" class ="button">=</button>
-      <button id="dot" class ="button">.</button>
-      <button id="zero" class ="button" value="0">0</button>
+      <div id="screen">
+        <p id="operations"></p>
+        <p id="result"></p>
+      </div>
+      <button id="division" class="button operator" value="/">&divide;</button>
+      <button id="multiple" class="button operator" value="*">&times;</button>
+      <button id="takeaway" class="button operator" value="-">&minus;</button>
+      <button id="addition" class="button operator" value="+">&plus;</button>
+      <button id="seven" class="button digit" value="7">7</button>
+      <button id="eight" class="button digit" value="8">8</button>
+      <button id="nine" class="button digit" value="9">9</button>
+      <button id="backspace" class="button">⌫</button>
+      <button id="four" class="button digit" value="4">4</button>
+      <button id="five" class="button digit"value="5">5</button>
+      <button id="six" class="button digit" value="6">6</button>
+      <button id="reset" class="button">C</button>
+      <button id="one" class="button digit" value="1">1</button>
+      <button id="two" class="button digit" value="2">2</button>
+      <button id="three" class="button digit" value="3">3</button>
+      <button id="equal" class="button digit">=</button>
+      <button id="dot" class="button digit" value=".">.</button>
+      <button id="zero" class="button digit" value="0">0</button>
     </div>
 
 
-    <script src="script.js"></script>
+    <script src="calculator.js"></script>
+    <script src="calculator-ui.js"></script>
     <script src="../../scripts/banner.js"></script>
 
   </body>
