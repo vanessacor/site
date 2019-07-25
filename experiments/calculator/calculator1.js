@@ -3,33 +3,7 @@
 let expressionParts = [];
 
 
- function createEquation () {
-   if (expressionParts.length <= 3) {
-     let a = expressionParts[0];
-     let op = expressionParts[1];
-     let b = expressionParts[2]
-     calculate(a, op, b)
-   }
-
-   else {
-    let calculateEquation = expressionParts.slice(-2);
-      let a = result;
-      let op = calculateEquation[0];
-      let b = calculateEquation[1]
-      calculate (a, op, b)
-   }
- }
-
-// function createEquation () {
-//   let calculateEquation = expressionParts.slice(-2);
-//   let a = result;
-//   let op = calculateEquation[0];
-//   let b = calculateEquation[1]
-//   calculate (a, op, b)
-// }
-
-
-let result = 0;
+let result;
 
 
 const operators = [ '+', '-', '*', '/']
@@ -37,7 +11,7 @@ const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.']
 
 //Operations
 function add (a, b) {
-  return +a + +b; // can I used this? 
+  return a + b;
 }
 
 function subtract (a, b) {
@@ -85,7 +59,6 @@ function changeOperators (symbol){
 
 }
 
-
 function processKey (symbol) {  
   const lastElement = expressionParts[expressionParts.length - 1];
   if (symbol === '.' && lastElement === '.') {
@@ -96,38 +69,33 @@ function processKey (symbol) {
     console.log('2nd if');
     const newNumb = lastElement.concat(symbol);
     expressionParts[expressionParts.length - 1] = newNumb;
+      if (isNaN(lastElement)) {
+        console.log('3rd if');
+        expressionParts.push(symbol);
+      }
+
   }
 
-  if (operators.includes(lastElement) && !operators.includes(symbol) || lastElement === undefined) {
-    console.log('3rd if');
-    expressionParts.push(symbol);
-  }
-
+  
   if (operators.includes(symbol) && !operators.includes(lastElement)) {
     console.log('4th if');
-    if (expressionParts.length > 2) {
-      createEquation();
-    }
+    // calculate(firstElement, operator, lastElement); 
     //does the last operation. Now to figure it out how to replace or where to put it
     expressionParts.push(symbol);
+      if (operators.includes(symbol) && operators.includes(lastElement)) {
+        console.log('5th');
+        changeOperators(symbol);
+      
+      }
+
   };
 
-  if (operators.includes(symbol) && operators.includes(lastElement)) {
-    console.log('5th');
-    changeOperators(symbol);
-    
-  }
 
   if (symbol === '=' && operators.includes(lastElement)) {
     console.log('error');  
   }
 
   if (symbol === '=') {
-    createEquation()
+    calculate(firstElement, operator, lastElement)
   }
 }
-
-
-
-
-
