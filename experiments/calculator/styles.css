@@ -82,8 +82,15 @@ p {
   margin: 0;
 }
 
+#operations {
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
 #result {
-  display: none;
+  display: block;
+  padding-top: 26px;
+  font-weight: 900;
 }
 
 .temp-result {
