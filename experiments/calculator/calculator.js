@@ -105,9 +105,7 @@ function processKey (symbol) {
 
   if (operators.includes(symbol) && !operators.includes(lastElement)) {
     console.log('4th if');
-    if (expressionParts.length > 2) {
-      createEquation();
-    }
+    createEquation();
     //does the last operation. Now to figure it out how to replace or where to put it
     expressionParts.push(symbol);
   };
