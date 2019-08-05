@@ -5,6 +5,7 @@ let expressionParts = [];
 const operators = [ '+', '-', '*', '/']
 const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.']
 
+
 //Operations
 function add (a, b) {
   return a + b;
@@ -50,6 +51,10 @@ function computeResult (expression) {
   return result;
 }
 
+function resetExpression () {
+  expressionParts = [];
+}
+
 
 function isSymbolOperatorAndLastElementOperator(symbol, lastElement) {
   return operators.includes(symbol) && operators.includes(lastElement);
@@ -67,6 +72,10 @@ function isSymbolNumberAndLastElementNumber(symbol, lastElement) {
   return numbers.includes(symbol) && lastElement && !operators.includes(lastElement);
 }
 
+function isSymbolBackspaceAndLastElementNumber(symbol, lastElement) {
+  return symbol === 'backspace' && !operators.includes(lastElement);
+}
+
 function changeOperators (symbol){
   expressionParts.pop();
   expressionParts.push(symbol);
@@ -81,11 +90,12 @@ function modifyLastExpressionPart(lastElement, symbol) {
   expressionParts[expressionParts.length - 1] = newNumb;
 }
 
-
 function processKey (symbol) {  
   let result;
 
   const lastElement = expressionParts[expressionParts.length - 1];
+
+  // TODO if symbol is reset
 
   // TODO if symbol is . and last element CONTAINS a dot
   if (symbol === '.' && lastElement === '.') {
@@ -113,13 +123,31 @@ function processKey (symbol) {
     if (expressionParts.length < 3) {
       addExpressionPart(symbol);
     } else {
-      result = computeResult(expressionParts);
+      result = computeResult(expressionParts)
+      resetExpression();
+      
     }
   };
 
   if (isSymbolOperatorAndLastElementOperator(symbol, lastElement)) {
     console.log('5th');
     changeOperators(symbol);
+  }
+
+  if (isSymbolBackspaceAndLastElementNumber(symbol, lastElement)) {
+    console.log('backspace');
+    if (lastElement.length < 2) {
+      expressionParts.pop(lastElement)
+    } else {
+      let newNumb = lastElement.slice(0, -1);
+      expressionParts.pop();  
+      expressionParts.push(newNumb);
+    }
+    
+    if (expressionParts.length === 3) {
+      result = computeResult(expressionParts);
+    }
+    
   }
 
   // if symbol is BS and last element number

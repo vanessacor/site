@@ -7,18 +7,30 @@ const expressionScreen = document.getElementById('operations');
 const resultScreen = document.getElementById('result');
 
 function updateOperations () {
-  expressionScreen.textContent = expressionParts.join('');
+
+  if (expressionParts.length < 4) {
+    expressionScreen.textContent = expressionParts.join('');
+
+  } else {
+    expressionScreen.textContent = result;
+  }
 }
 
 function updateResult (result) {
   resultScreen.textContent = result;
 }
 
+// TODO add event listner on #document key press, send keys to handleKey
+
 key.forEach((button)=> {
   button.addEventListener ('click', () => {
-    const result = processKey(button.value);
-    updateOperations();
-    updateResult(result);
+    handleKey(button.value);
   })
 });
+
+function handleKey(key) {
+  const result = processKey(key);
+  updateOperations();
+  updateResult(result);
+}
 
