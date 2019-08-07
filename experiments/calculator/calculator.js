@@ -51,8 +51,8 @@ function computeResult (expression) {
   return result;
 }
 
-function resetExpression () {
-  expressionParts = [];
+function resetExpression (part) {
+  expressionParts = [part];
 }
 
 
@@ -65,7 +65,7 @@ function isSymbolOperatorAndLastElementNumber(symbol, lastElement) {
 }
 
 function isSymbolNumberAndLastElementOperatorOrNothing(symbol, lastElement) {
-  return !operators.includes(symbol) && operators.includes(lastElement) || lastElement === undefined;
+  return !operators.includes(symbol) && operators.includes(lastElement) && symbol !== 'backspace' || lastElement === undefined;
 }
 
 function isSymbolNumberAndLastElementNumber(symbol, lastElement) {
@@ -74,6 +74,10 @@ function isSymbolNumberAndLastElementNumber(symbol, lastElement) {
 
 function isSymbolBackspaceAndLastElementNumber(symbol, lastElement) {
   return symbol === 'backspace' && !operators.includes(lastElement);
+}
+
+function isSymbolBackspaceAndLastElementOperator (symbol, lastElement) {
+  return symbol === 'backspace' && operators.includes(lastElement);
 }
 
 function changeOperators (symbol){
@@ -103,7 +107,6 @@ function processKey (symbol) {
   }
   
   if (isSymbolNumberAndLastElementNumber(symbol, lastElement)) {
-    console.log('2nd if');
     modifyLastExpressionPart(lastElement, symbol);
     if (expressionParts.length === 3) {
       result = computeResult(expressionParts);
@@ -111,7 +114,6 @@ function processKey (symbol) {
   }
 
   if (isSymbolNumberAndLastElementOperatorOrNothing(symbol, lastElement)) {
-    console.log('3rd if');
     addExpressionPart(symbol);
     if (expressionParts.length === 3) {
       result = computeResult(expressionParts);
@@ -119,23 +121,20 @@ function processKey (symbol) {
   }
 
   if (isSymbolOperatorAndLastElementNumber(symbol, lastElement)) {
-    console.log('4th if');
     if (expressionParts.length < 3) {
       addExpressionPart(symbol);
     } else {
       result = computeResult(expressionParts)
-      resetExpression();
-      
+      resetExpression(String(result));
+      addExpressionPart(symbol);
     }
   };
 
   if (isSymbolOperatorAndLastElementOperator(symbol, lastElement)) {
-    console.log('5th');
     changeOperators(symbol);
   }
 
   if (isSymbolBackspaceAndLastElementNumber(symbol, lastElement)) {
-    console.log('backspace');
     if (lastElement.length < 2) {
       expressionParts.pop(lastElement)
     } else {
@@ -143,19 +142,21 @@ function processKey (symbol) {
       expressionParts.pop();  
       expressionParts.push(newNumb);
     }
-    
+
     if (expressionParts.length === 3) {
       result = computeResult(expressionParts);
     }
     
   }
 
-  // if symbol is BS and last element number
-  //   modify last element, if last element is now empty pop it from expression
-  //   if expresson still has length 3, compute
-
+  if (isSymbolBackspaceAndLastElementOperator(symbol, lastElement)) {
+    expressionParts.pop(lastElement);
+    result = computeResult(expressionParts);
+  }
   // if symbol is BS and last element operator
   // pop it
+
+
 
   if (symbol === '=' && operators.includes(lastElement)) {
     console.log('error');  
@@ -163,7 +164,7 @@ function processKey (symbol) {
 
   if (symbol === '=') {
     result = computeResult(expressionParts);
-    expressionParts = [String(result)];
+    resetExpression(String(result));
     result = undefined;
   }
 
