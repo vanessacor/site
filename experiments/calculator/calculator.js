@@ -2,11 +2,13 @@
 
 let expressionParts = [];
 
-const operators = [ '+', '-', '*', '/']
-const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.']
+const DOT = '.';
+const EQUALS = '=';
+const BACKSPACE = 'Backspace'; 
+const OPERATORS = [ '+', '-', '*', '/']
 
+// operations
 
-//Operations
 function add (a, b) {
   return a + b;
 }
@@ -42,42 +44,27 @@ function calculate (a, op, b) {
 }
 
 function computeResult (expression) {
+  const a = Number(expression[0]);
+  const op = expression[1];
+  const b = Number(expression[2]);
+  const result = calculate(a, op, b);
 
-  let a = Number(expression[0]);
-  let op = expression[1];
-  let b = Number(expression[2]);
-  let result = calculate(a, op, b);
-
-  return result;
+  return result.toFixed(2);
 }
 
 function resetExpression (part) {
-  expressionParts = [part];
+  expressionParts = [];
+  if (part) {
+    expressionParts.push(part);
+  }
 }
 
-
-function isSymbolOperatorAndLastElementOperator(symbol, lastElement) {
-  return operators.includes(symbol) && operators.includes(lastElement);
+function isNumber(value) {
+  return typeof value !== 'undefined' && (value === "." || !isNaN(Number(value)))
 }
 
-function isSymbolOperatorAndLastElementNumber(symbol, lastElement) {
-  return operators.includes(symbol) && !operators.includes(lastElement);
-}
-
-function isSymbolNumberAndLastElementOperatorOrNothing(symbol, lastElement) {
-  return !operators.includes(symbol) && operators.includes(lastElement) && symbol !== 'backspace' || lastElement === undefined;
-}
-
-function isSymbolNumberAndLastElementNumber(symbol, lastElement) {
-  return numbers.includes(symbol) && lastElement && !operators.includes(lastElement);
-}
-
-function isSymbolBackspaceAndLastElementNumber(symbol, lastElement) {
-  return symbol === 'backspace' && !operators.includes(lastElement);
-}
-
-function isSymbolBackspaceAndLastElementOperator (symbol, lastElement) {
-  return symbol === 'backspace' && operators.includes(lastElement);
+function isOperator(value) {
+  return OPERATORS.includes(value);
 }
 
 function changeOperators (symbol){
@@ -89,38 +76,42 @@ function addExpressionPart(symbol) {
   expressionParts.push(symbol);
 }
 
-function modifyLastExpressionPart(lastElement, symbol) {
-  const newNumb = lastElement.concat(symbol);
+function modifyLastExpressionPart(lastExpressionPart, symbol) {
+  const newNumb = lastExpressionPart.concat(symbol);
   expressionParts[expressionParts.length - 1] = newNumb;
 }
 
 function processKey (symbol) {  
   let result;
 
-  const lastElement = expressionParts[expressionParts.length - 1];
+  const lastExpressionPart = expressionParts[expressionParts.length - 1];
 
   // TODO if symbol is reset
 
-  // TODO if symbol is . and last element CONTAINS a dot
-  if (symbol === '.' && lastElement === '.') {
+  if (symbol === DOT && lastExpressionPart && lastExpressionPart.includes('.')) {
     return;
   }
+
+  if (isNumber(symbol) && isNumber(lastExpressionPart)) {
+    modifyLastExpressionPart(lastExpressionPart, symbol);
+    if (expressionParts.length === 3) {
+      result = computeResult(expressionParts);
+    } 
+  }
+
+  if (isNumber(symbol) && (isOperator(lastExpressionPart) || !lastExpressionPart)) {
+    if (symbol === DOT) {
+      addExpressionPart("0.");
+    }
+    else {
+      addExpressionPart(symbol);
+    }
+    if (expressionParts.length === 3) {
+      result = computeResult(expressionParts);
+    } 
+  }
   
-  if (isSymbolNumberAndLastElementNumber(symbol, lastElement)) {
-    modifyLastExpressionPart(lastElement, symbol);
-    if (expressionParts.length === 3) {
-      result = computeResult(expressionParts);
-    } 
-  }
-
-  if (isSymbolNumberAndLastElementOperatorOrNothing(symbol, lastElement)) {
-    addExpressionPart(symbol);
-    if (expressionParts.length === 3) {
-      result = computeResult(expressionParts);
-    } 
-  }
-
-  if (isSymbolOperatorAndLastElementNumber(symbol, lastElement)) {
+  if (isOperator(symbol) && isNumber(lastExpressionPart)) {
     if (expressionParts.length < 3) {
       addExpressionPart(symbol);
     } else {
@@ -128,46 +119,40 @@ function processKey (symbol) {
       resetExpression(String(result));
       addExpressionPart(symbol);
     }
-  };
-
-  if (isSymbolOperatorAndLastElementOperator(symbol, lastElement)) {
+  }
+  
+  if (isOperator(symbol) && isOperator(lastExpressionPart)) {
     changeOperators(symbol);
   }
-
-  if (isSymbolBackspaceAndLastElementNumber(symbol, lastElement)) {
-    if (lastElement.length < 2) {
-      expressionParts.pop(lastElement)
+  
+  if (symbol === BACKSPACE && isNumber(lastExpressionPart)) {
+    if (lastExpressionPart.length < 2) {
+      expressionParts.pop(lastExpressionPart)
     } else {
-      let newNumb = lastElement.slice(0, -1);
+      let newNumb = lastExpressionPart.slice(0, -1);
       expressionParts.pop();  
       expressionParts.push(newNumb);
     }
-
+    
     if (expressionParts.length === 3) {
       result = computeResult(expressionParts);
     }
-    
   }
-
-  if (isSymbolBackspaceAndLastElementOperator(symbol, lastElement)) {
-    expressionParts.pop(lastElement);
+  
+  if (symbol === BACKSPACE && isOperator(lastExpressionPart)) {
+    expressionParts.pop(lastExpressionPart);
     result = computeResult(expressionParts);
   }
-  // if symbol is BS and last element operator
-  // pop it
 
-
-
-  if (symbol === '=' && operators.includes(lastElement)) {
+  if (symbol === EQUALS && isOperator(lastExpressionPart)) {
     console.log('error');  
   }
-
-  if (symbol === '=') {
+  
+  if (symbol === EQUALS) {
     result = computeResult(expressionParts);
-    resetExpression(String(result));
-    result = undefined;
+    resetExpression();
   }
-
+  
   return result;
 }
 

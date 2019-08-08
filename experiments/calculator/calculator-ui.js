@@ -20,7 +20,9 @@ function updateResult (result) {
   resultScreen.textContent = result;
 }
 
-// TODO add event listner on #document key press, send keys to handleKey
+document.addEventListener('keyup', (ev) => {
+   handleKey(event.key);
+})
 
 key.forEach((button)=> {
   button.addEventListener ('click', () => {
