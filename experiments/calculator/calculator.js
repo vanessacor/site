@@ -6,6 +6,7 @@ const DOT = '.';
 const EQUALS = '=';
 const BACKSPACE = 'Backspace'; 
 const OPERATORS = [ '+', '-', '*', '/']
+const reset = 'Escape'
 
 // operations
 
@@ -48,8 +49,11 @@ function computeResult (expression) {
   const op = expression[1];
   const b = Number(expression[2]);
   const result = calculate(a, op, b);
-
-  return result.toFixed(2);
+  if (result % 1 != 0) {
+    return result.toFixed(2)
+  } else {
+    return result;
+    }
 }
 
 function resetExpression (part) {
@@ -86,26 +90,24 @@ function processKey (symbol) {
 
   const lastExpressionPart = expressionParts[expressionParts.length - 1];
 
-  // TODO if symbol is reset
-
   if (symbol === DOT && lastExpressionPart && lastExpressionPart.includes('.')) {
     return;
   }
-
-  if (isNumber(symbol) && isNumber(lastExpressionPart)) {
+  
+  if (isNumber(symbol)) {
+    if (isNumber(lastExpressionPart)) {
     modifyLastExpressionPart(lastExpressionPart, symbol);
-    if (expressionParts.length === 3) {
-      result = computeResult(expressionParts);
-    } 
-  }
+    }
 
-  if (isNumber(symbol) && (isOperator(lastExpressionPart) || !lastExpressionPart)) {
-    if (symbol === DOT) {
+    if (isOperator(lastExpressionPart) || !lastExpressionPart) {
+      if (symbol === DOT) {
       addExpressionPart("0.");
-    }
-    else {
+      }
+      else {
       addExpressionPart(symbol);
+      }
     }
+
     if (expressionParts.length === 3) {
       result = computeResult(expressionParts);
     } 
@@ -118,41 +120,47 @@ function processKey (symbol) {
       result = computeResult(expressionParts)
       resetExpression(String(result));
       addExpressionPart(symbol);
-    }
+      }
   }
   
   if (isOperator(symbol) && isOperator(lastExpressionPart)) {
     changeOperators(symbol);
   }
   
-  if (symbol === BACKSPACE && isNumber(lastExpressionPart)) {
-    if (lastExpressionPart.length < 2) {
-      expressionParts.pop(lastExpressionPart)
-    } else {
-      let newNumb = lastExpressionPart.slice(0, -1);
-      expressionParts.pop();  
-      expressionParts.push(newNumb);
-    }
+  if (symbol === BACKSPACE) {
+    if (isNumber(lastExpressionPart)) {
+      if (lastExpressionPart.length < 2) {
+        expressionParts.pop(lastExpressionPart)
+      } else {
+          let newNumb = lastExpressionPart.slice(0, -1);
+          expressionParts.pop();  
+          expressionParts.push(newNumb);
+        }
     
     if (expressionParts.length === 3) {
       result = computeResult(expressionParts);
     }
   }
   
-  if (symbol === BACKSPACE && isOperator(lastExpressionPart)) {
-    expressionParts.pop(lastExpressionPart);
-    result = computeResult(expressionParts);
+    if (isOperator(lastExpressionPart)) {
+      expressionParts.pop(lastExpressionPart);
+    }
   }
 
-  if (symbol === EQUALS && isOperator(lastExpressionPart)) {
-    console.log('error');  
-  }
-  
   if (symbol === EQUALS) {
+    if (isOperator(lastExpressionPart)) {
+    console.log('error');
+    } 
+    else {
     result = computeResult(expressionParts);
     resetExpression();
+    }
   }
   
+  if (symbol === reset) {
+    resetExpression();
+  }
+
   return result;
 }
 
