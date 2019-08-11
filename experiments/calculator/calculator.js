@@ -49,11 +49,7 @@ function computeResult (expression) {
   const op = expression[1];
   const b = Number(expression[2]);
   const result = calculate(a, op, b);
-  if (result % 1 != 0) {
-    return result.toFixed(2)
-  } else {
-    return result;
-    }
+  return result;
 }
 
 function resetExpression (part) {
@@ -96,15 +92,14 @@ function processKey (symbol) {
   
   if (isNumber(symbol)) {
     if (isNumber(lastExpressionPart)) {
-    modifyLastExpressionPart(lastExpressionPart, symbol);
+      modifyLastExpressionPart(lastExpressionPart, symbol);
     }
 
     if (isOperator(lastExpressionPart) || !lastExpressionPart) {
       if (symbol === DOT) {
-      addExpressionPart("0.");
-      }
-      else {
-      addExpressionPart(symbol);
+        addExpressionPart("0.");
+      } else {
+        addExpressionPart(symbol);
       }
     }
 
@@ -112,35 +107,37 @@ function processKey (symbol) {
       result = computeResult(expressionParts);
     } 
   }
-  
-  if (isOperator(symbol) && isNumber(lastExpressionPart)) {
-    if (expressionParts.length < 3) {
-      addExpressionPart(symbol);
-    } else {
-      result = computeResult(expressionParts)
-      resetExpression(String(result));
-      addExpressionPart(symbol);
-      }
+
+  if (isOperator(symbol)) {
+    if (isNumber(lastExpressionPart)) {
+      if (expressionParts.length < 3) {
+        addExpressionPart(symbol);
+      } else {
+        result = computeResult(expressionParts)
+        resetExpression(String(result));
+        addExpressionPart(symbol);
+        }
+    }
+    
+    if (isOperator(lastExpressionPart)) {
+      changeOperators(symbol);
+    }
   }
-  
-  if (isOperator(symbol) && isOperator(lastExpressionPart)) {
-    changeOperators(symbol);
-  }
-  
+    
   if (symbol === BACKSPACE) {
     if (isNumber(lastExpressionPart)) {
       if (lastExpressionPart.length < 2) {
         expressionParts.pop(lastExpressionPart)
       } else {
-          let newNumb = lastExpressionPart.slice(0, -1);
-          expressionParts.pop();  
-          expressionParts.push(newNumb);
-        }
+        let newNumb = lastExpressionPart.slice(0, -1);
+        expressionParts.pop();  
+        expressionParts.push(newNumb);
+      }
     
-    if (expressionParts.length === 3) {
-      result = computeResult(expressionParts);
-    }
-  }
+      if (expressionParts.length === 3) {
+        result = computeResult(expressionParts);
+      }
+    } 
   
     if (isOperator(lastExpressionPart)) {
       expressionParts.pop(lastExpressionPart);
@@ -149,11 +146,9 @@ function processKey (symbol) {
 
   if (symbol === EQUALS) {
     if (isOperator(lastExpressionPart)) {
-    console.log('error');
-    } 
-    else {
-    result = computeResult(expressionParts);
-    resetExpression();
+    } else {
+      result = computeResult(expressionParts);
+      esetExpression();
     }
   }
   

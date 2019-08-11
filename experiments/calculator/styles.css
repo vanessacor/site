@@ -39,7 +39,7 @@ p {
 
 @media (min-width: 800px) {
   .container {
-    max-width: 640px;
+    max-width: 550px;
   }
 }
 
