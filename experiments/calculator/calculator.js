@@ -116,7 +116,7 @@ function processKey (symbol) {
         result = computeResult(expressionParts)
         resetExpression(String(result));
         addExpressionPart(symbol);
-        }
+      }
     }
     
     if (isOperator(lastExpressionPart)) {
@@ -148,7 +148,7 @@ function processKey (symbol) {
     if (isOperator(lastExpressionPart)) {
     } else {
       result = computeResult(expressionParts);
-      esetExpression();
+      resetExpression();
     }
   }
   
@@ -158,6 +158,3 @@ function processKey (symbol) {
 
   return result;
 }
-
-
-
