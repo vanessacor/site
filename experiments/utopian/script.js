@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const dayNames = [
   'Sunday',
@@ -25,7 +25,7 @@ const monthNames = [
 ];
 
 function formatDate (date) {
-  const dayOfTheWeek =  dayNames[date.getDay()];
+  const dayOfTheWeek = dayNames[date.getDay()];
   const day = date.getDate();
   const month = monthNames[date.getMonth()];
   const year = date.getFullYear();
@@ -34,7 +34,7 @@ function formatDate (date) {
 
 function main () {
   const now = new Date();
-  const today = formatDate(now); 
+  const today = formatDate(now);
   document.getElementById('time').innerHTML = today;
 }
 

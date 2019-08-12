@@ -1,10 +1,10 @@
-  'use strict'
-  
+'use strict';
+
 function main () {
   const $choices = document.getElementById('choices');
   const $choiceButtons = document.querySelectorAll('#choices button');
 
-  const $allMoves = document.querySelectorAll('.move i')
+  const $allMoves = document.querySelectorAll('.move i');
   const $playerScore = document.getElementById('player-score');
   const $computerScore = document.getElementById('computer-score');
 
@@ -20,18 +20,18 @@ function main () {
   $resetBtn.addEventListener('click', reset);
 
   function disableButtons () {
-    $choiceButtons.forEach((button)=> {
+    $choiceButtons.forEach((button) => {
       button.setAttribute('disabled', 'disabled');
     });
   }
 
-  function enableButtons () {    
-    $choiceButtons.forEach((button)=> {
+  function enableButtons () {
+    $choiceButtons.forEach((button) => {
       button.removeAttribute('disabled');
     });
   }
 
-  function playerClickedOnChoice(button) {
+  function playerClickedOnChoice (button) {
     disableButtons();
     setTimeout(() => {
       nextRound(button.id);
@@ -43,28 +43,27 @@ function main () {
     });
   }
 
-  $choiceButtons.forEach((button)=> {
-    button.addEventListener ('click', () => {
+  $choiceButtons.forEach((button) => {
+    button.addEventListener('click', () => {
       playerClickedOnChoice(button);
-    })
+    });
   });
 
-  //computer move
+  // computer move
 
   function computerMove () {
-    let result = ['rock', 'paper', 'scissors'];
-    let move = result[Math.floor(Math.random() * result.length)];
-    return move
+    const result = ['rock', 'paper', 'scissors'];
+    const move = result[Math.floor(Math.random() * result.length)];
+    return move;
   }
 
-  //scores
+  // scores
   function updateScore (playerMove, computerMove) {
     if (playerMove === 'rock' && computerMove === 'scissors' ||
     playerMove === 'paper' && computerMove === 'rock' ||
     playerMove === 'scissors' && computerMove === 'paper') {
       playerScore++;
-    }
-    else if (playerMove === 'scissors' && computerMove === 'rock' ||
+    } else if (playerMove === 'scissors' && computerMove === 'rock' ||
     playerMove === 'rock' && computerMove === 'paper' ||
     playerMove === 'paper' && computerMove === 'scissors') {
       computerScore++;
@@ -83,44 +82,43 @@ function main () {
   function displayGameOver () {
     $choices.style.display = 'none';
     $resetBtn.style.display = 'initial';
-    
+
     if (playerScore >= 5) {
       return $playerWins.style.display = 'block';
-    } else if (computerScore >= 5) {  
+    } else if (computerScore >= 5) {
       return $computerWins.style.display = 'block';
     }
   }
 
-  //game 
+  // game
   function nextRound (playerSelection) {
     if (!isGameOver()) {
-      let computerSelection = computerMove();
+      const computerSelection = computerMove();
       showHidePlayerMove('computer', computerSelection);
       updateScore(playerSelection, computerSelection);
       displayScore();
 
       if (isGameOver()) {
-        displayGameOver()
+        displayGameOver();
       }
     }
   }
 
-
   function showHidePlayerMove (player, move) {
     const moves = document.getElementById(`${player}-move`);
     const chosenMoveId = `${player}-${move}`;
-    Array.from(moves.children).forEach(icon =>{
-      const iconDisplayStyle = icon.id === chosenMoveId ? 'block' : 'none'
+    Array.from(moves.children).forEach(icon => {
+      const iconDisplayStyle = icon.id === chosenMoveId ? 'block' : 'none';
       icon.style.display = iconDisplayStyle;
     });
   }
 
-  //end game
+  // end game
   function reset () {
-    computerScore = 0
-    playerScore = 0
-    $playerScore.textContent= playerScore;
-    $computerScore.textContent= computerScore;
+    computerScore = 0;
+    playerScore = 0;
+    $playerScore.textContent = playerScore;
+    $computerScore.textContent = computerScore;
     $playerWins.style.display = 'none';
     $computerWins.style.display = 'none';
     $allMoves.forEach(function (i) {
@@ -129,7 +127,6 @@ function main () {
     $choices.style.display = 'flex';
     $resetBtn.style.display = 'none';
   }
-
 }
 
 window.addEventListener('load', main);

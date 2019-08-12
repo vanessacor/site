@@ -1,0 +1,25 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "standard"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly",
+        "describe": "readonly",
+        "beforeEach": "readonly",
+        "it": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "rules": {
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}

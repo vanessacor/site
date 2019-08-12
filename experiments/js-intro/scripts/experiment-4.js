@@ -1,8 +1,8 @@
 'use strict';
-//when login button is clicked:
-//validate name input
-//validate pass input
-//ok = no msg 
+// when login button is clicked:
+// validate name input
+// validate pass input
+// ok = no msg
 // invalid = required msg
 
 const userLogin = document.querySelector('#login form');
@@ -12,26 +12,23 @@ const ngthFeedback = document.getElementById('lengthfeedback');
 
 userLogin.addEventListener('submit', login);
 
-function login(event) {
+function login (event) {
   event.preventDefault();
-  let userName = document.getElementById('name').value;
-  let userPass = document.getElementById('pass').value;
+  const userName = document.getElementById('name').value;
+  const userPass = document.getElementById('pass').value;
   if (userName == '') {
     nameFeedback.style.display = 'block';
-  }     
-  else {
+  } else {
     nameFeedback.style.display = 'none';
   }
   if (userPass == '') {
     passFeedback.style.display = 'block';
-  } 
-  else {
+  } else {
     passFeedback.style.display = 'none';
   }
   if (userPass.length < 6) {
     ngthFeedback.style.display = 'block';
-  } 
-  else {
+  } else {
     ngthFeedback.style.display = 'none';
   }
 }

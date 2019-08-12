@@ -1,50 +1,45 @@
 'use strict';
 // rock paper scissors
 
-//computer move
-let computerMove = function() {
-  let result = ['rock', 'paper', 'scissors'];
-  let move = result[Math.floor(Math.random() * result.length)];
+// computer move
+const computerMove = function () {
+  const result = ['rock', 'paper', 'scissors'];
+  const move = result[Math.floor(Math.random() * result.length)];
   return move;
-}
+};
 
-//scores
+// scores
 let playerScore = 0;
 let computerScore = 0;
 
-//PlayRound
-let playRound = function (computerMove, playerMove) {
+// PlayRound
+const playRound = function (computerMove, playerMove) {
   if (playerMove === 'rock') {
     if (computerMove === 'paper') {
       computerScore++;
-    }
-    else if (computerMove === 'scissors') {
+    } else if (computerMove === 'scissors') {
       playerScore++;
     }
-  }
-  else if (playerMove === 'paper') {
+  } else if (playerMove === 'paper') {
     if (computerMove === 'scissors') {
       computerScore++;
-    }
-    else if (computerMove === 'rock') {
+    } else if (computerMove === 'rock') {
       playerScore++;
     }
-  }
-  else if (playerMove === 'scissors'){
+  } else if (playerMove === 'scissors') {
     if (computerMove === 'paper') {
       playerScore++;
-    }
-    else if (computerMove === 'rock') {
+    } else if (computerMove === 'rock') {
       computerScore++;
     }
   }
-}
+};
 
-//game 
+// game
 function game (player) {
   if (playerScore < 5 && computerScore < 5) {
-    let playerSelection = player;
-    let computerSelection = computerMove();
+    const playerSelection = player;
+    const computerSelection = computerMove();
     playRound(playerSelection, computerSelection);
 
     document.getElementById('playerscore').textContent = playerScore;
@@ -52,19 +47,18 @@ function game (player) {
 
     if (playerScore >= 5) {
       return document.querySelector('#playerwins').style.display = 'block';
-    } 
-    else if (computerScore >= 5) {
+    } else if (computerScore >= 5) {
       return document.querySelector('#computerwins').style.display = 'block';
-    } 
+    }
   }
 }
 
-let paperBtn = document.getElementById('paper');
-let rockBtn = document.getElementById('rock');
-let scissorsBtn = document.getElementById('scissors');
-let resetBtn = document.getElementById('reset');
+const paperBtn = document.getElementById('paper');
+const rockBtn = document.getElementById('rock');
+const scissorsBtn = document.getElementById('scissors');
+const resetBtn = document.getElementById('reset');
 
-//add eventlisteners
+// add eventlisteners
 paperBtn.addEventListener('click', () => {
   game('paper');
 });
@@ -78,12 +72,12 @@ scissorsBtn.addEventListener('click', () => {
 });
 
 function reset () {
-  computerScore = 0
-  playerScore = 0
+  computerScore = 0;
+  playerScore = 0;
   document.getElementById('playerscore').textContent = playerScore;
   document.getElementById('computerscore').textContent = computerScore;
   document.getElementById('playerwins').style.display = 'none';
-  document.getElementById('computerwins').style.display = 'none';;
+  document.getElementById('computerwins').style.display = 'none'; ;
 }
 
 resetBtn.addEventListener('click', reset);

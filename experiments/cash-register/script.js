@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const button = document.getElementById('entry');
 const inputPrice = document.getElementById('item-price');
@@ -12,13 +12,12 @@ const priceFeedback = document.getElementById('price-feedback');
 
 button.addEventListener('click', handleSubmit);
 
-
 // business logic
 
 const itemsList = [];
 
-function addItem(category, name, price) {
-  itemsList.push({category, name, price});
+function addItem (category, name, price) {
+  itemsList.push({ category, name, price });
 }
 
 function removeItem (index) {
@@ -46,11 +45,11 @@ function handleSubmit (ev) {
     inputPrice.value = '';
     inputName.value = '';
     addItem(newCategory, newName, newPrice);
-    
+
     updateTotal();
     addItemDisplay(newCategory, newName, newPrice);
   };
-  if(validateInput()) {
+  if (validateInput()) {
     return false;
   }
 }
@@ -59,7 +58,7 @@ function handleDelete (ev) {
   const buttons = document.querySelectorAll('.delete-btn');
   const buttonsArray = Array.from(buttons);
   const index = buttonsArray.findIndex(element => element === ev.currentTarget);
-  removeItem(index) 
+  removeItem(index);
 
   removeItemDisplay(ev);
   updateTotal();
@@ -67,27 +66,26 @@ function handleDelete (ev) {
 
 // ui update dom
 
-function addItemDisplay(newCategory, newName, newPrice) {
+function addItemDisplay (newCategory, newName, newPrice) {
   const newItem = document.createElement('li');
   if (newPrice < 0) {
-    newItem.setAttribute('class', 'item item-negative')
+    newItem.setAttribute('class', 'item item-negative');
   } else {
     newItem.setAttribute('class', 'item');
   }
-  
+
   newItem.innerHTML = `<button class="delete-btn">
   <i class="far fa-trash-alt"></i></button>
   <span id="category">${newCategory}</span>
   <span id="name">${newName}</span>
   <span id="price">${formatCurrency(newPrice)}</span>`;
-  
+
   const deleteButton = newItem.querySelector('.delete-btn');
-  deleteButton.addEventListener ('click', handleDelete)  
+  deleteButton.addEventListener('click', handleDelete);
   container.appendChild(newItem);
 }
 
-
-function removeItemDisplay(ev) {
+function removeItemDisplay (ev) {
   ev.currentTarget.parentNode.remove();
 }
 
@@ -95,39 +93,32 @@ function updateTotal () {
   const newTotal = calculateTotal();
   total.innerText = formatCurrency(newTotal);
   if (newTotal < 0) {
-    total.setAttribute('class', 'total-amount-negative')
-  }
-  else {
-    total.classList.remove('class', 'total-amount-negative')
+    total.setAttribute('class', 'total-amount-negative');
+  } else {
+    total.classList.remove('class', 'total-amount-negative');
   }
 }
 
-
-function validateInput(category,name, price) {
-   return !category || !name || !price 
+function validateInput (category, name, price) {
+  return !category || !name || !price;
 }
 
-
-//is there a better efficient way to do this?
+// is there a better efficient way to do this?
 function displayFeedback () {
   if (inputCategory.value == '') {
     categoryFeedback.style.display = 'block';
-  }
-  else {
-    categoryFeedback.style.display = 'none'
+  } else {
+    categoryFeedback.style.display = 'none';
   }
 
   if (inputName.value == '') {
     itemFeedback.style.display = 'block';
-  }     
-  else {
+  } else {
     itemFeedback.style.display = 'none';
   }
   if (inputPrice.value == '') {
     priceFeedback.style.display = 'block';
-  } 
-  else {
+  } else {
     priceFeedback.style.display = 'none';
   }
 }
-

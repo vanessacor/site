@@ -4,9 +4,9 @@ let expressionParts = [];
 
 const DOT = '.';
 const EQUALS = '=';
-const BACKSPACE = 'Backspace'; 
-const OPERATORS = [ '+', '-', '*', '/']
-const reset = 'Escape'
+const BACKSPACE = 'Backspace';
+const OPERATORS = ['+', '-', '*', '/'];
+const reset = 'Escape';
 
 // operations
 
@@ -24,9 +24,8 @@ function multiply (a, b) {
 
 function divide (a, b) {
   if (b === 0) {
-    return ('ERROR')
-  }
-  else {
+    return ('ERROR');
+  } else {
     return a / b;
   }
 }
@@ -40,7 +39,7 @@ function calculate (a, op, b) {
     case '*':
       return multiply(a, b);
     case '/':
-      return  divide(a, b);    
+      return divide(a, b);
   }
 }
 
@@ -59,29 +58,29 @@ function resetExpression (part) {
   }
 }
 
-function isNumber(value) {
-  return typeof value !== 'undefined' && (value === "." || !isNaN(Number(value)))
+function isNumber (value) {
+  return typeof value !== 'undefined' && (value === '.' || !isNaN(Number(value)));
 }
 
-function isOperator(value) {
+function isOperator (value) {
   return OPERATORS.includes(value);
 }
 
-function changeOperators (symbol){
+function changeOperators (symbol) {
   expressionParts.pop();
   expressionParts.push(symbol);
 }
 
-function addExpressionPart(symbol) {
+function addExpressionPart (symbol) {
   expressionParts.push(symbol);
 }
 
-function modifyLastExpressionPart(lastExpressionPart, symbol) {
+function modifyLastExpressionPart (lastExpressionPart, symbol) {
   const newNumb = lastExpressionPart.concat(symbol);
   expressionParts[expressionParts.length - 1] = newNumb;
 }
 
-function processKey (symbol) {  
+function processKey (symbol) {
   let result;
 
   const lastExpressionPart = expressionParts[expressionParts.length - 1];
@@ -89,7 +88,7 @@ function processKey (symbol) {
   if (symbol === DOT && lastExpressionPart && lastExpressionPart.includes('.')) {
     return;
   }
-  
+
   if (isNumber(symbol)) {
     if (isNumber(lastExpressionPart)) {
       modifyLastExpressionPart(lastExpressionPart, symbol);
@@ -97,7 +96,7 @@ function processKey (symbol) {
 
     if (isOperator(lastExpressionPart) || !lastExpressionPart) {
       if (symbol === DOT) {
-        addExpressionPart("0.");
+        addExpressionPart('0.');
       } else {
         addExpressionPart(symbol);
       }
@@ -105,7 +104,7 @@ function processKey (symbol) {
 
     if (expressionParts.length === 3) {
       result = computeResult(expressionParts);
-    } 
+    }
   }
 
   if (isOperator(symbol)) {
@@ -113,32 +112,32 @@ function processKey (symbol) {
       if (expressionParts.length < 3) {
         addExpressionPart(symbol);
       } else {
-        result = computeResult(expressionParts)
+        result = computeResult(expressionParts);
         resetExpression(String(result));
         addExpressionPart(symbol);
       }
     }
-    
+
     if (isOperator(lastExpressionPart)) {
       changeOperators(symbol);
     }
   }
-    
+
   if (symbol === BACKSPACE) {
     if (isNumber(lastExpressionPart)) {
       if (lastExpressionPart.length < 2) {
-        expressionParts.pop(lastExpressionPart)
+        expressionParts.pop(lastExpressionPart);
       } else {
-        let newNumb = lastExpressionPart.slice(0, -1);
-        expressionParts.pop();  
+        const newNumb = lastExpressionPart.slice(0, -1);
+        expressionParts.pop();
         expressionParts.push(newNumb);
       }
-    
+
       if (expressionParts.length === 3) {
         result = computeResult(expressionParts);
       }
-    } 
-  
+    }
+
     if (isOperator(lastExpressionPart)) {
       expressionParts.pop(lastExpressionPart);
     }
@@ -151,7 +150,7 @@ function processKey (symbol) {
       resetExpression();
     }
   }
-  
+
   if (symbol === reset) {
     resetExpression();
   }

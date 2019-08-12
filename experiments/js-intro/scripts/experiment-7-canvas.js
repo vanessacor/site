@@ -1,17 +1,17 @@
-'use strict'
+'use strict';
 
 const canvasElement = document.querySelector('#canvas canvas');
 const ctx = canvasElement.getContext('2d');
 
-function randomInteger(max, offset = 0) {
+function randomInteger (max, offset = 0) {
   return Math.round(Math.random() * max) + offset;
 }
 
-function randomHSLColor() {
+function randomHSLColor () {
   const h = randomInteger(255);
   const s = 75;
   const l = randomInteger(50, 20);
-  return {h, s, l};
+  return { h, s, l };
 }
 
 function lighterColor (original) {
@@ -32,8 +32,8 @@ function darkerColor (original) {
 const objects = [];
 for (let ix = 0; ix < 100; ix++) {
   const object = {
-    x: randomInteger(100, 140), 
-    y: randomInteger(100, 140), 
+    x: randomInteger(100, 140),
+    y: randomInteger(100, 140),
     radius: randomInteger(20, 20),
     hsl: randomHSLColor()
   };
@@ -47,9 +47,9 @@ function drawCircle (x, y, radius, hsl) {
   const color = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
   const center = {
     x: x - radius / 2,
-    y: y - radius / 2,
-  }
-  ctx.fillStyle = color
+    y: y - radius / 2
+  };
+  ctx.fillStyle = color;
   ctx.beginPath();
   ctx.arc(center.x, center.y, radius, 0, 2 * Math.PI);
   ctx.fill();
@@ -65,21 +65,21 @@ function drawObject (object) {
   drawCircle(object.x, object.y, object.radius, object.hsl);
 }
 
-function updateObjectPosition(object) {
-  let rand1 = Math.random() * 10 - 5;
-  let rand2 = Math.random() * 10 - 5;
+function updateObjectPosition (object) {
+  const rand1 = Math.random() * 10 - 5;
+  const rand2 = Math.random() * 10 - 5;
   object.x = object.x + rand1;
   object.y = object.y + rand2;
 }
 
-function drawAllObjects() {
+function drawAllObjects () {
   objects.forEach(function (object) {
-      updateObjectPosition(object);
-      drawObject(object);
+    updateObjectPosition(object);
+    drawObject(object);
   });
 }
 
-function updateScreen() {
+function updateScreen () {
   ctx.clearRect(0, 0, canvasWidth, canvasHeight);
   drawAllObjects();
   window.requestAnimationFrame(updateScreen);

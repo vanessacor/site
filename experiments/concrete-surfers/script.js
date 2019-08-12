@@ -1,18 +1,18 @@
-'use strict'
+'use strict';
 
-let videoElem = document.querySelector('video');
-let playButton = document.querySelector('#playbtn');
+const videoElem = document.querySelector('video');
+const playButton = document.querySelector('#playbtn');
 
 playButton.addEventListener('click', playVideo);
 videoElem.addEventListener('ended', videoEnded);
 
-function playVideo () { 
+function playVideo () {
   if (videoElem.paused === true) {
-    videoElem.play()
+    videoElem.play();
     playButton.style.display = 'none';
     videoElem.controls = true;
   }
-} 
+}
 
 function videoEnded () {
   playButton.style.display = 'block';
@@ -27,19 +27,16 @@ userLogin.addEventListener('submit', login);
 
 function login (event) {
   event.preventDefault();
-  let userName = document.getElementById('name').value;
-  let userPass = document.getElementById('email').value;
+  const userName = document.getElementById('name').value;
+  const userPass = document.getElementById('email').value;
   if (userName == '') {
     nameFeedback.style.display = 'block';
-  }     
-  else {
+  } else {
     nameFeedback.style.display = 'none';
   }
   if (userPass == '') {
     passFeedback.style.display = 'block';
-  } 
-  else {
+  } else {
     passFeedback.style.display = 'none';
   }
 }
-
