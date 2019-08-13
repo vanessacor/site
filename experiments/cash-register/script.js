@@ -105,18 +105,18 @@ function validateInput (category, name, price) {
 
 // is there a better efficient way to do this?
 function displayFeedback () {
-  if (inputCategory.value == '') {
+  if (inputCategory.value === '') {
     categoryFeedback.style.display = 'block';
   } else {
     categoryFeedback.style.display = 'none';
   }
 
-  if (inputName.value == '') {
+  if (inputName.value === '') {
     itemFeedback.style.display = 'block';
   } else {
     itemFeedback.style.display = 'none';
   }
-  if (inputPrice.value == '') {
+  if (inputPrice.value === '') {
     priceFeedback.style.display = 'block';
   } else {
     priceFeedback.style.display = 'none';

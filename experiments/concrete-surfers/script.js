@@ -29,12 +29,12 @@ function login (event) {
   event.preventDefault();
   const userName = document.getElementById('name').value;
   const userPass = document.getElementById('email').value;
-  if (userName == '') {
+  if (userName === '') {
     nameFeedback.style.display = 'block';
   } else {
     nameFeedback.style.display = 'none';
   }
-  if (userPass == '') {
+  if (userPass === '') {
     passFeedback.style.display = 'block';
   } else {
     passFeedback.style.display = 'none';

@@ -11,7 +11,8 @@
         "SharedArrayBuffer": "readonly",
         "describe": "readonly",
         "beforeEach": "readonly",
-        "it": "readonly"
+        "it": "readonly",
+        "expect": "readonly"
     },
     "parserOptions": {
         "ecmaVersion": 2018

@@ -59,13 +59,13 @@ function main () {
 
   // scores
   function updateScore (playerMove, computerMove) {
-    if (playerMove === 'rock' && computerMove === 'scissors' ||
-    playerMove === 'paper' && computerMove === 'rock' ||
-    playerMove === 'scissors' && computerMove === 'paper') {
+    if ((playerMove === 'rock' && computerMove === 'scissors') ||
+    (playerMove === 'paper' && computerMove === 'rock') ||
+    (playerMove === 'scissors' && computerMove === 'paper')) {
       playerScore++;
-    } else if (playerMove === 'scissors' && computerMove === 'rock' ||
-    playerMove === 'rock' && computerMove === 'paper' ||
-    playerMove === 'paper' && computerMove === 'scissors') {
+    } else if ((playerMove === 'scissors' && computerMove === 'rock') ||
+    (playerMove === 'rock' && computerMove === 'paper') ||
+    (playerMove === 'paper' && computerMove === 'scissors')) {
       computerScore++;
     }
   }
@@ -84,9 +84,9 @@ function main () {
     $resetBtn.style.display = 'initial';
 
     if (playerScore >= 5) {
-      return $playerWins.style.display = 'block';
+      $playerWins.style.display = 'block';
     } else if (computerScore >= 5) {
-      return $computerWins.style.display = 'block';
+      $computerWins.style.display = 'block';
     }
   }
 

@@ -1,5 +1,8 @@
 'use strict';
 
+/* eslint-disable no-unused-vars */
+/* global expressionParts, processKey */
+
 let expressionParts = [];
 
 const DOT = '.';

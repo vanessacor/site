@@ -1,5 +1,7 @@
 'use strict';
 
+/* global expressionParts:writable, processKey */
+
 describe('calculator', function () {
   describe('given expression is shorter than 3 parts and ends with a Number', function () {
     beforeEach(function () {
@@ -10,7 +12,6 @@ describe('calculator', function () {
       let result;
 
       beforeEach(function () {
-        // Ṣimulate user presses '1'
         result = processKey('1');
       });
 
@@ -24,10 +25,8 @@ describe('calculator', function () {
     });
 
     describe('when the user clicks on an operator ', function () {
-      let result;
-
       beforeEach(function () {
-        result = processKey('+');
+        processKey('+');
       });
 
       it('should add operator to expression', function () {
@@ -49,19 +48,6 @@ describe('calculator', function () {
       it('should not return a result', function () {
         expect(result).toBe(undefined);
       });
-    });
-
-    describe('when user clicks on Reset', function () {
-      let result;
-      beforeEach(function () {
-        result = processKey('Escape');
-      });
-
-      it('should reset expression', function () {
-        expect(expressionParts).toEqual([]);
-      });
-
-      // it should reset result, not sure if I need this one
     });
   });
 
@@ -101,33 +87,16 @@ describe('calculator', function () {
         expect(expressionParts).toEqual(['125', '+']);
       });
     });
-
-    describe('when user clicks on Reset', function () {
-      let result;
-      beforeEach(function () {
-        result = processKey('Escape');
-      });
-
-      it('should reset expression', function () {
-        expect(expressionParts).toEqual([]);
-      });
-
-      it('should reset result', function () {
-        expect(result).toEqual(undefined);
-      });
-    });
   });
 
-  describe('given the expression ends  with a number with at least 2 digits', function () {
-    let result;
-
+  describe('given the expression ends with a number with at least 2 digits', function () {
     beforeEach(function () {
       expressionParts = ['12'];
     });
 
-    describe('when the user clicks on the backspace', function () {
+    describe('when the user clicks on backspace', function () {
       beforeEach(function () {
-        result = processKey('Backspace');
+        processKey('Backspace');
       });
 
       it('should remove a digit from the last number in the expression', function () {
@@ -136,15 +105,28 @@ describe('calculator', function () {
     });
   });
 
-  describe('given the expression is shorter than 3 parts and ends with a Operator', function () {
-    let result;
+  describe('given the expression ends with a number with only 1 digits', function () {
+    beforeEach(function () {
+      expressionParts = ['12', '+', '1'];
+    });
 
+    describe('when the user clicks on backspace', function () {
+      beforeEach(function () {
+        processKey('Backspace');
+      });
+
+      it('should remove a digit from the last number in the expression', function () {
+        expect(expressionParts).toEqual(['12', '+']);
+      });
+    });
+  });
+
+  describe('given the expression is shorter than 3 parts and ends with a Operator', function () {
     beforeEach(function () {
       expressionParts = ['123', '+'];
     });
 
     describe('when user cliks on Dot', function () {
-      // it should add '0.' to expressionParts
       let result;
 
       beforeEach(function () {
@@ -155,7 +137,7 @@ describe('calculator', function () {
         expect(expressionParts).toEqual(['123', '+', '0.']);
       });
 
-      it('should return result', function () {
+      it('should return the result', function () {
         expect(result).toEqual(123);
       });
     });
@@ -171,7 +153,7 @@ describe('calculator', function () {
         expect(expressionParts).toEqual(['123', '+', '1']);
       });
 
-      it('should return result', function () {
+      it('should return the result', function () {
         expect(result).toEqual(124);
       });
     });
@@ -193,6 +175,8 @@ describe('calculator', function () {
     });
 
     describe('when user clicks on backspace', function () {
+      let result;
+
       beforeEach(function () {
         result = processKey('Backspace');
       });
@@ -208,11 +192,29 @@ describe('calculator', function () {
 
     describe('when user clicks on Equal', function () {
       beforeEach(function () {
-        result = processKey('=');
+        processKey('=');
       });
 
-      it('should return', function () {
+      it('should not change the expression', function () {
         expect(expressionParts).toEqual(['123', '+']);
+      });
+    });
+  });
+
+  describe('given a non-empty expression', function () {
+    describe('when user clicks on Reset', function () {
+      let result;
+
+      beforeEach(function () {
+        result = processKey('Escape');
+      });
+
+      it('should reset expression', function () {
+        expect(expressionParts).toEqual([]);
+      });
+
+      it('should return undefined', function () {
+        expect(result).toEqual(undefined);
       });
     });
   });
