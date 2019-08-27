@@ -49,6 +49,16 @@ describe('calculator', function () {
         expect(result).toBe(undefined);
       });
     });
+
+    describe('when user clicks on Equal', function () {
+      beforeEach(function () {
+        processKey('=');
+      });
+
+      it('should reset the expression', function () {
+        expect(expressionParts).toEqual([]);
+      });
+    });
   });
 
   describe('given expression is 3 parts long and ends with a Number', function () {
@@ -87,6 +97,22 @@ describe('calculator', function () {
         expect(expressionParts).toEqual(['125', '+']);
       });
     });
+
+    describe('when the user clicks on Equal', function () {
+      let result;
+
+      beforeEach(function () {
+        result = processKey('=');
+      });
+
+      it('should reset the expression', function () {
+        expect(expressionParts).toEqual([]);
+      });
+
+      it('should return the result', function () {
+        expect(result).toEqual(125);
+      });
+    });
   });
 
   describe('given the expression ends with a number with at least 2 digits', function () {
@@ -117,6 +143,22 @@ describe('calculator', function () {
 
       it('should remove a digit from the last number in the expression', function () {
         expect(expressionParts).toEqual(['12', '+']);
+      });
+    });
+  });
+
+  describe('given the expression has 1 number only', function () {
+    beforeEach(function () {
+      expressionParts = ['1'];
+    });
+
+    describe('when the user clicks on backspace', function () {
+      beforeEach(function () {
+        processKey('Backspace');
+      });
+
+      it('should remove the last digit', function () {
+        expect(expressionParts).toEqual([]);
       });
     });
   });

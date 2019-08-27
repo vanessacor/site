@@ -127,3 +127,18 @@ figcaption {
   border-top: 20px solid #2ED8DB;
   color: #E6B705;
 }
+
+#site-footer ul {
+  padding-left: 0;
+  text-align: center;
+}
+
+#site-footer li {
+  display: inline-block;
+  font-size: 40px;
+  margin: 0 10px;
+}
+
+#site-footer a {
+  color: #E6B705;
+}

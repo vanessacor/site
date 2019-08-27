@@ -25,7 +25,9 @@ function createSquare () {
   square.setAttribute('class', 'square');
   square.addEventListener('mouseover', () => {
     if (useColors === false) {
+      const opacity = Number(square.style.opacity);
       square.style.backgroundColor = 'black';
+      square.style.opacity = opacity + 0.1;
     } else {
       square.style.backgroundColor = generateColor();
     }

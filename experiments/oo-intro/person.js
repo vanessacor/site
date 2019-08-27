@@ -32,6 +32,7 @@ function createInterests (interests, gender) {
   } else if (interests.length === 2) {
     interestsPart = interests[0] + ' and ' + interests[1] + '.';
   } else {
+    // @todo rewrite as array.reduce()
     for (let i = 0; i < interests.length; i++) {
       if (i === interests.length - 1) {
         interestsPart += ' and ' + interests[i] + '.';

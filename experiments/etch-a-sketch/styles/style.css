@@ -44,14 +44,16 @@ a {
 @media (min-width: 768px) {
   .container {
     margin: 0 auto;
-    max-width: 700px;
+  }
+
+  #btn-container button:first-child {
+  margin-right: 20px;
   }
 }
 
-
-@media (min-width : 1224px) {
+@media (min-width : 1281px) {
   .container {
-    max-width: 1122px;
+    max-width: 1240px;
   }
 }
 
@@ -65,7 +67,7 @@ a {
   border: 2px solid rgba(201, 159, 112, 0.993);
   background: linear-gradient(0deg, #ddd, #fff);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.59);
-  font-size: 20px;
+  font-size: 16px;
   text-shadow:1px 1px 1px #ffe6c9;
   color: #000;
   cursor: pointer;
@@ -88,7 +90,8 @@ a {
 /* site header */
 
 #site-header {
-  padding: 20px 0 20px;
+  padding-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -104,13 +107,6 @@ a {
   margin: 10px 10px 0 10px;
 }
 
-@media (min-width : 1224px) {
-
-  #site-header h1 {
-    font-size: 80px;
-  }
-}
-
 /* site main */
 
 #site-main {
@@ -123,7 +119,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 15px;
+  padding-top: 10px;
   color: #ffe6c9;
   font-size: 20px;
   font-weight: bold;
@@ -131,7 +127,6 @@ a {
 
 #grid-setup label {
   margin-bottom: 10px;
-  
 }
 
 #grid-size {
@@ -146,15 +141,15 @@ a {
 
 #game  {
   margin: 0 auto;
-  padding-top: 16px;  
+  padding-top: 10px;  
   margin-bottom: 10px;
 }
 
 #grid-container {
   display: grid;
-  width: 80vw;
-  height: 80vw;
-  margin: 0 auto 30px;
+  width: 60vw;
+  height: 60vw;
+  margin: 0 auto 15px;
   border: 1px solid grey;
   border-radius: 6px;
   background-color: white; 
@@ -167,9 +162,7 @@ a {
   text-align: center;
 }
 
-#btn-container button:first-child {
-  margin-right: 20px;
-}
+
 
 #colour.is-on {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
