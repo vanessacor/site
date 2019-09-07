@@ -33,40 +33,38 @@ function divide (a, b) {
   }
 }
 
+const ops = {
+  '+': add,
+  '-': subtract,
+  '*': multiply,
+  '/': divide
+};
+
 function calculate (a, op, b) {
-  switch (op) {
-    case '+':
-      return add(a, b);
-    case '-':
-      return subtract(a, b);
-    case '*':
-      return multiply(a, b);
-    case '/':
-      return divide(a, b);
-  }
+  if (!op) { return; }
+  const fn = ops[op];
+  return fn(a, b);
 }
 
-function computeResult (expression) {
-  const a = Number(expression[0]);
-  const op = expression[1];
-  const b = Number(expression[2]);
-  const result = calculate(a, op, b);
-  return result;
+// utils
+
+function isNumber (value) {
+  const isDot = value === '.';
+  const isNumber = !isNaN(Number(value));
+  return typeof value !== 'undefined' && (isDot || isNumber);
 }
+
+function isOperator (value) {
+  return OPERATORS.includes(value);
+}
+
+// modify expression
 
 function resetExpression (part) {
   expressionParts = [];
   if (part) {
     expressionParts.push(part);
   }
-}
-
-function isNumber (value) {
-  return typeof value !== 'undefined' && (value === '.' || !isNaN(Number(value)));
-}
-
-function isOperator (value) {
-  return OPERATORS.includes(value);
 }
 
 function changeOperators (symbol) {
@@ -82,6 +80,18 @@ function modifyLastExpressionPart (lastExpressionPart, symbol) {
   const newNumb = lastExpressionPart.concat(symbol);
   expressionParts[expressionParts.length - 1] = newNumb;
 }
+
+// result
+
+function computeResult (expression) {
+  const a = Number(expression[0]);
+  const op = expression[1];
+  const b = Number(expression[2]);
+  const result = calculate(a, op, b);
+  return result;
+}
+
+// input
 
 function processKey (symbol) {
   let result;

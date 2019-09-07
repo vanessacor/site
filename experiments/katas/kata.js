@@ -11,3 +11,16 @@ function countPositivesSumNegatives (input) {
 
   return [positives.length, sumNegatives];
 }
+
+function find_average (array) {
+  const length = array.length;
+  const average = (array.reduce((a, b) => a + b, 0)) / length;
+  return average;
+};
+
+function findTheShort (string) {
+  let word = string.split(' ');
+  for (let i = 0; i < word + 1; word++) {
+  };
+  return word;
+}
