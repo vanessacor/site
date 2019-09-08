@@ -16,8 +16,11 @@ function createBanner () {
   `<div id="banner">
     <a href="https://vanessacor.github.io/site/">Vanessa<br>Poppe</a>
   </div>`;
-
-  addStyle('../../styles/banner.css');
+  if (window.location.href.includes('/games')) {
+    addStyle('../../../styles/banner.css');
+  } else {
+    addStyle('../../styles/banner.css');
+  }
   addStyle('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 }
 
