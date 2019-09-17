@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>My Books</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="styles.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK|Roboto+Mono&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="container" id="site-header">
+    <h1>My Books</h1>
+  </header>
+  <main id="site-main" class="container">
+    <div class="library" >
+      <div class="introduction">
+        <h2>Welcome!</h2>
+        <p>Click to add your first book</p>
+      </div>
+      <button class="add-book">
+        <i class="fas fa-plus"></i>
+      </button>
+     
+      <form id="new-book">
+        <button type="button" id="close-form">X</button>
+        <fieldset>
+          <legend id="form-legend">New Book</legend>
+
+          <div id="title">
+            <label for="title"></label>
+              <input type="text" placeholder="Book title">
+          </div>
+
+          <div id="author">
+            <label for="author"></label>
+              <input type="text" placeholder="Book author">
+          </div>
+
+          <div id="genre">
+            <label for="genre"></label>
+              <select id="genre-options">
+                <option value="">Genre</option>
+                <option value="romance">Romance</option>
+                <option value="art">Art</option>
+                <option value="history">History</option>
+                <option value="poetry">Poetry</option>
+                <option value="cookbook">Cookbook</option>
+                <option value="addgenre">Romance</option>
+              </select>
+          </div>
+
+          <div id="status">
+            <label for="title">Status</label>
+
+            <label class="radio-button">
+              <input type="radio" name="status" id="read" value="read">
+              <span>Read</span>
+            </label>
+            
+            <label class="radio-button">
+              <input type="radio" name="status" id="unread" value="unread">
+              <span>Unread</span>
+            </label>
+            
+            
+            <label class="radio-button">
+              <input type="radio" name="status" id="reading" value="reading">
+              <span>Reading</span>
+            </label>
+            
+          </div>
+
+          <div id="rating">
+            <input type="checkbox" class="star" id="star5" value="5">
+            <label for="star5">
+              <i class="fas fa-star"></i>
+            </label>
+            <input type="checkbox" class="star" id="star4" value="4">
+            <label for="star4">
+              <i class="fas fa-star"></i>
+            </label>
+            <input type="checkbox" class="star" id="star3" value="3">
+            <label for="star3">
+              <i class="fas fa-star"></i>
+            </label>
+            <input type="checkbox" class="star" id="star2" value="2">
+            <label for="star2">
+              <i class="fas fa-star"></i>
+            </label>
+            <input type="checkbox" class="star" id="star1" value="1">
+            <label for="star1">
+              <i class="fas fa-star"></i>
+
+            </label>
+          </div>
+
+          <button type="submit" id="add-button">Add</button>
+              
+        </fieldset>
+      </form>
+      <div class="book-list">
+        <div class="book-card">
+          <button class="delete-book">
+            <i class="far fa-trash-alt"></i>
+          </button>
+          <h3 id="card-title">Maranus</h3>
+          <p id="card-author">Author: Teixeira de Pascoaes</p>
+          <p id="card-genre">Genre: Poetry</p>
+          <button id="status">Read</button>
+          <button class="edit-book">
+            <i class="far fa-edit">edit</i>
+          </button>
+        </div>
+
+        <div class="book-card">
+          <button class="delete-book">
+            <i class="far fa-trash-alt"></i>
+          </button>
+          <h3 id="card-title">If on a winter's night a traveler</h3>
+          <p id="card-author">Author: Italo Calvino</p>
+          <p id="card-genre">Genre: Fiction</p>
+          <button id="status">Read</button>
+          <button class="edit-book">
+            <i class="far fa-edit">edit</i>
+          </button>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </main>
+
+
+    <script src="library.js"></script>
+    <script src="library-ui.js"></script>
+    <script src="../../scripts/banner.js"></script>
+
+  </body>
+</html>

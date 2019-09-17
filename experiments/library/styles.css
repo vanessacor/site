@@ -1,0 +1,312 @@
+/* reset  */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: #30362F;
+}
+
+/* typography */
+
+body {
+  font-family:'Noto Sans HK', sans-serif;
+  font-size: 16px;
+  color: #fffbdb;
+}
+
+h1 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 44px;
+}
+
+h2 {
+  font-size: 50px;
+  font-weight: lighter;
+}
+
+p {
+  font-size: 16px;
+}
+
+
+
+/* layout */
+
+.container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+
+/* site header */
+
+
+/* site main */
+
+.library {
+  text-align: center; 
+}
+
+.introduction {
+  display: none;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.introduction h2 {
+  margin-bottom: 5px;
+}
+
+.introduction p {
+  padding-top: 5px;
+  margin-top: 0;
+}
+
+.add-book {
+  display: none;
+  position: absolute;
+  bottom: 20%;
+  left: 41%;
+  background-color: #625834;
+  border: none;
+  color: #fffbdb;
+  font-size: 30px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+#new-book {
+  display: none;
+  background-color: #625834;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: left;
+}
+
+#close-form {
+  float: right;
+  border: none;
+  background-color: transparent;
+  color: #fffbdb;
+  font-size: 25px;
+}
+
+#close-form:hover {
+  color: #00C9AB;
+  transform: scale(1.5);
+  transition: 2s
+}
+
+#form-legend {
+  margin-bottom: 20px;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 30px;
+}
+
+#new-book label {
+  display: block
+}
+
+#new-book fieldset {
+  border: none;
+}
+
+#new-book ::placeholder {
+  color: #fffbdb;
+  font-size: 20px;
+}
+
+#title, #author, #genre {
+  padding: 5px 0 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #fffbdb;
+}
+
+#title input {
+  background: transparent;
+  border: none;
+  color: #fffbdb;
+  line-height: 1.2;
+  padding: 0 5px;
+  width: 100%;
+  font-size: 16px;
+}
+
+#title input:focus {
+  border: none;
+}
+
+#author input {
+  background: transparent;
+  border: none;
+  color: #fffbdb;
+  line-height: 1.2;
+  padding: 0 5px;
+  width: 100%;
+  font-size: 16px;
+}
+
+#genre-options {
+  background: transparent;
+  color: #fffbdb;
+  line-height: 1.2;
+  padding: 0 5px;
+  width: 100%;
+  font-size: 20px;
+  border-style: none;
+  
+}
+ 
+#genre-options option {
+  background-color: #fffbdb;
+  color: #625834;
+}
+
+#status {
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+.radio-button {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+#read {
+  margin-top: 5px;
+}
+
+.radio-button input {
+    display: none;
+}
+
+.radio-button input + span {
+  line-height: 15px;
+  height: 15px ;
+  padding-left: 15px;
+  display: block;
+  position: relative;
+}
+
+.radio-button input + span:not(:empty){
+  padding-left: 28px;
+}
+
+.radio-button span:before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  display: block;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: #fffbdb;
+  transition: background .2s ease, transform .4s cubic-bezier(.175, .885, .32, 2);
+}
+
+.radio-button span:after {
+   content: '';
+  width: 15px;
+  height: 15px;
+  display: block;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: #fffbdb;
+  transform: scale(.78);
+  transition: transform .6s cubic-bezier(.175, .885, .32, 1.4);
+}
+
+.radio-button input:checked + span:before {
+  transform: scale(1.04);
+  background: #00A896;
+}
+
+.radio-button input:checked + span:after {
+  transform: scale(.4);
+  transition: transform .3s ease;
+}
+  
+.radio.button input:hover + span:before {
+  transform: scale(.92);
+}
+
+.radio.button input:hover + span:after {
+  transform: scale(.74);
+}
+            
+#rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+.star {
+  display: none;
+}
+
+#rating label {
+  color: #fffbdb;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#rating :checked ~ label {
+  -webkit-text-fill-color: #00C9AB;
+}
+
+#rating label:hover,
+.star-rating label:hover ~ label {
+  -webkit-text-fill-color: #00C9AB;
+}
+
+#add-button {
+  display: block;
+  margin: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fffbdb;
+  color: #625834;
+  font-size: 20px;
+}
+
+#add-button:hover {
+  background-color: #00C9AB;
+  color: #fffbdb;
+  transition: 2s;
+}
+
+.book-list {
+  
+}
+
+.book-card {
+  background-color: #fffbdb;
+  color: #625834;
+
+}
+.delete-book {
+  float: right;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  padding: 5px;
+  color: #fffbdb;
+}
+
+#card-title {
+  background-color: #a59132;
+  color: #fffbdb;
+}
