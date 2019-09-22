@@ -16,44 +16,43 @@
   </header>
   <main id="site-main" class="container">
     <div class="library" >
+      <button class="button" id="add-book-button">
+        <i class="fas fa-plus"></i>
+      </button>
       <div class="introduction">
         <h2>Welcome!</h2>
         <p>Click to add your first book</p>
       </div>
-      <button class="add-book">
-        <i class="fas fa-plus"></i>
-      </button>
      
       <form id="new-book">
-        <button type="button" id="close-form">X</button>
+        <button type="button" class="icon" id="close-form">X</button>
         <fieldset>
           <legend id="form-legend">New Book</legend>
 
-          <div id="title">
-            <label for="title"></label>
-              <input type="text" placeholder="Book title">
+          <div id="title" class="book-text-input">
+            <input type="text" name="book title" class="book-text-input" required="">
+            <label for="title">Title</label>
           </div>
 
-          <div id="author">
-            <label for="author"></label>
-              <input type="text" placeholder="Book author">
+          <div id="author" class="book-text-input">
+            <input type="text" name="Book author" class="book-text-input" required="">
+            <label for="author">Author</label>
           </div>
 
           <div id="genre">
+            <select id="genre-options">
+              <option value="">Genre</option>
+              <option value="romance">Romance</option>
+              <option value="art">Art</option>
+              <option value="history">History</option>
+              <option value="poetry">Poetry</option>
+              <option value="cookbook">Cookbook</option>
+              <option value="addgenre">Romance</option>
+            </select>
             <label for="genre"></label>
-              <select id="genre-options">
-                <option value="">Genre</option>
-                <option value="romance">Romance</option>
-                <option value="art">Art</option>
-                <option value="history">History</option>
-                <option value="poetry">Poetry</option>
-                <option value="cookbook">Cookbook</option>
-                <option value="addgenre">Romance</option>
-              </select>
           </div>
 
           <div id="status">
-            <label for="title">Status</label>
 
             <label class="radio-button">
               <input type="radio" name="status" id="read" value="read">
@@ -64,69 +63,57 @@
               <input type="radio" name="status" id="unread" value="unread">
               <span>Unread</span>
             </label>
-            
-            
-            <label class="radio-button">
-              <input type="radio" name="status" id="reading" value="reading">
-              <span>Reading</span>
-            </label>
-            
+
           </div>
 
-          <div id="rating">
-            <input type="checkbox" class="star" id="star5" value="5">
-            <label for="star5">
-              <i class="fas fa-star"></i>
-            </label>
-            <input type="checkbox" class="star" id="star4" value="4">
-            <label for="star4">
-              <i class="fas fa-star"></i>
-            </label>
-            <input type="checkbox" class="star" id="star3" value="3">
-            <label for="star3">
-              <i class="fas fa-star"></i>
-            </label>
-            <input type="checkbox" class="star" id="star2" value="2">
-            <label for="star2">
-              <i class="fas fa-star"></i>
-            </label>
-            <input type="checkbox" class="star" id="star1" value="1">
-            <label for="star1">
-              <i class="fas fa-star"></i>
-
-            </label>
-          </div>
-
-          <button type="submit" id="add-button">Add</button>
+          <button type="submit" id="add-button">ADD</button>
               
         </fieldset>
       </form>
-      <div class="book-list">
-        <div class="book-card">
-          <button class="delete-book">
-            <i class="far fa-trash-alt"></i>
-          </button>
-          <h3 id="card-title">Maranus</h3>
-          <p id="card-author">Author: Teixeira de Pascoaes</p>
-          <p id="card-genre">Genre: Poetry</p>
-          <button id="status">Read</button>
-          <button class="edit-book">
-            <i class="far fa-edit">edit</i>
-          </button>
-        </div>
 
-        <div class="book-card">
-          <button class="delete-book">
-            <i class="far fa-trash-alt"></i>
+      <div class="book-list">
+
+        <article class="book-card">
+          <header id="card-title">
+            <h3>Maranus</h3>
+            <button class="icon" id="delete-book">
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </header>
+          <div class="book-details">
+            <h3 id="card-author">Author:</h3>
+            <p>Teixeira de Pascoaes</p>
+            <h3 id="card-genre">Genre: </h3>
+            <p>Poetry</p>
+          </div>
+          <footer>
+            <button class="button" id="status-button">Read</button>
+            <button class="icon" id="edit-book">
+              <i class="far fa-edit"></i>
+            </button>
+          </footer>
+        </article>
+
+        <article class="book-card">
+          <header id="card-title">
+            <h3>If on a winter's night a traveler</h3>
+            <button class="icon" id="delete-book">
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </header>
+          <div class="book-details">
+            <h3 id="card-author">Author:</h3>
+              <p>Italo Calvino</p>
+            <h3 id="card-genre">Genre:</h3>
+              <p>Fiction</p>
+          </div>
+          <footer></footer>
+          <button class="button" id="status-button">Read</button>
+          <button class="icon" id="edit-book">
+            <i class="far fa-edit"></i>
           </button>
-          <h3 id="card-title">If on a winter's night a traveler</h3>
-          <p id="card-author">Author: Italo Calvino</p>
-          <p id="card-genre">Genre: Fiction</p>
-          <button id="status">Read</button>
-          <button class="edit-book">
-            <i class="far fa-edit">edit</i>
-          </button>
-        </div>
+        </article>
+
       </div>
     </div>
       </div>
