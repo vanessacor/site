@@ -9,5 +9,12 @@ class Library {
     return this.books;
   }
 
-  addBook () {}
+  addBook (book) {
+    this.books.push(book);
+  }
+
+  deleteBook (book) {
+    const index = this.books.findIndex(item => item.title === book.title);
+    this.books.splice(index, 1);
+  }
 }

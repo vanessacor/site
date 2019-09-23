@@ -18,15 +18,51 @@ describe('library', function () {
         expect(this.library.list().length).toEqual(1);
       });
 
+      describe('should created the correct book with the correct fields', function () {
+        beforeEach(function () {
+          const list = this.library.list();
+          this.book = list[0];
+        });
+
+        it('should created the book with the correct title', function () {
+          expect(this.book.title).toEqual('foobar');
+        });
+
+        it('should created the book with the correct author', function () {
+          expect(this.book.author).toEqual('MisterMacfoo');
+        });
+
+        it('should created the book with the correct genre', function () {
+          expect(this.book.genre).toEqual('fiction');
+        });
+
+        it('should created the book with the correct status', function () {
+          expect(this.book.status).toEqual('Read');
+        });
+      });
+    });
+  });
+
+  describe('given a library with two books', function () {
+    beforeEach(function () {
+      this.library = new Library();
+      this.book1 = new Book('foobar', 'MisterMacfoo', 'fiction', 'Read');
+      const book2 = new Book('Surf', 'Vanessa', 'Non-fiction', 'UnRead');
+      this.library.addBook(this.book1);
+      this.library.addBook(book2);
+    });
+
+    describe('when delete a book', function () {
+      beforeEach(function () {
+        this.library.deleteBook(this.book1);
+      });
+
       it('should contain one book', function () {
-        const list = this.library.list();
-        const book = list[0];
-        expect(book.title).toEqual('foobar');
+        expect(this.library.list().length).toEqual(1);
       });
     });
   });
 });
-
 // (describe) Library
 
 // given an empty library
