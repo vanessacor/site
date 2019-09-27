@@ -74,7 +74,7 @@ describe('library', function () {
     });
   });
 
-  describe('when ckecking if the book to had is new', function () {
+  describe('when ckecking if the book to add is new', function () {
     beforeEach(function () {
       this.library = new Library();
       this.book = new Book('foobar', 'MisterMacfoo', 'fiction', 'Read');
@@ -82,8 +82,18 @@ describe('library', function () {
       this.result = this.library.isUniqueTitle('foobar');
     });
 
-    it('should return false', function () {
+    it('should return true', function () {
       expect(this.result).toEqual(true);
+    });
+
+    describe('when checking if another book is new', function () {
+      beforeEach(function () {
+        this.result1 = this.library.isUniqueTitle('Misstee');
+      });
+
+      it('should return false', function () {
+        expect(this.result1).toEqual(false);
+      });
     });
   });
 });
