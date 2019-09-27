@@ -73,6 +73,19 @@ describe('library', function () {
       });
     });
   });
+
+  describe('when ckecking if the book to had is new', function () {
+    beforeEach(function () {
+      this.library = new Library();
+      this.book = new Book('foobar', 'MisterMacfoo', 'fiction', 'Read');
+      this.library.addBook(this.book);
+      this.result = this.library.isUniqueTitle('foobar');
+    });
+
+    it('should return false', function () {
+      expect(this.result).toEqual(true);
+    });
+  });
 });
 // (describe) Library
 
