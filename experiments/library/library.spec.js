@@ -61,6 +61,17 @@ describe('library', function () {
         expect(this.library.list().length).toEqual(1);
       });
     });
+
+    describe('when update a book', function () {
+      beforeEach(function () {
+        this.book3 = new Book('Rock', 'Andre', 'Non-fiction', 'Read');
+        this.library.updateBook(this.book1, this.book3);
+      });
+
+      it('should had update the correct book with the correct details', function () {
+        expect(this.book3.title).toEqual('Rock');
+      });
+    });
   });
 });
 // (describe) Library
@@ -84,7 +95,7 @@ describe('library', function () {
 // this.sampleBook = new Book('foobar');
 // this.library.addBook(sampleBook);
 
-// (describe) when I check if the exiting title is unique
+// (describe) when I check if the existing title is unique
 
 // (beforeEach)
 // this.result = libary.isUniqueTitle('foobar');
