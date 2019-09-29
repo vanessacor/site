@@ -54,7 +54,7 @@ describe('library', function () {
 
     describe('when delete a book', function () {
       beforeEach(function () {
-        this.library.deleteBook(this.book1);
+        this.library.deleteBook('foobar');
       });
 
       it('should contain one book', function () {
@@ -69,7 +69,9 @@ describe('library', function () {
       });
 
       it('should had update the correct book with the correct details', function () {
-        expect(this.book3.title).toEqual('Rock');
+        const list = this.library.list();
+        const book = list[1];
+        expect(book.title).toEqual('Rock');
       });
     });
   });
@@ -83,7 +85,7 @@ describe('library', function () {
     });
 
     it('should return true', function () {
-      expect(this.result).toEqual(true);
+      expect(this.result).toEqual(false);
     });
 
     describe('when checking if another book is new', function () {
@@ -92,7 +94,7 @@ describe('library', function () {
       });
 
       it('should return false', function () {
-        expect(this.result1).toEqual(false);
+        expect(this.result1).toEqual(true);
       });
     });
   });

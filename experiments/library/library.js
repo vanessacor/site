@@ -13,9 +13,11 @@ class Library {
     this.books.push(book);
   }
 
-  deleteBook (book) {
-    const index = this.books.findIndex(item => item.title === book.title);
-    this.books.splice(index, 1);
+  deleteBook (title) {
+    const index = this.books.findIndex(item => item.title === title);
+    if (index !== -1) {
+      this.books.splice(index, 1);
+    }
   }
 
   updateBook (book1, book2) {
@@ -24,6 +26,6 @@ class Library {
   }
 
   isUniqueTitle (title) {
-    return this.books.some(book => book.title === title);
+    return !this.books.some(book => book.title === title);
   }
 }
