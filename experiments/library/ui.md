@@ -27,14 +27,12 @@ LibraryUi
 
   createBookCard(book)
     - creates book card
-      - title, 
+      - title, genre, author, 
       - clicking on the delete btn on a book card
-        - title?
         - library.deleteBook(title)
         - removes book card
       - clicking on the edit btn on a book card
-        - bookToEdit?
-        - showEditForm(bookToEdit)
+        - showEditForm(book)
         
   showList()
   - list = this.library.list()

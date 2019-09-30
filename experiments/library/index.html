@@ -16,10 +16,10 @@
   </header>
   <main id="site-main" class="container">
     <div class="library" >
-      <button class="button" id="add-book-button">
-        <i class="fas fa-plus"></i>
-      </button>
       <div class="introduction">
+        <button class="button add-book-btn">
+          <i class="fas fa-plus"></i>
+        </button>
         <h2>Welcome!</h2>
         <p>Click to add your first book</p>
       </div>
@@ -30,12 +30,12 @@
           <legend id="form-legend">New Book</legend>
 
           <div id="title" class="book-text-input">
-            <input type="text" name="book title" class="book-text-input" required="">
+            <input type="text" name="book-title" class="book-text-input" required="">
             <label for="title">Title</label>
           </div>
 
           <div id="author" class="book-text-input">
-            <input type="text" name="Book author" class="book-text-input" required="">
+            <input type="text" name="book-author" class="book-text-input" required="">
             <label for="author">Author</label>
           </div>
 
@@ -73,46 +73,64 @@
 
       <div class="book-list">
 
-        <article class="book-card">
-          <header id="card-title">
-            <h3>Maranus</h3>
-            <button class="icon" id="delete-book">
-              <i class="far fa-trash-alt"></i>
-            </button>
-          </header>
-          <div class="book-details">
-            <h3 id="card-author">Author:</h3>
-            <p>Teixeira de Pascoaes</p>
-            <h3 id="card-genre">Genre: </h3>
-            <p>Poetry</p>
-          </div>
-          <footer>
-            <button class="button" id="status-button">Read</button>
-            <button class="icon" id="edit-book">
-              <i class="far fa-edit"></i>
-            </button>
-          </footer>
-        </article>
+        <button class="button add-book-btn">
+          <i class="fas fa-plus"></i>
+        </button>
 
-        <article class="book-card">
-          <header id="card-title">
-            <h3>If on a winter's night a traveler</h3>
-            <button class="icon" id="delete-book">
-              <i class="far fa-trash-alt"></i>
-            </button>
-          </header>
-          <div class="book-details">
-            <h3 id="card-author">Author:</h3>
-              <p>Italo Calvino</p>
-            <h3 id="card-genre">Genre:</h3>
-              <p>Fiction</p>
-          </div>
-          <footer></footer>
-          <button class="button" id="status-button">Read</button>
-          <button class="icon" id="edit-book">
-            <i class="far fa-edit"></i>
-          </button>
-        </article>
+        <div class="book-card-wrapper">
+
+          <article class="book-card">
+
+            <header id="card-title">
+              <h3></h3>
+              <button class="icon" id="delete-book">
+                <i class="far fa-trash-alt"></i>
+              </button>
+            </header>
+
+            <div class="book-details">
+              <h3 id="card-author">Author:</h3>
+              <p></p>
+              <h3 id="card-genre">Genre:</h3>
+              <p></p>
+            </div>
+
+            <footer>
+              <button class="button" id="status-button">Read</button>
+              <button class="icon" id="edit-book">
+                <i class="far fa-edit"></i>
+              </button>
+            </footer>
+
+          </article>
+          
+          <article class="book-card">
+
+            <header id="card-title">
+              <h3>If on a winter's night a traveler</h3>
+              <button class="icon" id="delete-book">
+                <i class="far fa-trash-alt"></i>
+              </button>
+            </header>
+
+            <div class="book-details">
+              <h3 id="card-author">Author:</h3>
+                <p>Italo Calvino</p>
+              <h3 id="card-genre">Genre:</h3>
+                <p>Fiction</p>
+            </div>
+
+            <footer>
+              <button class="button" id="status-button">Read</button>
+              <button class="icon" id="edit-book">
+                <i class="far fa-edit"></i>
+              </button>
+            </footer>
+
+          </article>
+
+        </div>
+
 
       </div>
     </div>

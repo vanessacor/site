@@ -55,6 +55,22 @@ p {
   transition: 1s;
 }
 
+.add-book-btn {
+  background-color: #f41f7b;
+  border: none;
+  color: #f0f0f0;
+  font-size: 30px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 3px 1px 10px #ff8ba0;
+}
+
+.add-book-btn:hover {
+  color: #181712;
+  box-shadow: none;
+  transition: 1s;
+}
+
 /* layout */
 
 .container {
@@ -90,24 +106,10 @@ p {
   margin-top: 0;
 }
 
-#add-book-button {
-  /* display: none; */
+.introduction .add-book-btn {
   position: fixed;
   top: 69%;
   left: 41%;
-  background-color: #f41f7b;
-  border: none;
-  color: #f0f0f0;
-  font-size: 30px;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 3px 1px 10px #ff8ba0;
-}
-
-#add-book-button:hover {
-  color: #181712;
-  box-shadow: none;
-  transition: 1s;
 }
 
 /*NEW BOOK FORM*/
@@ -138,7 +140,6 @@ p {
   text-align: center;
   font-size: 30px;
 }
-
 
 #new-book fieldset {
   border: none;
@@ -300,11 +301,21 @@ p {
 /* BOOK LIST */
 .book-list {
   display: none;
+  position: relative;
+  color: #181712;
+}
+
+.book-list .add-book-btn {
+  position: absolute;
+  bottom: -11%;
+  left: 41%;
+}
+
+.book-card-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   text-align: left;
-  color: #181712;
 }
 
 #delete-book, #edit-book {
@@ -318,7 +329,6 @@ p {
 }
 
 .book-card {
-  display: none;
   position: relative;
   margin: 0 auto 20px;
   background-color: #f0f0f0;
@@ -328,7 +338,7 @@ p {
 }
 
 #card-title {
-  margin: 0 0 20px;
+  margin: 0 0 10px;
   padding: 5px 14px 0;
   background-color: #f41f7b24;
   border-bottom: solid 2px #181712;
@@ -344,14 +354,15 @@ p {
 
 .book-details h3 {
   margin: 10px 0 0 16px;
-  color: #f41f7b;
-  font-weight: lighter;
+  color: #181712;
+  font-weight: 600;
   font-size: 16px;
 }
 
 .book-details p {
   padding-top: 0px;
   margin: 0 0 16px 16px;
+  color: #f41f7b;
   text-align: left;
   font-size: 16px;
 }
