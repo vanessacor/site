@@ -183,6 +183,31 @@ p {
   font-weight: bold;
 }
 
+.book-text-input span {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  font-weight: 600;
+  color: #f41f7b;
+}
+
+#same-title {
+  top: 42px;
+}
+
+
+#empty-title {
+  display: none;
+}
+
+#same-title {
+  display: none;
+}
+
+#empty-author {
+  display: none;
+}
+
 #genre {
   border-bottom: 2px solid #181712;
 }
@@ -318,23 +343,27 @@ p {
   text-align: left;
 }
 
-#delete-book, #edit-book {
+.delete-book, .edit-book {
   position: absolute;
   right: 0;
   padding: 10px
 }
 
-#delete-book {
+.delete-book {
   top: 0;
 }
 
 .book-card {
   position: relative;
-  margin: 0 auto 20px;
+  margin: 0 auto 30px;
   background-color: #f0f0f0;
   border-left: 10px solid #f41f7b;
   border-radius: 5px;
   min-width: 280px;
+}
+
+.book-card:last-of-type {
+  margin-bottom: 90px;
 }
 
 #card-title {
@@ -384,7 +413,7 @@ p {
   color: #f0f0f0;
 }
 
-#edit-book {
+.edit-book {
   position: absolute;
   bottom: 0;
   right: 0;

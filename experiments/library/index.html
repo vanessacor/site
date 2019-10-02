@@ -30,13 +30,16 @@
           <legend id="form-legend">New Book</legend>
 
           <div id="title" class="book-text-input">
-            <input type="text" name="book-title" class="book-text-input" required="">
+            <input type="text" name="book-title" class="book-text-input">
             <label for="title">Title</label>
+            <span id="empty-title">PLEASE GIVE A TITLE</span>
+            <span id="same-title">You have this Title</span>
           </div>
 
           <div id="author" class="book-text-input">
-            <input type="text" name="book-author" class="book-text-input" required="">
+            <input type="text" name="book-author" class="book-text-input">
             <label for="author">Author</label>
+            <span id="empty-author">WHO WROTE IT?</span>
           </div>
 
           <div id="genre">
@@ -78,59 +81,7 @@
         </button>
 
         <div class="book-card-wrapper">
-
-          <article class="book-card">
-
-            <header id="card-title">
-              <h3></h3>
-              <button class="icon" id="delete-book">
-                <i class="far fa-trash-alt"></i>
-              </button>
-            </header>
-
-            <div class="book-details">
-              <h3 id="card-author">Author:</h3>
-              <p></p>
-              <h3 id="card-genre">Genre:</h3>
-              <p></p>
-            </div>
-
-            <footer>
-              <button class="button" id="status-button">Read</button>
-              <button class="icon" id="edit-book">
-                <i class="far fa-edit"></i>
-              </button>
-            </footer>
-
-          </article>
-          
-          <article class="book-card">
-
-            <header id="card-title">
-              <h3>If on a winter's night a traveler</h3>
-              <button class="icon" id="delete-book">
-                <i class="far fa-trash-alt"></i>
-              </button>
-            </header>
-
-            <div class="book-details">
-              <h3 id="card-author">Author:</h3>
-                <p>Italo Calvino</p>
-              <h3 id="card-genre">Genre:</h3>
-                <p>Fiction</p>
-            </div>
-
-            <footer>
-              <button class="button" id="status-button">Read</button>
-              <button class="icon" id="edit-book">
-                <i class="far fa-edit"></i>
-              </button>
-            </footer>
-
-          </article>
-
         </div>
-
 
       </div>
     </div>
@@ -140,7 +91,9 @@
 
 
     <script src="library.js"></script>
+    <script src="book.js"></script>
     <script src="library-ui.js"></script>
+    <script src="main.js"></script>
     <script src="../../scripts/banner.js"></script>
 
   </body>

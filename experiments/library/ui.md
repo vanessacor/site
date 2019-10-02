@@ -24,6 +24,7 @@ LibraryUi
     - hides form
     - showList()
     - createBookCard(newBook)
+    - clearinputfields()
 
   createBookCard(book)
     - creates book card
