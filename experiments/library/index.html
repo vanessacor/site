@@ -30,14 +30,14 @@
           <legend id="form-legend">New Book</legend>
 
           <div id="title" class="book-text-input">
-            <input type="text" name="book-title" class="book-text-input">
+            <input type="text" name="book-title" class="book-text-input" required>
             <label for="title">Title</label>
-            <span id="empty-title">PLEASE GIVE A TITLE</span>
-            <span id="same-title">You have this Title</span>
+            <span class="validation-msg" id="empty-title">PLEASE GIVE A TITLE</span>
+            <span class="validation-msg" id="same-title">This Title already exists</span>
           </div>
 
           <div id="author" class="book-text-input">
-            <input type="text" name="book-author" class="book-text-input">
+            <input type="text" name="book-author" class="book-text-input" required>
             <label for="author">Author</label>
             <span id="empty-author">WHO WROTE IT?</span>
           </div>

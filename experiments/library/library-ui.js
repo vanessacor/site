@@ -6,10 +6,9 @@ class LibraryUi {
     this.introductionButton = document.querySelector('.introduction button');
     this.formAddButton = document.querySelector('#add-button');
     this.bookTitle = document.querySelector('#title input');
-    this.sameTitleFeedback = document.querySelector('#same-title');
     this.bookAuthor = document.querySelector('#author input');
     this.bookGenre = document.querySelector('#genre-options');
-    this.bookStatus = document.querySelector('#status input');
+    this.bookStatus = document.querySelectorAll('#status input');
     this.bookCardEditButton = document.getElementById('edit-book');
     this.bookcardStatusButton = document.getElementById('status-book');
     this.form = document.getElementById('new-book');
@@ -17,6 +16,8 @@ class LibraryUi {
     this.listAddButton = document.querySelector('.book-list .add-book-btn');
     this.introduction = document.querySelector('.introduction');
     this.closeFormButton = document.querySelector('#close-form');
+    this.emptyTitleFeedback = document.querySelector('#empty-title');
+    this.emptyAuthorFeedback = document.querySelector('#empty-author');
 
     this.hideIntroduction();
     const book = new Book('basda', 'asdfasdf', 'sadfasdf', 'read');
@@ -61,12 +62,22 @@ class LibraryUi {
     }
   }
 
+  getStatus (status) {
+    status = this.bookStatus;
+    for (let i = 0; i < this.bookStatus.length; i++) {
+      if (status[i].checked) {
+        return status[i].value;
+      }
+    }
+  };
+
   saveBook () {
     const title = this.bookTitle.value;
     const author = this.bookAuthor.value;
     const genre = this.bookGenre.options[this.bookGenre.selectedIndex].value;
-    const status = this.bookStatus.value;
+    const status = this.getStatus();
     const newBook = new Book(title, author, genre, status);
+    const sameTitleFeedback = document.querySelector('#same-title');
 
     if (this.bookTitle.value === '' || this.bookAuthor.value === '') {
       this.showFeedback();
@@ -74,7 +85,7 @@ class LibraryUi {
       return;
     }
     if (!this.library.isUniqueTitle(title)) {
-      this.sameTitleFeedback.style.display = 'block';
+      sameTitleFeedback.style.display = 'block';
       event.preventDefault();
       return;
     } else {
@@ -84,17 +95,20 @@ class LibraryUi {
 
     this.hideAddForm();
     this.createBookCard(newBook);
-    this.sameTitleFeedback.style.display = 'none';
+    sameTitleFeedback.style.display = 'none';
     event.preventDefault();
   }
 
   showFeedback () {
-    const emptyTitleFeedback = document.querySelector('#empty-title');
-    const emptyAuthorFeedback = document.querySelector('#empty-author');
     if (this.bookTitle.value === '') {
-      emptyTitleFeedback.style.display = 'block';
+      this.emptyTitleFeedback.style.display = 'block';
     } else {
-      emptyAuthorFeedback.style.display = 'block';
+      this.emptyTitleFeedback.style.display = 'none';
+    }
+    if (this.bookAuthor.value === '') {
+      this.emptyAuthorFeedback.style.display = 'block';
+    } else {
+      this.emptyAuthorFeedback.style.display = 'none';
     }
   }
 
@@ -103,6 +117,8 @@ class LibraryUi {
     this.bookAuthor.value = '';
     this.bookGenre.value = '';
     this.bookStatus.value = 'read';
+    this.emptyTitleFeedback.style.display = 'none';
+    this.emptyAuthorFeedback.style.display = 'none';
   }
 
   createBookCard (book) {
@@ -132,6 +148,20 @@ class LibraryUi {
 
     const deleteBookButton = newBookCard.querySelector('.delete-book');
     deleteBookButton.addEventListener('click', (ev) => this.deleteBook(book, ev));
+
+    const statusBtn = newBookCard.querySelector('#status-button');
+    statusBtn.addEventListener('click', (ev) => toggleStatus(book, ev));
+
+    function toggleStatus (book, ev) {
+      const status = book.status;
+      if (status == 'read') {
+        statusBtn.innerHTML = 'unread';
+        book.status = 'unread';
+      } else {
+        statusBtn.innerHTML = 'read';
+        book.status = 'read';
+      }
+    }
 
     bookCardWraper.appendChild(newBookCard);
     this.showBookList();
