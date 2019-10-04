@@ -163,6 +163,16 @@ class LibraryUi {
       }
     }
 
+    const updateBook = (book) => {
+      this.addAnotherBook();
+      this.bookTitle.value = book.title;
+      this.bookAuthor.value = book.author;
+      this.bookGenre.value = book.genre;
+      this.bookStatus.value = book.status;
+    };
+    const editButton = newBookCard.querySelector('.edit-book');
+    editButton.addEventListener('click', () => updateBook(book));
+
     bookCardWraper.appendChild(newBookCard);
     this.showBookList();
   }

@@ -3,6 +3,7 @@
 class Library {
   constructor () {
     this.books = [];
+    this.counter = 0;
   }
 
   list () {
