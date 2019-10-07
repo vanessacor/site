@@ -3,24 +3,25 @@
 class LibraryUi {
   constructor (library) {
     this.library = library;
-    this.introductionButton = document.querySelector('.introduction button');
+    this.introductionAddButton = document.querySelector('.introduction button');
+    this.introduction = document.querySelector('.introduction');
     this.formAddButton = document.querySelector('#add-button');
+    this.form = document.getElementById('new-book');
+    this.closeFormButton = document.querySelector('#close-form');
+    this.titleLabel = document.querySelector('#title label');
+    this.authorLabel = document.querySelector('#author label');
+    this.emptyTitleFeedback = document.querySelector('#empty-title');
+    this.emptyAuthorFeedback = document.querySelector('#empty-author');
     this.bookTitle = document.querySelector('#title input');
     this.bookAuthor = document.querySelector('#author input');
     this.bookGenre = document.querySelector('#genre-options');
     this.bookStatus = document.querySelectorAll('#status input');
-    this.bookCardEditButton = document.getElementById('edit-book');
     this.bookcardStatusButton = document.getElementById('status-book');
-    this.form = document.getElementById('new-book');
     this.bookList = document.querySelector('.book-list');
     this.listAddButton = document.querySelector('.book-list .add-book-btn');
-    this.introduction = document.querySelector('.introduction');
-    this.closeFormButton = document.querySelector('#close-form');
-    this.emptyTitleFeedback = document.querySelector('#empty-title');
-    this.emptyAuthorFeedback = document.querySelector('#empty-author');
 
     this.hideIntroduction();
-    const book = new Book('basda', 'asdfasdf', 'sadfasdf', 'read');
+    const book = new Book('O Estrangeiro', 'Alber Camus', 'Romance', 'read');
     this.library.addBook(book);
     this.createBookCard(book);
 
@@ -28,10 +29,15 @@ class LibraryUi {
   }
 
   _bindEventListeners () {
-    this.introductionButton.addEventListener('click', () => this.addFirstBook());
+    this.introductionAddButton.addEventListener('click', () => this.addFirstBook());
     this.listAddButton.addEventListener('click', () => this.addAnotherBook());
     this.formAddButton.addEventListener('click', () => this.saveBook());
     this.closeFormButton.addEventListener('click', () => this.closeForm());
+  }
+
+  addFirstBook () {
+    this.hideIntroduction();
+    this.showAddForm();
   }
 
   hideIntroduction () {
@@ -102,12 +108,28 @@ class LibraryUi {
   showFeedback () {
     if (this.bookTitle.value === '') {
       this.emptyTitleFeedback.style.display = 'block';
+      this.titleLabel.style.display = 'none';
+      this.bookTitle.addEventListener('focus', () => this.clearTitleFeedBack());
     } else {
       this.emptyTitleFeedback.style.display = 'none';
     }
     if (this.bookAuthor.value === '') {
       this.emptyAuthorFeedback.style.display = 'block';
+      this.authorLabel.style.display = 'none';
+      this.bookAuthor.addEventListener('focus', () => this.clearAuthorFeedBack());
     } else {
+      this.emptyAuthorFeedback.style.display = 'none';
+    }
+  }
+
+  clearTitleFeedBack () {
+    if (this.emptyTitleFeedback.style.display === 'block') {
+      this.emptyTitleFeedback.style.display = 'none';
+    }
+  }
+
+  clearAuthorFeedBack () {
+    if (this.emptyAuthorFeedback.style.display === 'block') {
       this.emptyAuthorFeedback.style.display = 'none';
     }
   }
@@ -119,13 +141,16 @@ class LibraryUi {
     this.bookStatus.value = 'read';
     this.emptyTitleFeedback.style.display = 'none';
     this.emptyAuthorFeedback.style.display = 'none';
+    this.titleLabel.style.display = 'block';
+    this.authorLabel.style.display = 'block';
   }
 
   createBookCard (book) {
     const bookCardWraper = document.querySelector('.book-card-wrapper');
     const newBookCard = document.createElement('article');
     newBookCard.setAttribute('class', 'book-card');
-    newBookCard.innerHTML = `<header id="card-title">
+    newBookCard.setAttribute('id', `book-${book.id}`);
+    newBookCard.innerHTML = `<header class="card-title">
     <h3>${book.title}</h3>
     <button class="icon delete-book">
     <i class="far fa-trash-alt"></i>
@@ -141,9 +166,6 @@ class LibraryUi {
     
     <footer>
     <button class="button" id="status-button">${book.status}</button>
-    <button class="icon edit-book">
-    <i class="far fa-edit"></i>
-    </button>
     </footer>`;
 
     const deleteBookButton = newBookCard.querySelector('.delete-book');
@@ -154,7 +176,7 @@ class LibraryUi {
 
     function toggleStatus (book, ev) {
       const status = book.status;
-      if (status == 'read') {
+      if (status === 'read') {
         statusBtn.innerHTML = 'unread';
         book.status = 'unread';
       } else {
@@ -162,16 +184,6 @@ class LibraryUi {
         book.status = 'read';
       }
     }
-
-    const updateBook = (book) => {
-      this.addAnotherBook();
-      this.bookTitle.value = book.title;
-      this.bookAuthor.value = book.author;
-      this.bookGenre.value = book.genre;
-      this.bookStatus.value = book.status;
-    };
-    const editButton = newBookCard.querySelector('.edit-book');
-    editButton.addEventListener('click', () => updateBook(book));
 
     bookCardWraper.appendChild(newBookCard);
     this.showBookList();
@@ -183,11 +195,6 @@ class LibraryUi {
 
   hideBookList () {
     this.bookList.style.display = 'none';
-  }
-
-  addFirstBook () {
-    this.hideIntroduction();
-    this.showAddForm();
   }
 
   addAnotherBook () {

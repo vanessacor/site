@@ -3,7 +3,7 @@
 class Library {
   constructor () {
     this.books = [];
-    this.counter = 0;
+    this.counter = 1;
   }
 
   list () {
@@ -11,6 +11,7 @@ class Library {
   }
 
   addBook (book) {
+    book.id = this.counter++;
     this.books.push(book);
   }
 
