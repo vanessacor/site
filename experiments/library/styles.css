@@ -194,6 +194,21 @@ p {
   background: #f42c1f;
 }
 
+#genre {
+  position: relative;
+}
+
+#empty-genre {
+  display: none;
+  position: absolute;
+  top: -2px;
+  padding: 0 5px;
+  border-radius: 2px;
+  font-weight: 600;
+  color: #f0f0f0;
+  background: #f42c1f;
+}
+
 .book-text-input:focus-visible ~ span {
   display: none;
 }

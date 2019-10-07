@@ -12,6 +12,7 @@ class LibraryUi {
     this.authorLabel = document.querySelector('#author label');
     this.emptyTitleFeedback = document.querySelector('#empty-title');
     this.emptyAuthorFeedback = document.querySelector('#empty-author');
+    this.emptyGenreFeedback = document.querySelector('#empty-genre');
     this.bookTitle = document.querySelector('#title input');
     this.bookAuthor = document.querySelector('#author input');
     this.bookGenre = document.querySelector('#genre-options');
@@ -85,7 +86,7 @@ class LibraryUi {
     const newBook = new Book(title, author, genre, status);
     const sameTitleFeedback = document.querySelector('#same-title');
 
-    if (this.bookTitle.value === '' || this.bookAuthor.value === '') {
+    if (this.bookTitle.value === '' || this.bookAuthor.value === '' || this.bookGenre.value === '') {
       this.showFeedback();
       event.preventDefault();
       return;
@@ -120,6 +121,10 @@ class LibraryUi {
     } else {
       this.emptyAuthorFeedback.style.display = 'none';
     }
+    if (this.bookGenre.value === '') {
+      this.emptyGenreFeedback.style.display = 'block';
+      this.bookGenre.addEventListener('focus', () => this.clearGenreFeedBack());
+    }
   }
 
   clearTitleFeedBack () {
@@ -131,6 +136,12 @@ class LibraryUi {
   clearAuthorFeedBack () {
     if (this.emptyAuthorFeedback.style.display === 'block') {
       this.emptyAuthorFeedback.style.display = 'none';
+    }
+  }
+
+  clearGenreFeedBack () {
+    if (this.emptyGenreFeedback.style.display === 'block') {
+      this.emptyGenreFeedback.style.display = 'none';
     }
   }
 
