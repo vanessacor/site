@@ -28,6 +28,6 @@ class Library {
   }
 
   isUniqueTitle (title) {
-    return !this.books.some(book => book.title === title);
+    return !this.books.some(book => book.title === title.toUpperCase());
   }
 }

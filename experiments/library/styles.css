@@ -348,6 +348,7 @@ p {
 .book-list {
   display: none;
   position: relative;
+  padding-top: 20px;
   color: #181712;
 }
 
