@@ -243,6 +243,7 @@ class LibraryUi {
 
   showEditForm (book) {
     this.showEditOrAddForm();
+    this.formAddButton.innerHTML = 'Save';
     this.bookTitle.value = book.title;
     this.bookAuthor.value = book.author;
     this.bookGenre.value = this.selectGenre(book.genre);
