@@ -513,7 +513,7 @@ p { font-size: 16px; }
   text-align: left;
 }
 
-#status-button {
+.status-button {
   margin: 0px 0 16px 16px;
   padding: 5px;
   font-size: 16px;
@@ -524,7 +524,7 @@ p { font-size: 16px; }
   transition: 1s;
 }
 
-#status-button:hover {
+.status-button:hover {
   color: #f0f0f0;
   background-color: #181712;
   border: none;

@@ -23,18 +23,20 @@ class LibraryUi {
 
     this.hideIntroduction();
     const book = new Book('O Estrangeiro', 'Alber Camus', 'Romance', 'read');
+    this.showBookList();
     this.library.addBook(book);
     this.createBookCard(book);
 
     this._bindEventListeners();
 
     this.bookBeingEdited = null;
+    this.cardBeingEdited = null;
   }
 
   _bindEventListeners () {
     this.introductionButton.addEventListener('click', (ev) => this.handleIntroAddClick(ev));
     this.listAddButton.addEventListener('click', () => this.handleListAddClick());
-    this.formAddButton.addEventListener('click', () => this.saveBook());
+    this.form.addEventListener('submit', (ev) => this.saveBook(ev));
     this.closeFormButton.addEventListener('click', () => this.closeForm());
   }
 
@@ -66,18 +68,9 @@ class LibraryUi {
     }
   }
 
-  selectGenre (genre) {
-    const options = document.querySelectorAll('#genre-options option');
-    for (let i = 0; i < options.length; i++) {
-      if (options[i].value === genre) {
-        return options[i].value;
-      }
-    }
-  }
-
-  getStatus (status) {
-    status = this.bookStatus;
-    for (let i = 0; i < this.bookStatus.length; i++) {
+  getStatus () {
+    const status = this.bookStatus;
+    for (let i = 0; i < status.length; i++) {
       if (status[i].checked) {
         return status[i].value;
       }
@@ -102,33 +95,35 @@ class LibraryUi {
   }
 
   // saves a new book or updates an existing one
-  saveBook () {
+  saveBook (event) {
+    event.preventDefault();
     const newBook = this.getBookFromForm();
     const sameTitleFeedback = document.querySelector('#same-title');
-    const isUnique = newBook.title && this.library.isUniqueTitle(newBook.title);
 
-    if (!newBook.title || !isUnique || !newBook.author || !newBook.genre) {
+    const isSameTitle = this.bookBeingEdited && newBook.title === this.bookBeingEdited.title;
+    const isUnique = newBook.title && this.library.isUniqueTitle(newBook.title);
+    const isUniqueOrSameTitle = isUnique || isSameTitle;
+
+    if (!newBook.title || !isUniqueOrSameTitle || !newBook.author || !newBook.genre) {
       this.showFeedback(newBook, isUnique);
-      event.preventDefault();
       return;
-    } else {
-      this.library.addBook(newBook);
-      this.clearInputFields();
-    };
+    }
 
     if (this.bookBeingEdited) {
       this.library.updateBook(this.bookBeingEdited, newBook);
+      this.updateBookCard(newBook);
     } else {
       this.library.addBook(newBook);
+      this.createBookCard(newBook);
     };
 
     this.bookBeingEdited = null;
+    this.cardBeingEdited = null;
     this.clearInputFields();
 
     this.hideAddForm();
-    this.createBookCard(newBook);
+    this.showBookList();
     sameTitleFeedback.style.display = 'none';
-    event.preventDefault();
   }
 
   showFeedback (book, isUnique) {
@@ -192,24 +187,24 @@ class LibraryUi {
 
   renderBookHTML (book) {
     return `<header class="card-title">
-    <h3>${book.title}</h3>
-    <button class="icon delete-book">
-    <i class="far fa-trash-alt"></i>
-    </button>
+      <h3>${book.title}</h3>
+      <button class="icon delete-book">
+      <i class="far fa-trash-alt"></i>
+      </button>
     </header>
     
     <div class="book-details">
-    <h3 id="card-author">Author:</h3>
-    <p>${book.author}</p>
-    <h3 id="card-genre">Genre:</h3>
-    <p>${book.genre}</p>
+      <h3>Author:</h3>
+      <p class="book-author">${book.author}</p>
+      <h3>Genre:</h3>
+      <p class="book-genre">${book.genre}</p>
     </div>
     
     <footer>
-    <button class="button" id="status-button">${book.status}</button>
-    <button class="icon edit-book">
-    <i class="far fa-edit"></i>
-    </button>
+      <button class="button status-button">${book.status}</button>
+      <button class="icon edit-book">
+      <i class="far fa-edit"></i>
+      </button>
     </footer>`;
   }
 
@@ -220,11 +215,11 @@ class LibraryUi {
     const deleteBookButton = card.querySelector('.delete-book');
     deleteBookButton.addEventListener('click', (ev) => this.deleteBook(book, ev));
 
-    const statusBtn = card.querySelector('#status-button');
+    const statusBtn = card.querySelector('.status-button');
     statusBtn.addEventListener('click', () => this.toggleStatus(book, card));
 
     const editButton = card.querySelector('.edit-book');
-    editButton.addEventListener('click', () => this.showEditForm(book));
+    editButton.addEventListener('click', () => this.showEditForm(book, card));
   }
 
   toggleStatus (book, card) {
@@ -241,14 +236,17 @@ class LibraryUi {
     this.renderBook(book, card);
   }
 
-  showEditForm (book) {
+  showEditForm (book, card) {
+    const formTitle = document.querySelector('#form-legend');
     this.showEditOrAddForm();
     this.formAddButton.innerHTML = 'Save';
+    formTitle.innerHTML = 'Edit Book';
     this.bookTitle.value = book.title;
     this.bookAuthor.value = book.author;
-    this.bookGenre.value = this.selectGenre(book.genre);
-    this.bookStatus = this.selectStatus(book.status);
+    this.bookGenre.value = book.genre;
+    this.selectStatus(book.status);
     this.bookBeingEdited = book;
+    this.cardBeingEdited = card;
   };
 
   createBookCard (book) {
@@ -259,7 +257,10 @@ class LibraryUi {
     this.renderBook(book, newBookCard);
 
     bookCardWraper.appendChild(newBookCard);
-    this.showBookList();
+  }
+
+  updateBookCard (book) {
+    this.renderBook(book, this.cardBeingEdited);
   }
 
   showBookList () {
