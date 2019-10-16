@@ -1,0 +1,137 @@
+/* reset  */
+html {
+  box-sizing: border-box;
+  }
+  *, *:before, *:after {
+  box-sizing: inherit;
+  }
+  
+body {
+  margin: 0;
+  background-color: #9e7c65;
+}
+  
+  /* typography */
+  
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #f0f3ec;
+}
+
+h1 {
+  font-family: 'Mansalva', cursive;
+  font-size: 51px;
+  color: #dcdfd7;
+  letter-spacing: 0.3em;
+}
+
+h2 {
+  font-size: 38px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+a {
+  color: #050505;
+}
+
+/* layout */
+
+.container {
+margin: 0 20px;
+}
+
+#site-main {
+  margin: 0 auto;
+  padding-top: 65px;
+  width: 100%;
+  max-width: 580px;
+} 
+
+/* site header */
+
+#site-header{
+  padding-top: 65px;
+  margin-bottom: 65px;
+  text-align: center;
+}
+   
+/* site main */
+
+.splash {
+  display: none;
+  position: relative;
+  text-align: center;
+}
+
+.splash button {
+  background-color: transparent;
+  border: none;
+}
+
+.splash i:hover {
+  color: #39332b;
+}
+
+.splash i {
+  color: #ff8889;
+  font-size: 111px;
+}
+
+.splash p {
+  position: absolute;
+  top: 78%;
+  left: 47%;
+  margin: 0;
+  font-size: 16px;
+  color: #f0f3ec;
+  letter-spacing: 0.1em;
+  pointer-events: none;
+}
+
+.game {
+  /* display: none; */
+}
+
+#my-canvas {
+  display: block; 
+  margin: 0 auto; 
+  background: #dcdfd7; 
+}
+
+.information {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin: 0 5px;
+
+}
+
+.information p, ul {
+  font-size: 30px;
+  margin: 0 0 10px 0;
+}
+
+.information li {
+  display: inline-block;
+  font-size: 30px;
+  color: #ff8889;
+}
+
+.game-over {
+  display: none;
+  font-size: 38px;
+  font-weight: bold;
+}
+/* site footer */
+
+#site-footer {
+padding: 80px 0 20px;
+text-align: center;
+}

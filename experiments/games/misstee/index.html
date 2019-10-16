@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Misstee</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Mansalva|Montserrat&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+  <header id="site-header" class="container">
+    <h1>Misstee</h1>
+  </header>
+
+  <main id="site-main" class="container">
+    <section class="splash">
+      <button>
+          <i class="fas fa-paw"></i>
+      </button>
+      <p>PLAY</p>
+    </section>
+
+    <section class="game">
+      <canvas id="my-canvas" width="580" height="420"></canvas>
+      <div class="information">
+        <div id="score">
+          <p>Score: </p>
+        </div>
+        <ul id="lives">
+            <li>
+              <i class="fas fa-heart"></i>
+            </li>
+            <li>
+              <i class="fas fa-heart"></i>
+            </li>
+            <li>
+              <i class="fas fa-heart"></i>
+            </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="game-over">
+      <h2>Game Over!</h2>
+      <p id="final-Score">Your Score: </p>
+    </section>
+
+  </main>
+
+  
+
+  <footer id="site-footer" class="container">
+     <h3></h3> 
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="../../../scripts/banner.js"></script>
+  </body>
+</html>
