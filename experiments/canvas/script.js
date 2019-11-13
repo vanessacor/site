@@ -1,9 +1,9 @@
 'use strict';
-var canvas = document.getElementById('my-canvas');
-var ctx = canvas.getContext('2d');
+const canvas = document.getElementById('my-canvas');
+const ctx = canvas.getContext('2d');
 const maxRadius = 40;
 
-var mouse = {
+const mouse = {
   x: undefined,
   y: undefined
 };
@@ -39,7 +39,7 @@ function Circle (x, y, dx, dy, radius) {
     ctx.arc(this.x, this.y, this.radius, 0, convertDegreeToRadians(360), false);
     ctx.fillStyle = this.color;
     ctx.shadowColor = this.color;
-    ctx.shadowBlur = 4;
+    ctx.shadowBlur = 20;
     ctx.fill();
     ctx.closePath();
   };
@@ -77,6 +77,8 @@ function Line (x, y) {
     ctx.moveTo(this.x, this.y);
     ctx.lineTo(0, 0);
     ctx.lineTo(0, 0);
+    ctx.shadowColor = '#b2fcff';
+    ctx.shadowBlur = 20;
     ctx.strokeStyle = '#04ADBF';
     ctx.stroke();
   };
@@ -86,19 +88,19 @@ const arrayOfCircles = [];
 
 const arrayOfLines = [];
 
-for (let i = 0; i < 600; i++) {
-  var radius = Math.random() * 2 + 1;
+for (let i = 0; i < 800; i++) {
+  const radius = Math.random() * 2 + 1;
   // adding the last part is to make sure the ball bounce from the outline
-  var x = Math.random() * (innerWidth - radius * 2) + radius;
-  var y = Math.random() * (innerHeight - radius * 2) + radius;
-  var dx = (Math.random() - 0.5);
-  var dy = (Math.random() - 0.5);
+  const x = Math.random() * (innerWidth - radius * 2) + radius;
+  const y = Math.random() * (innerHeight - radius * 2) + radius;
+  const dx = (Math.random() - 0.5);
+  const dy = (Math.random() - 0.5);
   arrayOfCircles.push(new Circle(x, y, dx, dy, radius));
 }
 
 for (let i = 0; i < 100; i++) {
-  var LineX = Math.random() * window.innerWidth;
-  var LineY = Math.random() * window.innerHeight;
+  const LineX = Math.random() * window.innerWidth;
+  const LineY = Math.random() * window.innerHeight;
   arrayOfLines.push(new Line(LineX, LineY));
 }
 
