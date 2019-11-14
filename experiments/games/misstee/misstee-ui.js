@@ -10,9 +10,9 @@ class MissteeUI {
     this.scoredisplay.innerText = score;
   }
 
-  updatelives (lives) {
-    if (lives >= 1 && lives < 3) {
-      this.livesdisplay.removeChild(this.livesdisplay.firstChild);
+  removeHeart () {
+    if (this.livesdisplay.firstChild) {
+      this.livesdisplay.firstChild.remove();
     }
   }
 }

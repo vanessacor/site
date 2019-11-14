@@ -1,21 +1,24 @@
 'use strict';
 
 class Food {
-  constructor (ctx, canvasWidth, canvasHeight, x, y, dx, status) {
+  constructor (ctx, canvasWidth, canvasHeight, x, y, dx) {
     this.ctx = ctx;
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
     this.x = x;
     this.y = y;
     this.dx = dx;
-    this.status = status;
-    // this.dy = dy;
+    this.active = true;
     this.width = 10;
     this.height = 10;
-    this.colors = ['pink', '#ff8889', '#39332b'];
-    this.utils = new Utils();
-    this.color = this.utils.generateColor(this.colors);
+    this.colors = ['pink'];
+    // this.colors = ['pink', '#ff8889', '#39332b'];
+    this.color = Utils.generateColor(this.colors);
   };
+
+  deactivate () {
+    this.active = false;
+  }
 
   draw () {
     this.ctx.beginPath();

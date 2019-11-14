@@ -1,21 +1,24 @@
 'use strict';
 
 class Poison {
-  constructor (ctx, canvasWidth, canvasHeight, x, y, dx, status) {
+  constructor (ctx, canvasWidth, canvasHeight, x, y, dx) {
     this.ctx = ctx;
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
     this.x = x;
     this.y = y;
     this.dx = dx;
-    this.status = status;
+    this.active = true;
     this.height = 10;
     this.width = 10;
     this.colors = ['red', 'brown', 'green'];
-    this.utils = new Utils();
-    this.color = this.utils.generateColor(this.colors);
+    this.color = 'black';// Utils.generateColor(this.colors);
   }
-  ;
+
+  deactivate () {
+    this.active = false;
+  }
+
   draw () {
     this.ctx.beginPath();
     this.ctx.rect(this.x, this.y, this.width, this.height);

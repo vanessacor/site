@@ -10,6 +10,7 @@ class Cat {
     this.width = 40;
     this.height = 30;
     this.color = '#9e7c65';
+    this.speed = 1;
   };
 
   draw () {
@@ -22,18 +23,22 @@ class Cat {
 
   setDirection (direction) {
     if (direction === 'up') {
-      this.y -= this.dy;
-    } if (direction === 'down') {
-      this.y += this.dy;
-    } else (this.stop());
+      this.dy = -this.speed;
+    } else if (direction === 'down') {
+      this.dy = this.speed;
+    } else {
+      this.stop();
+    }
   }
 
   stop () {
-    this.y = this.y;
+    this.dy = 0;
   }
 
   update () {
     this.draw();
+
+    this.y += this.dy;
     if (this.y + this.height > this.canvasHeight) {
       this.y = this.canvasHeight - this.height;
     }
