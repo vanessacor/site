@@ -14,9 +14,6 @@ class Utils {
     const collissionLeft = a.x <= (b.x + b.width);
     const collissionTop = (a.y + a.height) >= b.y;
     const collissionBottom = a.y <= (b.y + b.height);
-    if (collissionRight && collissionLeft && collissionTop && collissionBottom) {
-      console.log('!');
-    }
     return (collissionRight && collissionLeft && collissionTop && collissionBottom);
   }
 }

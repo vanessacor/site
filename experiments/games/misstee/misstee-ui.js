@@ -11,8 +11,8 @@ class MissteeUI {
   }
 
   removeHeart () {
-    if (this.livesdisplay.firstChild) {
-      this.livesdisplay.firstChild.remove();
+    if (this.livesdisplay.children.length) {
+      this.livesdisplay.children[0].remove();
     }
   }
 }

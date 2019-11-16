@@ -1,7 +1,7 @@
 'use strict';
 
 class Game {
-  constructor (canvasWidth, canvasHeight) {
+  constructor (canvasWidth, canvasHeight, state) {
     this.canvas = document.getElementById('my-canvas');
     this.ctx = this.canvas.getContext('2d');
     this.document = document;
@@ -14,11 +14,14 @@ class Game {
     this.score = 0;
     this.ui = new MissteeUI(this.score);
     this.timer = 0;
+    this.state = state;
   }
 
   _bindEventListeners () {
     this.document.addEventListener('keydown', (ev) => this.keyDownHandler(ev));
     this.document.addEventListener('keydown', (ev) => this.keyUpHandler(ev));
+    this.document.addEventListener('mousedown', (ev) => this.cat.setDirection('up'));
+    this.document.addEventListener('mouseup', (ev) => this.cat.setDirection('down'));
   }
 
   keyUpHandler (e) {
@@ -33,7 +36,7 @@ class Game {
     };
   }
 
-  clearDesactivedItems () {
+  purgeItems () {
     for (let i = this.foods.length - 1; i > 0; i--) {
       const food = this.foods[i];
       if (!food.active) {
@@ -67,23 +70,22 @@ class Game {
     }
   }
 
-  // checkIsGameOver () {
-  //   if (this.lives < 1) {
-  //     alert('GAME OVER');
-  //     this.document.location.reload();
-  //   }
-  // }
+  isGameOver () {
+    if (this.lives === 0) {
+      this.state = 'off';
+    }
+  }
 
-  removeElements () {
+  deactivateElements () {
     for (let i = this.foods.length - 1; i > 0; i--) {
       const food = this.foods[i];
-      if (food.x < 0 || !food.active) {
+      if (food.x < 0) {
         food.deactivate();
       }
     }
     for (let i = this.poisons.length - 1; i > 0; i--) {
       const poison = this.poisons[i];
-      if (poison.x < 0 || !poison.active) {
+      if (poison.x < 0) {
         poison.deactivate(); ;
       }
     }
@@ -138,12 +140,12 @@ class Game {
     requestAnimationFrame(() => this.loop());
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
     this.timer++;
-    this.clearDesactivedItems();
-    this.removeElements();
+    this.purgeItems();
+    this.deactivateElements();
     this.detectCollission();
     this.generateMoreElements();
     this.updateAll();
-    // this.checkIsGameOver();
+    this.isGameOver();
     this.drawAll();
   };
 
