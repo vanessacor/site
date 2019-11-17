@@ -68,6 +68,10 @@ margin: 0 20px;
   background: #eee; 
 }
 
+#cat {
+  display: none;
+}
+
 #game-over {
   display: none;
   font-size: 38px;

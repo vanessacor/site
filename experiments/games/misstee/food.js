@@ -14,6 +14,7 @@ class Food {
     this.colors = ['pink'];
     // this.colors = ['pink', '#ff8889', '#39332b'];
     this.color = Utils.generateColor(this.colors);
+    this.image = document.getElementById('food');
   };
 
   deactivate () {
@@ -21,11 +22,12 @@ class Food {
   }
 
   draw () {
-    this.ctx.beginPath();
-    this.ctx.rect(this.x, this.y, this.width, this.height);
-    this.ctx.fillStyle = this.color;
-    this.ctx.fill();
-    this.ctx.closePath();
+    this.ctx.drawImage(this.image, this.x, this.y);
+    // this.ctx.beginPath();
+    // this.ctx.rect(this.x, this.y, this.width, this.height);
+    // this.ctx.fillStyle = this.color;
+    // this.ctx.fill();
+    // this.ctx.closePath();
   }
 
   update () {

@@ -105,6 +105,11 @@ margin: 0 20px;
   background: #dcdfd7; 
 }
 
+#cat, #food, #poison {
+  display: none;
+}
+
+
 .information {
   display: flex;
   flex-direction: row;
@@ -127,8 +132,16 @@ margin: 0 20px;
 
 .game-over {
   display: none;
-  font-size: 38px;
+  text-align: center;
+}
+
+.game-over h2 {
+  font-size: 63px;
   font-weight: bold;
+}
+
+#final-score {
+  font-size: 38px;
 }
 /* site footer */
 
