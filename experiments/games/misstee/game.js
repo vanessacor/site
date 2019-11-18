@@ -73,6 +73,7 @@ class Game {
   isGameOver () {
     if (this.lives === 0) {
       this.state = 'off';
+      this.ui.showGameOver(this.score);
     }
   }
 
@@ -137,6 +138,9 @@ class Game {
   };
 
   loop () {
+    if (this.state === 'off') {
+      return;
+    }
     requestAnimationFrame(() => this.loop());
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
     this.timer++;

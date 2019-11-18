@@ -61,16 +61,10 @@ margin: 0 20px;
 
 #site-main {
   margin: 0 auto;
-  padding-top: 45px;
+  padding-top: 25px;
   width: 100%;
   max-width: 580px;
 } 
-
-@media (min-width: 768px) {
-  #site-main {
-    padding-top: 65px;
-  }
-}
 
 
 /* site header */
@@ -121,13 +115,12 @@ margin: 0 20px;
   font-size: 111px;
 }
 
-
 .game {
-  /* display: none; */
+  display: none;
 }
 
 #my-canvas {
-  display: none; 
+  display: block; 
   margin: 0 auto; 
   background: #dcdfd7; 
 }
@@ -138,7 +131,7 @@ margin: 0 20px;
 
 
 .information {
-  display: none;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-top: 20px;
@@ -163,12 +156,30 @@ margin: 0 20px;
 }
 
 .game-over h2 {
-  font-size: 63px;
-  font-weight: bold;
+  font-size: 30px;
+  margin: 0 0 20px 0;
+}
+
+@media (min-width: 768px) {
+  .game-over h2 {
+    font-size: 40px;
+  }
+}
+
+#dead-cat {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  #dead-cat {
+    width: 180px;
+  }
 }
 
 #final-score {
-  font-size: 38px;
+  margin: 0;
+  font-size: 22px;
 }
 /* site footer */
 
