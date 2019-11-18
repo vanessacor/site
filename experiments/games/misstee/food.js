@@ -23,11 +23,6 @@ class Food {
 
   draw () {
     this.ctx.drawImage(this.image, this.x, this.y);
-    // this.ctx.beginPath();
-    // this.ctx.rect(this.x, this.y, this.width, this.height);
-    // this.ctx.fillStyle = this.color;
-    // this.ctx.fill();
-    // this.ctx.closePath();
   }
 
   update () {
