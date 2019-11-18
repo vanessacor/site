@@ -8,4 +8,4 @@ function main () {
   game.start();
 };
 
-// window.addEventListener('load', main);
+window.addEventListener('load', main);
