@@ -12,7 +12,7 @@ class Game {
     this.poisons = [];
     this.lives = 3;
     this.score = 0;
-    this.ui = new MissteeUI(this.score);
+    this.ui = new GameUI(this.score);
     this.timer = 0;
     this.state = state;
   }
@@ -73,7 +73,7 @@ class Game {
   isGameOver () {
     if (this.lives === 0) {
       this.state = 'off';
-      this.ui.showGameOver(this.score);
+      // this.ui.showGameOver(this.score);
     }
   }
 
