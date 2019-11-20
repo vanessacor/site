@@ -18,33 +18,42 @@
   <main id="site-main" class="container">
     <section class="splash">
       <p>Press Misstee's paw to play</p>
-      <button id="play-button">
+      <button class="button" id="play-button">
           <i class="fas fa-paw"></i>
       </button>
+      <div id="game-settings">
+        <button class="button" id="sound-on">
+          <i class="fas fa-volume-up"></i>
+        </button>
+        <button class="button" id="sound-off">
+          <i class="fas fa-volume-mute"></i>
+        </button>
+        <button class="button" id="game-info">
+          <i class="fas fa-info"></i>
+        </button>
+      </div>
     </section>
 
     <section class="game">
-      <canvas id="my-canvas" width="580" height="420"></canvas>
-      <img src="images/cat.png" id="cat">
-      <img src="images/food.png" id="food">
-      <img src="images/poison.png" id="poison">
-      <div class="information">
-        <div>
-          <p>Score:</p>
-          <span id="score">0</span>
-        </div>
-        <ul id="lives">
-          <li>
-            <i class="fas fa-heart"></i>
-          </li>
-          <li>
-            <i class="fas fa-heart"></i>
-          </li>
-          <li>
-            <i class="fas fa-heart"></i>
-          </li>
-        </ul>
+      <div id="canvas-wrapper">
+        <canvas id="my-canvas" width="580" height="420"></canvas>
+        <img src="images/cat.png" id="cat">
+        <img src="images/food.png" id="food">
+        <img src="images/poison.png" id="poison">
       </div>
+      <p id="score">Score: 10</p>
+      <ul id="lives">
+        <li>
+          <i class="fas fa-heart"></i>
+        </li>
+        <li>
+          <i class="fas fa-heart"></i>
+        </li>
+        <li>
+          <i class="fas fa-heart"></i>
+        </li>
+      </ul>
+      
     </section>
 
     <section class="game-over">
@@ -55,13 +64,7 @@
 
   </main>
 
-  
-
-  <footer id="site-footer" class="container">
-     <h3></h3> 
-  </footer>
-
-  <script src="misstee.js"></script>
+  <!-- <script src="misstee.js"></script> -->
   <script src="misstee-ui.js"></script>
   <script src="game.js"></script>
   <script src="cat.js"></script>

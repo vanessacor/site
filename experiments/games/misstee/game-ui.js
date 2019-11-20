@@ -7,7 +7,7 @@ class GameUI {
   }
 
   updateScore (score) {
-    this.scoredisplay.innerText = score;
+    this.scoredisplay.innerText = 'Score: ' + score;
   }
 
   removeHeart () {
