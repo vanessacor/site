@@ -7,9 +7,8 @@ class MissteeUI {
     this.playButton = document.getElementById('play-button');
     this.gameOver = document.querySelector('.game-over');
     this.finalScoreDisplay = document.getElementById('final-score');
-    this.width = 580; // need to change to the div width
-    this.height = 420; // need to change to the div height
-    this.game = new Game(this.width, this.height, 'on');
+    this.gameWrapper = document.getElementById('canvas-wrapper');
+
     this._bindEventListeners();
   }
 
@@ -19,7 +18,12 @@ class MissteeUI {
 
   startGame () {
     this.splash.style.display = 'none';
-    this.gameScreen.style.display = 'block';
+    this.gameScreen.style.display = 'grid';
+
+    const width = this.gameWrapper.clientWidth;
+    const height = this.gameWrapper.clientHeight;
+    this.game = new Game(width, height, 'on');
+
     this.game.start();
   }
 

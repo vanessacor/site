@@ -3,6 +3,8 @@
 class Game {
   constructor (canvasWidth, canvasHeight, state) {
     this.canvas = document.getElementById('my-canvas');
+    this.canvas.width = canvasWidth;
+    this.canvas.height = canvasHeight;
     this.ctx = this.canvas.getContext('2d');
     this.document = document;
     this.canvasWidth = canvasWidth;
@@ -18,6 +20,8 @@ class Game {
   }
 
   _bindEventListeners () {
+    this.document.addEventListener('touchstart', (ev) => this.keyDownHandler(ev));
+    this.document.addEventListener('touchend', (ev) => this.keyUpHandler(ev));
     this.document.addEventListener('keydown', (ev) => this.keyDownHandler(ev));
     this.document.addEventListener('keydown', (ev) => this.keyUpHandler(ev));
     this.document.addEventListener('mousedown', (ev) => this.cat.setDirection('up'));
