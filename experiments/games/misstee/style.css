@@ -19,6 +19,17 @@ body {
   margin: 0;
   background-color: #9e7c65;
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  .game {
+    display: none;
+  }
+
+  #rotate-screen {
+    display: block;
+  }
+}
+
   
   /* typography */
   
@@ -119,18 +130,16 @@ a {
   color: #39332b;
 }
 
-
-#game-settings i {
+#game-settings button {
   color: #f0f3ec;
-  font-size: calc(21px + (28 - 21) * ((100vw - 300px) / (1600 - 300)))
+  background-color: #ff8889;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: calc(12px + (18 - 12) * ((100vw - 300px) / (1600 - 300)))
 }
 
-#game-settings i:hover {
-  color: #39332b;
-}
-
-#sound-off {
-  display: none;
+#game-settings button:hover {
+  background-color: #39332b;
 }
 
 #game-info {
@@ -188,6 +197,15 @@ a {
   display: inline-block;
   /* font-size: 18px; */
   color: #ff8889;
+}
+
+#rotate-screen {
+  display: none;
+  text-align: center;
+}
+
+#rotate-screen i {
+  font-size: 36px;
 }
 
 .game-over {

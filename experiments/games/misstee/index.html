@@ -23,13 +23,10 @@
       </button>
       <div id="game-settings">
         <button class="button" id="sound-on">
-          <i class="fas fa-volume-up"></i>
-        </button>
-        <button class="button" id="sound-off">
-          <i class="fas fa-volume-mute"></i>
+          Sound <br>Off
         </button>
         <button class="button" id="game-info">
-          <i class="fas fa-info"></i>
+          How to <br>Play
         </button>
       </div>
     </section>
@@ -40,8 +37,11 @@
         <img src="images/cat.png" id="cat">
         <img src="images/food.png" id="food">
         <img src="images/poison.png" id="poison">
+        <audio src="sounds/bensound-cute.mp3" id="game-music"></audio>
+        <audio src="sounds/Blastwave_FX_CatMeow_SFXB.203.mp3" id="cat-meow"></audio>
+        <audio src="sounds/zapsplat_multimedia_game_sound_mallet_generic_017_40858.mp3" id="cat-eat"></audio>
       </div>
-      <p id="score">Score: 10</p>
+      <p id="score"></p>
       <ul id="lives">
         <li>
           <i class="fas fa-heart"></i>
@@ -53,8 +53,13 @@
           <i class="fas fa-heart"></i>
         </li>
       </ul>
-      
     </section>
+
+    <div id="rotate-screen">
+      <p>I work better in landscape</p>
+      <i class="fas fa-redo-alt"></i>
+      <p>Please rotate your phone</p>
+    </div>
 
     <section class="game-over">
       <h2>Game Over!</h2>

@@ -1,7 +1,7 @@
 'use strict';
 
 class Game {
-  constructor (canvasWidth, canvasHeight, state) {
+  constructor (canvasWidth, canvasHeight, state, soundState) {
     this.canvas = document.getElementById('my-canvas');
     this.canvas.width = canvasWidth;
     this.canvas.height = canvasHeight;
@@ -17,6 +17,9 @@ class Game {
     this.ui = new GameUI(this.score);
     this.timer = 0;
     this.state = state;
+    this.soundState = soundState;
+    this.catEatsound = document.getElementById('cat-eat');
+    this.catMeowSound = document.getElementById('cat-meow');
   }
 
   _bindEventListeners () {
@@ -59,6 +62,7 @@ class Game {
     for (let i = 0; i < this.foods.length; i++) {
       const food = this.foods[i];
       if (Utils.detectCollission(this.cat, food)) {
+        this.catEatsound.play();
         this.score++;
         food.deactivate();
         this.ui.updateScore(this.score);
@@ -67,6 +71,7 @@ class Game {
     for (let i = 0; i < this.poisons.length; i++) {
       const poison = this.poisons[i];
       if (Utils.detectCollission(this.cat, poison)) {
+        this.catMeowSound.play();
         this.lives--;
         poison.deactivate();
         this.ui.removeHeart();
@@ -93,6 +98,13 @@ class Game {
       if (poison.x < 0) {
         poison.deactivate(); ;
       }
+    }
+  }
+
+  ismusicOn () {
+    const music = document.getElementById('game-music');
+    if (this.soundState === 'on') {
+      music.play();
     }
   }
 
@@ -137,6 +149,7 @@ class Game {
 
   start () {
     this.generateElements();
+    this.ismusicOn();
     this.loop();
     this._bindEventListeners();
   };
