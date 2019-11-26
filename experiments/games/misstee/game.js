@@ -23,8 +23,8 @@ class Game {
   }
 
   _bindEventListeners () {
-    this.document.addEventListener('touchstart', (ev) => this.keyDownHandler(ev));
-    this.document.addEventListener('touchend', (ev) => this.keyUpHandler(ev));
+    this.document.addEventListener('touchstart', (ev) => this.cat.setDirection('up'));
+    this.document.addEventListener('touchend', (ev) => this.cat.setDirection('down'));
     this.document.addEventListener('keydown', (ev) => this.keyDownHandler(ev));
     this.document.addEventListener('keydown', (ev) => this.keyUpHandler(ev));
     this.document.addEventListener('mousedown', (ev) => this.cat.setDirection('up'));
@@ -109,7 +109,7 @@ class Game {
   }
 
   generateElements () {
-    const x = 570;
+    const x = this.canvasWidth;
     const elementHeight = 10;
     this.generateFoods(elementHeight, x);
     this.generatePoisons(elementHeight, x);

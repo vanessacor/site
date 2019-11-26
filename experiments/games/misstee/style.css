@@ -142,6 +142,14 @@ a {
   background-color: #39332b;
 }
 
+#game-settings button:focus {
+  outline: none;
+}
+
+#sound.sound-on {
+  background-color: rgb(119, 111, 111);
+}
+
 #game-info {
   margin-left: 10px;
 }

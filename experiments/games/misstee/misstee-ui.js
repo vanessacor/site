@@ -8,7 +8,7 @@ class MissteeUI {
     this.gameOver = document.querySelector('.game-over');
     this.finalScoreDisplay = document.getElementById('final-score');
     this.gameWrapper = document.getElementById('canvas-wrapper');
-    this.soundOn = document.getElementById('sound-on');
+    this.soundOn = document.getElementById('sound');
     this.sound = 'off';
 
     this._bindEventListeners();
@@ -20,8 +20,15 @@ class MissteeUI {
   }
 
   turnMusicOnAndOff () {
-    this.sound = 'on';
-    this.soundOn.innerHTML = 'Sound <br>On';
+    if (this.sound === 'off') {
+      this.sound = 'on';
+      this.soundOn.innerHTML = 'Sound <br>On';
+      this.soundOn.classList.add('sound-on');
+    } else {
+      this.sound = 'off';
+      this.soundOn.innerHTML = 'Sound <br>Off';
+      this.soundOn.classList.remove('sound-on');
+    }
   }
 
   startGame () {
