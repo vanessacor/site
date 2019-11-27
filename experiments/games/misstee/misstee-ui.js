@@ -10,7 +10,6 @@ class MissteeUI {
     this.gameWrapper = document.getElementById('canvas-wrapper');
     this.soundOn = document.getElementById('sound');
     this.sound = 'off';
-
     this._bindEventListeners();
   }
 
@@ -34,11 +33,10 @@ class MissteeUI {
   startGame () {
     this.splash.style.display = 'none';
     this.gameScreen.style.display = 'grid';
-
     const width = this.gameWrapper.clientWidth;
     const height = this.gameWrapper.clientHeight;
     this.game = new Game(width, height, 'on', this.sound);
-
+    this.game.gameOverCallBack(() => this.showGameOver(this.game.score));
     this.game.start();
   }
 

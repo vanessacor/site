@@ -20,6 +20,7 @@ class Game {
     this.soundState = soundState;
     this.catEatsound = document.getElementById('cat-eat');
     this.catMeowSound = document.getElementById('cat-meow');
+    this.onGameOver = this.gameOverCallBack();
   }
 
   _bindEventListeners () {
@@ -30,6 +31,12 @@ class Game {
     this.document.addEventListener('mousedown', (ev) => this.cat.setDirection('up'));
     this.document.addEventListener('mouseup', (ev) => this.cat.setDirection('down'));
   }
+
+  gameOverCallBack (onGameOver) {
+    this.onGameOver = () => {
+      onGameOver();
+    };
+  };
 
   keyUpHandler (e) {
     if (e.key === 'Up' || e.key === 'ArrowUp') {
@@ -82,7 +89,7 @@ class Game {
   isGameOver () {
     if (this.lives === 0) {
       this.state = 'off';
-      // this.ui.showGameOver(this.score);
+      this.onGameOver();
     }
   }
 
