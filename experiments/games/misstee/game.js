@@ -69,7 +69,9 @@ class Game {
     for (let i = 0; i < this.foods.length; i++) {
       const food = this.foods[i];
       if (Utils.detectCollission(this.cat, food)) {
-        this.catEatsound.play();
+        if (this.soundState === 'on') {
+          this.catEatsound.play();
+        }
         this.score++;
         food.deactivate();
         this.ui.updateScore(this.score);
@@ -78,7 +80,9 @@ class Game {
     for (let i = 0; i < this.poisons.length; i++) {
       const poison = this.poisons[i];
       if (Utils.detectCollission(this.cat, poison)) {
-        this.catMeowSound.play();
+        if (this.soundState === 'on') {
+          this.catMeowSound.play();
+        }
         this.lives--;
         poison.deactivate();
         this.ui.removeHeart();

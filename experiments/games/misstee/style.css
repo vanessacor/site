@@ -78,6 +78,10 @@ a {
   align-self: center;
 }
 
+#site-header h1 {
+  pointer-events: none;
+}
+
 @media (min-width: 768px) {
   #site-header {
     margin-bottom: 75px;
@@ -199,6 +203,7 @@ a {
   align-self: center;
   justify-self: center;
   font-size: calc(18px + (38 - 18) * ((100vw - 300px) / (1600 - 300)));
+  pointer-events: none;
 }
 
 #lives li {
@@ -244,6 +249,18 @@ a {
 }
 
 #final-score {
-  margin: 0;
+  margin: 0 0 10px 0;
   font-size: 22px;
+}
+
+#restart {
+  color: #f0f3ec;
+  background-color: #ff8889;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: calc(12px + (18 - 12) * ((100vw - 300px) / (1600 - 300)))
+}
+
+#restart:hover {
+  background-color: #39332b;  
 }
