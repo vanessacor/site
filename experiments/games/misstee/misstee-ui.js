@@ -58,7 +58,10 @@ class MissteeUI {
   }
 
   restartGame () {
+    const score = document.getElementById('score');
+    score.innerText = 'Score: ';
     this.gameOver.style.display = 'none';
+
     for (let i = 0; i < 3; i++) {
       this.createLive();
     }
