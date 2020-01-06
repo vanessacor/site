@@ -14,6 +14,12 @@ window.addEventListener('mousemove',
     mouse.y = event.y;
   });
 
+window.addEventListener('touchmove',
+  function (event) {
+    mouse.x = event.x;
+    mouse.y = event.y;
+  });
+
 function convertDegreeToRadians (degree) {
   const radian = (Math.PI / 180) * degree;
   return radian.toFixed(3);
@@ -88,7 +94,7 @@ const arrayOfCircles = [];
 
 const arrayOfLines = [];
 
-for (let i = 0; i < 800; i++) {
+for (let i = 0; i < 400; i++) {
   const radius = Math.random() * 2 + 1;
   // adding the last part is to make sure the ball bounce from the outline
   const x = Math.random() * (innerWidth - radius * 2) + radius;
@@ -98,7 +104,7 @@ for (let i = 0; i < 800; i++) {
   arrayOfCircles.push(new Circle(x, y, dx, dy, radius));
 }
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 50; i++) {
   const LineX = Math.random() * window.innerWidth;
   const LineY = Math.random() * window.innerHeight;
   arrayOfLines.push(new Line(LineX, LineY));

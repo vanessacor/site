@@ -9,7 +9,7 @@ class MissteeUI {
     this.finalScoreDisplay = document.getElementById('final-score');
     this.gameWrapper = document.getElementById('canvas-wrapper');
     this.soundOn = document.getElementById('sound');
-    this.restartButton = document.getElementById('restart');
+    this.restartButton = document.getElementById('restart-button');
     this.sound = 'off';
     this._bindEventListeners();
   }
