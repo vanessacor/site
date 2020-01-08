@@ -34,12 +34,17 @@ class MissteeUI {
 
   startGame () {
     this.splash.style.display = 'none';
-    this.gameScreen.style.display = 'grid';
-    const width = this.gameWrapper.clientWidth;
-    const height = this.gameWrapper.clientHeight;
-    this.game = new Game(width, height, 'on', this.sound);
-    this.game.gameOverCallBack(() => this.showGameOver(this.game.score));
-    this.game.start();
+    if (window.matchMedia('(orientation: portrait)').matches) {
+      const rotatemsg = document.getElementById('rotate-screen');
+      rotatemsg.style.display = 'block';
+    } else {
+      this.gameScreen.style.display = 'grid';
+      const width = this.gameWrapper.clientWidth;
+      const height = this.gameWrapper.clientHeight;
+      this.game = new Game(width, height, 'on', this.sound);
+      this.game.gameOverCallBack(() => this.showGameOver(this.game.score));
+      this.game.start();
+    }
   }
 
   showGameOver (score) {
