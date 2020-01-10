@@ -7,27 +7,27 @@ html {
 
 body {
   margin: 0;
-  background-color: #fe3501;  
+  background-color: #fff;  
 }
 
 /* typography */
 
 body {
   font-family: 'Lato', sans-serif;
-  font-size: 16px;
+  /* font-size: 16px; */
   color: #000000;
 }
 
 h1 {
-  font-family: 'Playball', cursive;
-  font-size: 55px;
-  font-weight: lighter;
   margin-bottom: 5px;
+  font-family: 'Ibarra Real Nova', serif;
+  font-size: calc(41px + (55 - 41) * ((100vw - 300px) / (1600 - 300)));
+  font-weight: lighter;
 }
 
 
 p {
-  font-size: 20px;
+  font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
 }
 
 a {
@@ -64,11 +64,10 @@ a {
   padding: 10px;
   margin: 10px;
   border-radius: 5%;
-  border: 2px solid rgba(201, 159, 112, 0.993);
+  border: 2px solid #000;
   background: linear-gradient(0deg, #ddd, #fff);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.59);
-  font-size: 16px;
-  text-shadow:1px 1px 1px #ffe6c9;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.59);
+  font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
   color: #000;
   cursor: pointer;
   text-align: center;
@@ -76,16 +75,9 @@ a {
 
 .button:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(0deg, rgba(221, 221, 221, 0.835), rgba(255, 255, 255, 0.87));
-  color: rgba(121, 83, 40, 0.993);
+  background: #c70039;
+  color: #fff;
 }
-
-@media (min-width : 1224px) {
-  .button{
-    font-size: 20px;
-  }
-}
-
 
 /* site header */
 
@@ -102,8 +94,6 @@ a {
 }
 
 #site-header h1 {
-  color: #ffe6c9;
-  text-shadow: 1px 1px #000000;
   margin: 10px 10px 0 10px;
 }
 
@@ -120,9 +110,7 @@ a {
   flex-direction: column;
   align-items: center;
   padding-top: 10px;
-  color: #ffe6c9;
   font-size: 20px;
-  font-weight: bold;
 }
 
 #grid-setup label {
@@ -150,10 +138,9 @@ a {
   width: 60vw;
   height: 60vw;
   margin: 0 auto 15px;
-  border: 1px solid grey;
+  border: 3px solid #000;
   border-radius: 6px;
   background-color: white; 
-  box-shadow: inset 0 2px 16px 2px rgba(16, 15, 15, 0.8);
 }
 
 #btn-container {
@@ -162,10 +149,8 @@ a {
   text-align: center;
 }
 
-
-
 #colour.is-on {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(0deg, rgba(221, 221, 221, 0.835), rgba(255, 255, 255, 0.87));
-  color: rgba(121, 83, 40, 0.993);
+  background: #c70039;
+  color: #fff;
 }

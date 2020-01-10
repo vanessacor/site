@@ -5,7 +5,7 @@ JS
   -- rename some functions
   -- tidy up
   -- fix collision strange error;
-  -- fix mobile touch
+  -- fix setInterval;
 CSS
 -- improve style on settings buttons;
 

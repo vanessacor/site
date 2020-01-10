@@ -48,10 +48,8 @@ function changeColor () {
 }
 
 function generateColor () {
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
-  const color = 'rgb(' + r + ',' + g + ',' + b + ')';
+  const colors = ['#ff0000', '#f45905', '#ffc300', '#f5f5f5', '#3fc5f0'];
+  const color = colors[Math.floor(Math.random() * colors.length)];
   return color;
 }
 
