@@ -25,6 +25,12 @@ function convertDegreeToRadians (degree) {
   return radian.toFixed(3);
 }
 
+function distance (x1, y1, x2, y2) {
+  const xDist = x2 - x1;
+  const yDist = y2 - y1;
+
+  return Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2));
+}
 function generateColor () {
   const colors = ['#F2D22E', '#F29F05', '#D96704', '#8C3503'];
   const color = colors[Math.floor(Math.random() * colors.length)];
@@ -94,7 +100,7 @@ const arrayOfCircles = [];
 
 const arrayOfLines = [];
 
-for (let i = 0; i < 400; i++) {
+for (let i = 0; i < 100; i++) {
   const radius = Math.random() * 2 + 1;
   // adding the last part is to make sure the ball bounce from the outline
   const x = Math.random() * (innerWidth - radius * 2) + radius;

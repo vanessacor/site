@@ -14,7 +14,4 @@
 
 - etch-a-sketch 
   - improve functionality
-  - improve layout 
-    - buttons (position)
-    - font sizes
-
+  

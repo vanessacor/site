@@ -48,7 +48,7 @@ function changeColor () {
 }
 
 function generateColor () {
-  const colors = ['#ff0000', '#f45905', '#ffc300', '#f5f5f5', '#3fc5f0'];
+  const colors = ['#ff0000', '#f45905', '#ffc300', '#3fc5f0'];
   const color = colors[Math.floor(Math.random() * colors.length)];
   return color;
 }

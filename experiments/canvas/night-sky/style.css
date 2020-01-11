@@ -1,0 +1,70 @@
+/* reset  */
+html {
+  box-sizing: border-box;
+  }
+  *, *:before, *:after {
+  box-sizing: inherit;
+  }
+  
+body {
+  margin: 0;
+  background-color: #ececec;
+}
+  
+  /* typography */
+  
+body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: #323339;
+}
+
+h1 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 19px;
+  font-weight: lighter;
+}
+
+h2 {
+  font-size: 38px;
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+a {
+  color: #050505;
+}
+
+/* layout */
+
+/* .container {
+margin: 0 20px;
+} */
+
+#site-main {
+  margin: 0 auto;
+  width: 100%;
+} 
+
+/* site header */
+
+#site-header{
+  padding-top: 65px;
+  text-align: center;
+}
+   
+/* site main */
+
+#my-canvas {
+  display: block; 
+  /* background-color:#011526; */
+}
+
+
+/* site footer */
+

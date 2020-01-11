@@ -2,10 +2,10 @@ todo
 
 JS
 -- refactor
+  -- fix setInterval; try orientationchange with mediamatch
+  -- fix collision strange error;
   -- rename some functions
   -- tidy up
-  -- fix collision strange error;
-  -- fix setInterval;
 CSS
 -- improve style on settings buttons;
 
