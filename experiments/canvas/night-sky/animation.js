@@ -6,47 +6,52 @@ class Animation {
     this.ctx = this.canvas.getContext('2d');
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
-    // this.utils = new Utils();
     this.background = new Background(this.ctx, this.canvas.width, this.canvas.height);
     this.arrayOfStars = [];
     this.arrayOfBackgroundStars = [];
     this.ticker = 0;
-    this.tickerRate = Math.floor((Math.random() * 25) + 100);
+    this.tickerRate = 20;
   }
 
-  removeStars (index) {
-    this.arrayOfStars.splice(index);
+  removeStar (index) {
+    this.arrayOfStars.splice(index, 1);
   }
 
   clearCanvas () {
     this.background.draw();
   }
 
-  drawAll () {
-    const radius = Utils.randomIntFromRange(3, 5);
-    const x = Math.max(radius, (Math.random() * this.canvas.width - radius));
-    for (let i = 0; i < 1; i++) {
-      this.arrayOfStars.push(new Star(this.ctx, this.canvas.width, this.canvas.height, x, 0, radius, '#D3F4FF'));
-    }
-
+  createStars () {
     if (this.ticker % this.tickerRate === 0) {
+      const radius = Utils.randomIntFromRange(4, 8);
+      const x = Math.max(radius, (Math.random() * this.canvas.width - radius));
       this.arrayOfStars.push(new Star(this.ctx, this.canvas.width, this.canvas.height, x, 0, radius, '#D3F4FF'));
-      this.tickerRate = Math.floor((Math.random() * 10) + 150);
+      this.ticker = 0;
+      this.tickerRate = Math.floor((Math.random() * 10) + 10);
     }
   }
 
   updateAll () {
-    for (let i = 0; i < this.arrayOfStars.length; i++) {
+    this.createStars();
+
+    for (let i = this.arrayOfStars.length - 1; i >= 0; i--) {
       this.arrayOfStars[i].update();
       if (this.arrayOfStars[i].radius <= 0) {
-        this.removeStars(i);
+        this.removeStar(i);
       }
+    }
+  }
+
+  drawAll () {
+    this.clearCanvas();
+
+    for (let i = this.arrayOfStars.length - 1; i >= 0; i--) {
+      this.arrayOfStars[i].draw();
     }
   }
 
   loop () {
     requestAnimationFrame(() => this.loop());
-    this.clearCanvas();
     this.ticker++;
     this.updateAll();
     this.drawAll();

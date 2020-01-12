@@ -18,24 +18,17 @@ class Star {
   }
 
   removeMiniStars (index) {
-    this.arrayOfMiniStars.splice(index);
+    this.arrayOfMiniStars.splice(index, 1);
   }
 
-  draw () {
-    this.ctx.save();
-    this.ctx.beginPath();
-    this.ctx.arc(this.x, this.y, this.radius, 0, Utils.convertDegreeToRadians(360), false);
-    this.ctx.fillStyle = this.color;
-    this.ctx.shadowColor = this.color;
-    this.ctx.shadowBlur = 20;
-    this.ctx.fill();
-    this.ctx.closePath();
-    this.ctx.restore();
+  shatter () {
+    this.radius -= 3;
+    for (let i = 0; i < 8; i++) {
+      this.arrayOfMiniStars.push(new MiniStar(this.ctx, this.canvasWidth, this.canvasHeight, this.x, this.y));
+    }
   };
 
   update () {
-    this.draw();
-
     if (this.y + this.radius + this.Yvelocity > this.canvasHeight - this.groundHeight) {
       this.Yvelocity = -this.Yvelocity * this.friction;
       this.shatter();
@@ -49,7 +42,7 @@ class Star {
     this.x += this.Xvelocity;
     this.y += this.Yvelocity;
 
-    for (let i = 0; i < this.arrayOfMiniStars.length; i++) {
+    for (let i = this.arrayOfMiniStars.length - 1; i >= 0; i--) {
       const miniStar = this.arrayOfMiniStars[i];
       miniStar.update();
       if (miniStar.timeToLive <= 2) {
@@ -58,10 +51,20 @@ class Star {
     }
   };
 
-  shatter () {
-    this.radius -= 3;
-    for (let i = 0; i < 8; i++) {
-      this.arrayOfMiniStars.push(new MiniStar(this.ctx, this.canvasWidth, this.canvasHeight, this.x, this.y));
+  draw () {
+    this.ctx.save();
+    this.ctx.beginPath();
+    this.ctx.arc(this.x, this.y, this.radius, 0, Utils.convertDegreeToRadians(360), false);
+    this.ctx.fillStyle = this.color;
+    this.ctx.shadowColor = this.color;
+    this.ctx.shadowBlur = 20;
+    this.ctx.fill();
+    this.ctx.closePath();
+    this.ctx.restore();
+
+    for (let i = 0; i < this.arrayOfMiniStars.length; i++) {
+      const miniStar = this.arrayOfMiniStars[i];
+      miniStar.draw();
     }
   };
 }

@@ -21,21 +21,7 @@ class MiniStar {
     this.opacity = 1;
   }
 
-  draw () {
-    this.ctx.save();
-    this.ctx.beginPath();
-    this.ctx.arc(this.x, this.y, this.radius, 0, Utils.convertDegreeToRadians(360), false);
-    this.ctx.fillStyle = `rgb(211, 244, 255, ${this.opacity})`;
-    this.ctx.shadowColor = this.color;
-    this.ctx.shadowBlur = 20;
-    this.ctx.fill();
-    this.ctx.closePath();
-    this.ctx.restore();
-  };
-
   update () {
-    this.draw();
-
     // when the balls hits the bottom of the screen
     if (this.y + this.radius + this.velocity.y > this.canvasHeight - this.groundHeight) {
       this.velocity.y = -this.velocity.y * this.friction;
@@ -46,5 +32,17 @@ class MiniStar {
     this.y += this.velocity.y;
     this.timeToLive -= 1;
     this.opacity -= 1 / this.timeToLive;
+  };
+
+  draw () {
+    this.ctx.save();
+    this.ctx.beginPath();
+    this.ctx.arc(this.x, this.y, this.radius, 0, Utils.convertDegreeToRadians(360), false);
+    this.ctx.fillStyle = `rgb(211, 244, 255, ${this.opacity})`;
+    this.ctx.shadowColor = this.color;
+    this.ctx.shadowBlur = 20;
+    this.ctx.fill();
+    this.ctx.closePath();
+    this.ctx.restore();
   };
 }

@@ -1,10 +1,16 @@
 /* reset  */
 html {
   box-sizing: border-box;
-  }
-  *, *:before, *:after {
+}
+
+*, *:before, *:after {
   box-sizing: inherit;
-  }
+}
+
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
   
 body {
   margin: 0;

@@ -7,6 +7,8 @@ class Background {
     this.radius = Math.random() * 3;
     this.arrayOfBackgroundStars = [];
     this.groundHeight = 100;
+    this.backgroundGradient = this.createBackgroundGradiente();
+    this.createBackGroundStars(100);
   }
 
   createBackgroundGradiente () {
@@ -44,13 +46,11 @@ class Background {
   draw () {
     this.ctx.save();
     // this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-    this.ctx.fillStyle = this.createBackgroundGradiente();
+    this.ctx.fillStyle = this.backgroundGradient;
     this.ctx.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
-    this.createBackGroundStars(100);
     this.arrayOfBackgroundStars.forEach((backgroundStar) => {
       backgroundStar.draw();
     });
-
     this.createMountainRange(2, this.canvasHeight - 250, '#5C7BA4');
     this.createMountainRange(3, this.canvasHeight - 350, '#304A69');
     this.createMountainRange(5, this.canvasHeight - 450, '#203954');
