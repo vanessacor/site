@@ -24,6 +24,7 @@
 }
 
 #banner a {
+  display: block;
   color: #111111;
   text-decoration: none;
   font-family: 'Raleway', sans-serif;
