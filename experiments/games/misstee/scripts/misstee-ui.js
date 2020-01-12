@@ -11,7 +11,7 @@ class MissteeUI {
     this.soundOn = document.getElementById('sound');
     this.restartButton = document.getElementById('restart-button');
     this.sound = 'off';
-    this.intervalId = 0;
+    this.orientationEventListener = null;
     this._bindEventListeners();
   }
 
@@ -33,25 +33,44 @@ class MissteeUI {
     }
   }
 
-  startGame () {
-    this.splash.style.display = 'none';
+  checkOrientation () {
+    // cancels last order to delay resume game
+    clearTimeout(this.resumeGameDelayTimeoutId);
+
     const rotatemsg = document.getElementById('rotate-screen');
-    if (window.matchMedia('(orientation: portrait)').matches) {
+    if (screen.orientation.angle === 0) {
+      this.gameScreen.style.display = 'none';
       rotatemsg.style.display = 'block';
-      this.intervalId = setInterval(() => this.startGame(), 2000);
+      this.game.pause();
     } else {
-      clearInterval(this.intervalId);
-      rotatemsg.style.display = 'none';
-      this.gameScreen.style.display = 'grid';
-      const width = this.gameWrapper.clientWidth;
-      const height = this.gameWrapper.clientHeight;
-      this.game = new Game(width, height, 'on', this.sound);
-      this.game.gameOverCallBack(() => this.showGameOver(this.game.score));
-      this.game.start();
+      // delays resume for a few ms, to allow cpu to repaint and not be hot when game resumes
+      this.resumeGameDelayTimeoutId = setTimeout(() => {
+        rotatemsg.style.display = 'none';
+        this.gameScreen.style.display = 'grid';
+        this.game.resume();
+      }, 10);
     }
   }
 
+  startGame () {
+    this.splash.style.display = 'none';
+    this.gameScreen.style.display = 'grid';
+    const width = this.gameWrapper.clientWidth;
+    const height = this.gameWrapper.clientHeight;
+    this.game = new Game(width, height, 'on', this.sound);
+    this.game.gameOverCallBack(() => this.showGameOver(this.game.score));
+    this.game.start();
+    this.checkOrientation();
+
+    this.orientationEventListener = () => {
+      this.checkOrientation();
+    };
+
+    addEventListener('orientationchange', this.orientationEventListener);
+  }
+
   showGameOver (score) {
+    removeEventListener('orientationchange', this.orientationEventListener);
     this.gameScreen.style.display = 'none';
     this.gameOver.style.display = 'block';
     this.finalScoreDisplay.innerText = 'Your score: ' + score;

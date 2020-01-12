@@ -165,8 +165,17 @@ class Game {
     this._bindEventListeners();
   };
 
+  pause () {
+    this.state = 'paused';
+  }
+
+  resume () {
+    this.state = 'on';
+    this.loop();
+  }
+
   loop () {
-    if (this.state === 'off') {
+    if (this.state === 'off' || this.state === 'paused') {
       return;
     }
     requestAnimationFrame(() => this.loop());
