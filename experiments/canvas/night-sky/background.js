@@ -34,17 +34,19 @@ class Background {
     }
   }
 
-  draw () {
-    this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+  createBackGroundStars (amount) {
     this.arrayOfBackgroundStars = [];
+    for (let i = 0; i < amount; i++) {
+      this.arrayOfBackgroundStars.push(new BackgroundStar(this.ctx, this.canvasWidth, this.canvasHeight));
+    }
+  }
+
+  draw () {
+    this.ctx.save();
+    // this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
     this.ctx.fillStyle = this.createBackgroundGradiente();
     this.ctx.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
-    for (let i = 0; i < 10; i++) {
-      const x = Math.random() * this.canvasWidth;
-      const y = Math.random() * this.canvasHeight;
-      const radius = Math.random() * 3;
-      this.arrayOfBackgroundStars.push(new Star(this.ctx, this.canvasWidth, this.canvasHeight, x, y, radius, 'white'));
-    }
+    this.createBackGroundStars(100);
     this.arrayOfBackgroundStars.forEach((backgroundStar) => {
       backgroundStar.draw();
     });
@@ -54,5 +56,6 @@ class Background {
     this.createMountainRange(5, this.canvasHeight - 450, '#203954');
     this.ctx.fillStyle = '#000';
     this.ctx.fillRect(0, this.canvasHeight - this.groundHeight, this.canvasWidth, this.groundHeight);
+    this.ctx.restore();
   }
 }

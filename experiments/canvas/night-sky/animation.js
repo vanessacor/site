@@ -9,8 +9,9 @@ class Animation {
     // this.utils = new Utils();
     this.background = new Background(this.ctx, this.canvas.width, this.canvas.height);
     this.arrayOfStars = [];
+    this.arrayOfBackgroundStars = [];
     this.ticker = 0;
-    this.tickerRate = 25;
+    this.tickerRate = Math.floor((Math.random() * 25) + 100);
   }
 
   removeStars (index) {
@@ -25,12 +26,12 @@ class Animation {
     const radius = Utils.randomIntFromRange(3, 5);
     const x = Math.max(radius, (Math.random() * this.canvas.width - radius));
     for (let i = 0; i < 1; i++) {
-      this.arrayOfStars.push(new Star(this.ctx, this.canvas.width, this.canvas.height, x, -100, radius, '#D3F4FF'));
+      this.arrayOfStars.push(new Star(this.ctx, this.canvas.width, this.canvas.height, x, 0, radius, '#D3F4FF'));
     }
 
     if (this.ticker % this.tickerRate === 0) {
-      this.arrayOfStars.push(new Star(this.ctx, this.canvas.width, this.canvas.height, x, -100, radius, '#D3F4FF'));
-      this.tickerRate = Utils.randomIntFromRange(25, 75);
+      this.arrayOfStars.push(new Star(this.ctx, this.canvas.width, this.canvas.height, x, 0, radius, '#D3F4FF'));
+      this.tickerRate = Math.floor((Math.random() * 10) + 150);
     }
   }
 

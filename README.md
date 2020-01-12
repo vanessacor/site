@@ -14,4 +14,7 @@
 
 - etch-a-sketch 
   - improve functionality
+
+- canvas
+  - try on click a star falls from the sky
   
