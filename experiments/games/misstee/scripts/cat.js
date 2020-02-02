@@ -1,9 +1,7 @@
 
 class Cat {
-  constructor (x, y, ctx, canvasWidth, canvasHeight) {
+  constructor (x, y, ctx) {
     this.ctx = ctx;
-    this.canvasWidth = canvasWidth;
-    this.canvasHeight = canvasHeight;
     this.x = x;
     this.y = y;
     this.dy = 1;
@@ -32,12 +30,12 @@ class Cat {
     this.dy = 0;
   }
 
-  update () {
+  update (canvasHeight) {
     this.draw();
 
     this.y += this.dy;
-    if (this.y + this.height > this.canvasHeight) {
-      this.y = this.canvasHeight - this.height;
+    if (this.y + this.height > canvasHeight) {
+      this.y = canvasHeight - this.height;
     }
     if (this.y < 0) {
       this.y = 0;

@@ -1,21 +1,23 @@
 'use strict';
 
+const NUMBER_OF_POISONS_TO_GENERATE = 1;
+const NUMBER_OF_FOODS_TO_GENERATE = 1.5;
+const GENERATE_MORE_TIMER = 300;
+const MAX_SPEED = 1.2;
+
 class Game {
-  constructor (canvasWidth, canvasHeight, state, soundState) {
+  constructor (state, soundState) {
     this.canvas = document.getElementById('my-canvas');
-    this.canvas.width = canvasWidth;
-    this.canvas.height = canvasHeight;
     this.ctx = this.canvas.getContext('2d');
     this.document = document;
-    this.canvasWidth = canvasWidth;
-    this.canvasHeight = canvasHeight;
-    this.cat = new Cat(100, 100, this.ctx, this.canvasWidth, this.canvasHeight);
+    this.cat = new Cat(100, 100, this.ctx);
+    this.levelOfDifficulty = 1;
     this.foods = [];
     this.poisons = [];
     this.lives = 3;
     this.score = 0;
     this.ui = new GameUI(this.score);
-    this.timer = 0;
+    this.timer = GENERATE_MORE_TIMER - 1;
     this.state = state;
     this.soundState = soundState;
     this.catEatsound = document.getElementById('cat-eat');
@@ -51,13 +53,13 @@ class Game {
   }
 
   purgeItems () {
-    for (let i = this.foods.length - 1; i > 0; i--) {
+    for (let i = this.foods.length - 1; i >= 0; i--) {
       const food = this.foods[i];
       if (!food.active) {
         this.foods.splice(i, 1);
       }
     }
-    for (let i = this.poisons.length - 1; i > 0; i--) {
+    for (let i = this.poisons.length - 1; i >= 0; i--) {
       const poison = this.poisons[i];
       if (!poison.active) {
         this.poisons.splice(i, 1);
@@ -127,19 +129,49 @@ class Game {
   }
 
   generatePoisons (elementHeight, x) {
-    for (let i = 0; i < 3; i++) {
+    const numberOfPoisons = Math.floor(NUMBER_OF_POISONS_TO_GENERATE * this.levelOfDifficulty);
+    console.log('generating poisons', numberOfPoisons);
+
+    for (let i = 0; i < numberOfPoisons; i++) {
       const poisonY = Utils.randomIntFromRange(0, this.canvasHeight - elementHeight);
-      const poisonDx = Utils.randomIntFromRange(1, 2);
-      this.poisons.push(new Poison(this.ctx, this.canvasWidth, this.canvasHeight, x, poisonY, poisonDx));
+      const poisonDx = Utils.randomIntFromRange(1, MAX_SPEED);
+      this.poisons.push(new Poison(this.ctx, x, poisonY, poisonDx));
     }
   }
 
   generateFoods (elementHeight, x) {
-    for (let i = 0; i < 2; i++) {
+    const numberOfFoods = Math.floor(NUMBER_OF_POISONS_TO_GENERATE * this.levelOfDifficulty);
+    console.log('generating foods', numberOfFoods);
+
+    for (let i = 0; i < numberOfFoods; i++) {
       const foodY = Utils.randomIntFromRange(0, this.canvasHeight - elementHeight);
-      const foodDx = Utils.randomIntFromRange(1, 2);
-      this.foods.push(new Food(this.ctx, this.canvasWidth, this.canvasHeight, x, foodY, foodDx));
+      const foodDx = Utils.randomIntFromRange(1, MAX_SPEED);
+      this.foods.push(new Food(this.ctx, x, foodY, foodDx));
     }
+  }
+
+  generateMoreElements () {
+    const timeToGenerateMore = GENERATE_MORE_TIMER / this.levelOfDifficulty;
+
+    if (this.timer > timeToGenerateMore) {
+      this.levelOfDifficulty += 0.1;
+
+      console.log('difficulty', this.levelOfDifficulty);
+
+      this.generateElements();
+      this.timer = 0;
+    }
+  }
+
+  updateAll () {
+    for (let i = 0; i < this.foods.length; i++) {
+      this.foods[i].update();
+    }
+    for (let i = 0; i < this.poisons.length; i++) {
+      this.poisons[i].update();
+    }
+
+    this.cat.update(this.canvasHeight);
   }
 
   drawAll () {
@@ -158,26 +190,36 @@ class Game {
     this.cat.draw();
   };
 
+  // -- public
+
   start () {
-    this.generateElements();
     this.ismusicOn();
-    this.loop();
     this._bindEventListeners();
   };
+
+  updateSize (width, height) {
+    this.canvas.width = width;
+    this.canvas.height = height;
+    this.canvasWidth = width;
+    this.canvasHeight = height;
+  }
 
   pause () {
     this.state = 'paused';
   }
 
   resume () {
-    this.state = 'on';
-    this.loop();
+    if (this.state !== 'on') {
+      this.state = 'on';
+      this.loop();
+    }
   }
 
   loop () {
     if (this.state === 'off' || this.state === 'paused') {
       return;
     }
+
     requestAnimationFrame(() => this.loop());
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
     this.timer++;
@@ -189,22 +231,4 @@ class Game {
     this.isGameOver();
     this.drawAll();
   };
-
-  generateMoreElements () {
-    if (this.timer === 200) {
-      this.generateElements();
-      this.timer = 0;
-    }
-  }
-
-  updateAll () {
-    for (let i = 0; i < this.foods.length; i++) {
-      this.foods[i].update();
-    }
-    for (let i = 0; i < this.poisons.length; i++) {
-      this.poisons[i].update();
-    }
-
-    this.cat.update();
-  }
 }

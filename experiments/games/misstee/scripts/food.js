@@ -1,10 +1,8 @@
 'use strict';
 
 class Food {
-  constructor (ctx, canvasWidth, canvasHeight, x, y, dx) {
+  constructor (ctx, x, y, dx) {
     this.ctx = ctx;
-    this.canvasWidth = canvasWidth;
-    this.canvasHeight = canvasHeight;
     this.x = x;
     this.y = y;
     this.dx = dx;

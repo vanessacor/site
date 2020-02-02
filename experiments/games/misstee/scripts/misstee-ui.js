@@ -33,40 +33,44 @@ class MissteeUI {
     }
   }
 
+  // how to isolate this function in order to  start checking the orientation and devise when you load the page.
   checkOrientation () {
     // cancels last order to delay resume game
     clearTimeout(this.resumeGameDelayTimeoutId);
+    // delays check for a few ms, to allow window.innerWidth & innerHEight to be updated
+    // and match orientation
+    this.resumeGameDelayTimeoutId = setTimeout(() => {
+      console.log('after', screen.orientation.angle, window.innerWidth, window.innerHeight);
 
-    const rotatemsg = document.getElementById('rotate-screen');
-    if (screen.orientation.angle === 0) {
-      this.gameScreen.style.display = 'none';
-      rotatemsg.style.display = 'block';
-      this.game.pause();
-    } else {
-      // delays resume for a few ms, to allow cpu to repaint and not be hot when game resumes
-      this.resumeGameDelayTimeoutId = setTimeout(() => {
+      const rotatemsg = document.getElementById('rotate-screen');
+      if (window.innerWidth < window.innerHeight) {
+        rotatemsg.style.display = 'block';
+        this.game.pause();
+      } else {
+        const width = this.gameWrapper.clientWidth;
+        const height = this.gameWrapper.clientHeight;
+        this.game.updateSize(width, height);
         rotatemsg.style.display = 'none';
-        this.gameScreen.style.display = 'grid';
+        // mabe timeout again to allow cpu to repaint and not be hot when game resumes
         this.game.resume();
-      }, 10);
-    }
+      }
+    }, 0);
   }
 
   startGame () {
     this.splash.style.display = 'none';
     this.gameScreen.style.display = 'grid';
-    const width = this.gameWrapper.clientWidth;
-    const height = this.gameWrapper.clientHeight;
-    this.game = new Game(width, height, 'on', this.sound);
+    this.game = new Game('paused', this.sound);
     this.game.gameOverCallBack(() => this.showGameOver(this.game.score));
-    this.game.start();
     this.checkOrientation();
+    this.game.start();
 
     this.orientationEventListener = () => {
       this.checkOrientation();
     };
 
-    addEventListener('orientationchange', this.orientationEventListener);
+    window.addEventListener('orientationchange', this.orientationEventListener);
+    window.addEventListener('resize', this.orientationEventListener);
   }
 
   showGameOver (score) {
