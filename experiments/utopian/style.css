@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -30,13 +31,16 @@ h2 {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
   color: #0d56bd;
-
 }
 
 h3 {
   font-family: 'Playfair Display', serif;
   font-size: 28px;
   color: #0d56bd;
+}
+
+h4 {
+  color: #0d56bd
 }
 
 p {
@@ -56,22 +60,20 @@ ul {
 .container {
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(12,1fr);
-  grid-template-rows:auto;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
   grid-gap: 3px;
   max-width: 631px;
   margin: 0 auto;
 }
 
-.container > * {
+.container>* {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-@media (min-width : 1224px) {
-
-}
+@media (min-width: 1224px) {}
 
 #site-header {
   grid-column: 1 / -1;
@@ -92,7 +94,6 @@ ul {
   justify-self: stretch;
 }
 
-
 /* site header */
 
 #site-header h1 {
@@ -101,7 +102,6 @@ ul {
   text-shadow: 2px 1px 1px #6a6767;
   text-align: center;
 }
-
 
 #site-header nav {
   margin: 0 auto 2px;
@@ -123,7 +123,6 @@ ul {
   #site-header a {
     font-size: 14px;
   }
-
   #site-header a:not(:last-child) {
     margin-right: 20px;
   }
@@ -156,20 +155,20 @@ ul {
 }
 
 .buttons:hover {
-  background-color: #0d56bd ;
+  background-color: #0d56bd;
   color: white;
 }
 
-.headlines h2{
+.headlines h2 {
   font-size: 42px;
   margin-bottom: 0px;
 }
 
-.headlines h3{
+.headlines h3 {
   margin: 0px;
 }
 
-.headlines ul{
+.headlines ul {
   margin: 0px;
   padding: 10px 0 0 10px;
 }
@@ -198,10 +197,13 @@ ul {
   font-size: calc(22px + (26 - 22) * ((100vw - 300px) / (1600 - 300)));
 }
 
+.news article {
+  padding: 10px 0 0 10px;
+}
+
 .news p {
   margin: 0px;
   margin-bottom: 10px;
-  padding: 10px 0 0 10px;
   font-size: calc(14px + (22 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 
@@ -219,4 +221,3 @@ ul {
 .footer-items a:hover {
   color: #0d56bd;
 }
-

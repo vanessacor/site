@@ -1,156 +1,159 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>JS Intro</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+    />
+    <link href="../../styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Raleway"
+      rel="stylesheet"
+    />
+    <link
+      href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <title>JS Intro</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <link href="../../styles/style.css" rel="stylesheet" type="text/css">
-  <link href="styles/style.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Raleway" rel="stylesheet">
-  <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
-</head>
-
-<body>
-  <header id="site-header" class="">
-
-    <div class="container">
-      <h1>JS Intro</h1>
-      <nav id="site-header">
-        <a href="../../">home</a>
-      </nav>
-    </div>
-
-  </header>
-
-  <main id="site-main">
-
-    <section class="container">
-      <h3 class="summary">Average of 3 numbers</h3>
-      <button class="button" id="button-1">Show result</button>
-      <code>
-
-      </code>
-      <p id="result-1" class="result"></p>
-    </section>
-    
-    <section class="container" id="hide-show">
-      <h3 class="summary">Hide and Show</h3>
-      <div class="tabs">
-        <button class="button" id="button-a">Image A</button>
-        <button class="button" id="button-b">Image B</button>
-        <button class="button" id="button-c">Image C</button>
+  <body>
+    <header id="site-header" class="">
+      <div class="container">
+        <h1>JS Intro</h1>
+        <nav id="site-header">
+          <a href="../../">home</a>
+        </nav>
       </div>
-      <div class="images">
-        <img id="image-a" src="images/image-a.jpg">
-        <img id="image-b" src="images/image-b.jpg">
-        <img id="image-c" src="images/image-c.jpg">
-      </div>
-    </section>
+    </header>
 
-    <section class="container" id="hide-show-abstract">
-      <h3 class="summary">Hide and Show</h3>
-      <div class="tabs">
-        <button image-number="0" class="button" class="active">Image A</button>
-        <button image-number="1" class="button" class="active">Image B</button>
-        <button image-number="2" class="button" class="active">Image C</button>
-      </div>
-      <div class="images">
-        <img src="images/image-a.jpg">
-        <img src="images/image-b.jpg">
-        <img src="images/image-c.jpg">
-      </div>
-    </section>
+    <main id="site-main">
+      <section class="container">
+        <h3 class="summary">Average of 3 numbers</h3>
+        <button class="button" id="button-1">Show result</button>
+        <code> </code>
+        <p id="result-1" class="result"></p>
+      </section>
 
-    <section class="container" id="login">
-      <h3 class="summary">Login</h3>
-      <form method="post" class="login" novalidate> 
-        <div class="form-field">
-          <label for="name">Enter your name</label>
-          <input type="text" name="name" id="name" placeholder="Your Name"
-          required>
-          <p class="feedback" id="namefeedback" aria-live="polite">Required</p>
+      <section class="container" id="hide-show">
+        <h3 class="summary">Hide and Show</h3>
+        <div class="tabs">
+          <button class="button" id="button-a">Image A</button>
+          <button class="button" id="button-b">Image B</button>
+          <button class="button" id="button-c">Image C</button>
         </div>
-        <div class="form-field">
-          <label for="password">Enter your password</label>
-          <input type="password" id="pass" name="password" placeholder="Password"
-            minlength="6" required>
-          <p class="feedback" id="passfeedback" aria-live="polite">Required</p>
-          <p class="feedback" id="lengthfeedback" aria-live="polite">Minimum of 6 characters</p>
+        <div class="images">
+          <img id="image-a" src="images/image-a.jpg" />
+          <img id="image-b" src="images/image-b.jpg" />
+          <img id="image-c" src="images/image-c.jpg" />
         </div>
-        <div class="form-field">
-          <input type="submit" class="button" id="loginbtn">
-        </div>
-      </form>
-    </section>
+      </section>
 
-    <section class="container" id="gamerps">
-      <h3 class="summary">Rock Paper Scissors</h3>
-      <div id="game">
-        <div class="choices">
-          <button class="button" id="rock">
-            <i class="far fa-hand-rock"></i>
+      <section class="container" id="login">
+        <h3 class="summary">Login</h3>
+        <form method="post" class="login" novalidate>
+          <div class="form-field">
+            <label for="name">Enter your name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Your Name"
+              required
+            />
+            <p class="feedback" id="namefeedback" aria-live="polite">
+              Required
+            </p>
+          </div>
+          <div class="form-field">
+            <label for="password">Enter your password</label>
+            <input
+              type="password"
+              id="pass"
+              name="password"
+              placeholder="Password"
+              minlength="6"
+              required
+            />
+            <p class="feedback" id="passfeedback" aria-live="polite">
+              Required
+            </p>
+            <p class="feedback" id="lengthfeedback" aria-live="polite">
+              Minimum of 6 characters
+            </p>
+          </div>
+          <div class="form-field">
+            <input type="submit" class="button" id="loginbtn" />
+          </div>
+        </form>
+      </section>
+
+      <section class="container" id="gamerps">
+        <h3 class="summary">Rock Paper Scissors</h3>
+        <div id="game">
+          <div class="choices">
+            <button class="button" id="rock">
+              <i class="far fa-hand-rock"></i>
+            </button>
+            <button class="button" id="paper">
+              <i class="far fa-hand-paper"></i>
+            </button>
+            <button class="button" id="scissors">
+              <i class="far fa-hand-scissors"></i>
+            </button>
+          </div>
+          <div class="scores">
+            <h4>
+              <span>Your Score:</span>
+              <span id="playerscore">0</span>
+            </h4>
+            <h4>
+              <span>Computer Score:</span>
+              <span id="computerscore">0</span>
+            </h4>
+          </div>
+          <div class="winner">
+            <h3 id="playerwins">You Win!</h3>
+            <h3 id="computerwins">Computer Win!</h3>
+          </div>
+          <button id="reset">
+            <i class="fas fa-redo-alt"></i>
           </button>
-          <button class="button" id='paper'>
-            <i class="far fa-hand-paper"></i>
+        </div>
+      </section>
+
+      <section class="container" id="countdown">
+        <h3 class="summary">Count Down</h3>
+        <div id="timer">
+          <p id="seconds">10</p>
+          <button class="button" id="startbtn">
+            <i class="far fa-play-circle"></i>
           </button>
-          <button class="button" id="scissors">
-            <i class="far fa-hand-scissors"></i>
-          </button>
         </div>
-        <div class="scores">
-          <h4>
-            <span>Your Score:</span>
-            <span id="playerscore">0</span>
-          </h4>
-          <h4>
-            <span>Computer Score:</span>
-            <span id="computerscore">0</span>
-          </h4>
-        </div>
-        <div class=winner>
-          <h3 id="playerwins">You Win!</h3>
-          <h3 id="computerwins">Computer Win!</h3>
-        </div>
-        <button id="reset">
-          <i class="fas fa-redo-alt"></i>
-        </button>
+      </section>
+
+      <section class="container" id="canvas">
+        <h3 class="summary">Canvas</h3>
+        <canvas width="280" height="280"></canvas>
+      </section>
+    </main>
+
+    <footer id="site-footer">
+      <div class="container">
+        <h3>2019</h3>
       </div>
-    </section>
+    </footer>
 
-    <section class="container" id="countdown">
-      <h3 class="summary">Count Down</h3>
-      <div id="timer">
-        <p id="seconds">10</p>
-        <button class="button" id="startbtn">
-          <i class="far fa-play-circle"></i>
-       </button>
-      </div>
-    </section>
-
-    <section class="container" id="canvas">
-      <h3 class="summary">Canvas</h3>
-      <canvas width="280" height="280"></canvas>
-    </section>
-
-  </main>
-
-  <footer id="site-footer">
-      
-    <div class="container">
-      <h3>2019</h3>
-    </div>
-
-  </footer>
-
-  <script src="scripts/functions.js"></script>
-  <script src="scripts/experiment-1.js"></script>
-  <script src="scripts/experiment-2.js"></script>
-  <script src="scripts/experiment-3.js"></script>
-  <script src="scripts/experiment-4.js"></script>
-  <script src="scripts/experiment-5.js"></script>
-  <script src="scripts/experiment-6.js"></script>
-  <script src="scripts/experiment-7-canvas.js"></script>
-  <script src="../../scripts/banner.js"></script> 
-</body>
+    <script src="scripts/functions.js"></script>
+    <script src="scripts/experiment-1.js"></script>
+    <script src="scripts/experiment-2.js"></script>
+    <script src="scripts/experiment-3.js"></script>
+    <script src="scripts/experiment-4.js"></script>
+    <script src="scripts/experiment-5.js"></script>
+    <script src="scripts/experiment-6.js"></script>
+    <script src="scripts/experiment-7-canvas.js"></script>
+    <script src="../../scripts/banner.js"></script>
+  </body>
 </html>
