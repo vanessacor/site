@@ -63,7 +63,7 @@ ul {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-gap: 3px;
-  max-width: 631px;
+  max-width: 322px;
   margin: 0 auto;
 }
 
@@ -73,7 +73,11 @@ ul {
   flex-direction: column;
 }
 
-@media (min-width: 1224px) {}
+@media (min-width: 850px) {
+  .container {
+    max-width: 800px;
+  }
+}
 
 #site-header {
   grid-column: 1 / -1;
@@ -119,7 +123,7 @@ ul {
   color: #0d56bd;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 850px) {
   #site-header a {
     font-size: 14px;
   }
