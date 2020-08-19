@@ -5,18 +5,19 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-    />
+      content="width=device-width, initial-scale=1, maximum-scale=1,
+      user-scalable=0"
+      />
     <link href="../../styles/style.css" rel="stylesheet" type="text/css" />
     <link href="styles/style.css" rel="stylesheet" type="text/css" />
     <link
       href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Raleway"
       rel="stylesheet"
-    />
+      />
     <link
       href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
       rel="stylesheet"
-    />
+      />
   </head>
 
   <body>
@@ -32,10 +33,33 @@
     <main id="site-main">
       <section class="container">
         <h3 class="summary">Average of 3 numbers</h3>
-        <button class="button" id="button-1">Show result</button>
-        <code> </code>
+        <div class="pick-number">
+          <input
+            type="number"
+            min="1"
+            placeholder="pick a number"
+            id="number1"
+            />
+          <input
+            type="number"
+            min="1"
+            placeholder="pick a number"
+            id="number2"
+            />
+          <input
+            type="number"
+            min="1"
+            placeholder="pick a number"
+            id="number3"
+            />
+
+          <button class="button" id="button-1">Show result</button>
+        </div>
+
         <p id="result-1" class="result"></p>
       </section>
+
+
 
       <section class="container" id="hide-show">
         <h3 class="summary">Hide and Show</h3>
@@ -62,7 +86,7 @@
               id="name"
               placeholder="Your Name"
               required
-            />
+              />
             <p class="feedback" id="namefeedback" aria-live="polite">
               Required
             </p>
@@ -76,7 +100,7 @@
               placeholder="Password"
               minlength="6"
               required
-            />
+              />
             <p class="feedback" id="passfeedback" aria-live="polite">
               Required
             </p>
@@ -149,7 +173,6 @@
     <script src="scripts/functions.js"></script>
     <script src="scripts/experiment-1.js"></script>
     <script src="scripts/experiment-2.js"></script>
-    <script src="scripts/experiment-3.js"></script>
     <script src="scripts/experiment-4.js"></script>
     <script src="scripts/experiment-5.js"></script>
     <script src="scripts/experiment-6.js"></script>

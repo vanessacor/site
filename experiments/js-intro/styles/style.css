@@ -1,9 +1,28 @@
+.pick-number {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 35px;
+  margin-bottom: 10px;
+}
+
+.pick-number input {
+  width: 20%;
+  padding: 10px;
+  margin-right: 14px;
+  border: none;
+  box-shadow: inset 0px 1px 10px 1px #bab8ba;
+  background-color: white;
+  font-size: 16px;
+  text-align: right;
+  color: #959495;
+}
 
 .button {
   background-color: #000000;
   color: #E6B705;
   font-size: 16px;
-  padding:  14px 16px;
+  padding: 14px 16px;
   border: none;
   outline: none;
   cursor: pointer;
@@ -12,7 +31,7 @@
 
 .button:hover {
   color: white;
-} 
+}
 
 .button.active {
   color: white;
@@ -59,6 +78,7 @@
 }
 
 /* #LogIn */
+
 .form-field {
   margin-bottom: 30px;
 }
@@ -80,11 +100,11 @@
 }
 
 .feedback {
-    margin: 0 0 10px;
-    color: red;
-    font-family: 'Raleway', sans-serif;
-    font-size: 22px;
-    font-stretch: ultra-expanded;
+  margin: 0 0 10px;
+  color: red;
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+  font-stretch: ultra-expanded;
 }
 
 #namefeedback, #passfeedback, #lengthfeedback {
@@ -92,6 +112,7 @@
 }
 
 /* #Game */
+
 #game {
   margin: 0 auto;
   padding-top: 40px;
